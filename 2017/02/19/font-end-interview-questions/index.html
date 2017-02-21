@@ -92,16 +92,16 @@ static: 静态的，默认的，没有定位，元素出现在正常流中。
 absolute: 生成绝对定位的元素，相对于最近一级的定位不是static的父元素进行定位。默认宽度为内容宽度，脱离文档流。
 fixed:老的IE浏览器不支持，生成绝对定位的元素，相对于浏览器窗口或frame进行定位。默认宽度是内容宽度，脱离了文档流。（">
 <meta property="og:type" content="article">
-<meta property="og:title" content="font-end interview questions">
+<meta property="og:title" content="font-end interview questions 1.0">
 <meta property="og:url" content="fancygh.me/2017/02/19/font-end-interview-questions/index.html">
 <meta property="og:site_name" content="july的博客">
 <meta property="og:description" content="position的值，relative和absolute分别是相对于谁定位的？
 static: 静态的，默认的，没有定位，元素出现在正常流中。
 absolute: 生成绝对定位的元素，相对于最近一级的定位不是static的父元素进行定位。默认宽度为内容宽度，脱离文档流。
 fixed:老的IE浏览器不支持，生成绝对定位的元素，相对于浏览器窗口或frame进行定位。默认宽度是内容宽度，脱离了文档流。（">
-<meta property="og:updated_time" content="2017-02-20T03:44:09.237Z">
+<meta property="og:updated_time" content="2017-02-21T11:07:19.970Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="font-end interview questions">
+<meta name="twitter:title" content="font-end interview questions 1.0">
 <meta name="twitter:description" content="position的值，relative和absolute分别是相对于谁定位的？
 static: 静态的，默认的，没有定位，元素出现在正常流中。
 absolute: 生成绝对定位的元素，相对于最近一级的定位不是static的父元素进行定位。默认宽度为内容宽度，脱离文档流。
@@ -139,7 +139,7 @@ fixed:老的IE浏览器不支持，生成绝对定位的元素，相对于浏览
 
 
 
-  <title> font-end interview questions | july的博客 </title>
+  <title> font-end interview questions 1.0 | july的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -310,7 +310,7 @@ fixed:老的IE浏览器不支持，生成绝对定位的元素，相对于浏览
             
             
               
-                font-end interview questions
+                font-end interview questions 1.0
               
             
           </h1>
@@ -433,15 +433,49 @@ json的速度要远远快于xml.
 5. 获取异步调用返回的数据
 
 6. 使用JavaScript和DOM进行局部刷新
-</code></pre><h4 id="渐进增强和优雅降级"><a href="#渐进增强和优雅降级" class="headerlink" title="渐进增强和优雅降级"></a>渐进增强和优雅降级</h4><p>渐进增强：先针对低版本的浏览器进行页面构建，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能以达到更好的用户体验。（其实有点反人类！）</p>
-<p>优雅降级：一开始就构建完整的功能，然后再针对低版本的浏览器做兼容。</p>
-<h4 id="HTTP和HTTPS"><a href="#HTTP和HTTPS" class="headerlink" title="HTTP和HTTPS"></a>HTTP和HTTPS</h4><p>Http协议通常承载于TCP协议之上，在Http和TCP之间加一个安全协议层（SSL或TSL），这时候就成了我们常说的HTTPS.<br>默认HTTP的端口号为80，HTTPS的端口号为443.</p>
+</code></pre><h4 id="Flash、Ajax各自的优缺点"><a href="#Flash、Ajax各自的优缺点" class="headerlink" title="Flash、Ajax各自的优缺点"></a>Flash、Ajax各自的优缺点</h4><pre><code>* Flash适合处理多媒体、矢量图形、访问机器；对CSS、处理文本上不足，不容易被搜索
+
+* Ajax对CSS、文本支持很好，支持搜索；处理多媒体、矢量图形、访问机器不足
+
+共同点：与服务器的无刷新传递消息、用户离线和在线状态、操作DOM
+</code></pre><h4 id="Ajax请求的页面历史记录状态问题"><a href="#Ajax请求的页面历史记录状态问题" class="headerlink" title="Ajax请求的页面历史记录状态问题"></a>Ajax请求的页面历史记录状态问题</h4><pre><code>* 可以通过锚点来记录状态，location.hash,让浏览器记录Ajax请求时页面的状态变化
+
+* 可以通过HTML5的history.pushState，来实现浏览器地址栏无刷新改变
+</code></pre><h4 id="渐进增强和优雅降级"><a href="#渐进增强和优雅降级" class="headerlink" title="渐进增强和优雅降级"></a>渐进增强和优雅降级</h4><pre><code>渐进增强：先针对低版本的浏览器进行页面构建，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能以达到更好的用户体验。（其实有点反人类！）
+
+优雅降级：一开始就构建完整的功能，然后再针对低版本的浏览器做兼容。
+</code></pre><h4 id="HTTP和HTTPS"><a href="#HTTP和HTTPS" class="headerlink" title="HTTP和HTTPS"></a>HTTP和HTTPS</h4><p>Http协议通常承载于TCP协议之上，在Http和TCP之间加一个安全协议层（SSL或TSL），这时候就成了我们常说的HTTPS.<br>默认HTTP的端口号为80，HTTPS的端口号为443.</p>
 <h4 id="为什么HTTPS安全"><a href="#为什么HTTPS安全" class="headerlink" title="为什么HTTPS安全"></a>为什么HTTPS安全</h4><p>因为网络请求需要中间有很多的服务器路由器的转发。中间的节点都可以篡改信息，而如果使用HTTPS，密钥在你和终点站才有。https之所以安全，是因为利用了SSL或TSL协议传输。它包含证书，卸载，流量转发，负载均衡，页面适配，浏览器适配，refer传递等。保障了传输过程的安全性。</p>
-<h4 id="对前端模块化的认识"><a href="#对前端模块化的认识" class="headerlink" title="对前端模块化的认识"></a>对前端模块化的认识</h4><p>AMD是RequireJS在推广过程中对模块定义的规范化产出。AMD是提前执行<br>CMD是SeaJS。。。CMD是延迟执行</p>
-<p>CMD模块方式</p>
+<h4 id="对前端模块化的认识"><a href="#对前端模块化的认识" class="headerlink" title="对前端模块化的认识"></a>对前端模块化的认识</h4><pre><code>AMD是RequireJS在推广过程中对模块定义的规范化产出。AMD是提前执行
+CMD是SeaJS。。。CMD是延迟执行
+</code></pre><p>CMD模块方式</p>
 <pre><code>define(function(require,exports,module){
     //模块代码
 });
+</code></pre><h4 id="javascript对象的几种创建方式"><a href="#javascript对象的几种创建方式" class="headerlink" title="javascript对象的几种创建方式"></a>javascript对象的几种创建方式</h4><pre><code>1. 工厂模式
+
+2. 构造函数模式
+
+3. 原型模式
+
+4. 混合构造函数和原型模式
+
+5. 动态原型模式
+
+6. 寄生构造函数模式
+
+7. 稳妥构造函数模式
+</code></pre><h4 id="javascript继承的6种方法"><a href="#javascript继承的6种方法" class="headerlink" title="javascript继承的6种方法"></a>javascript继承的6种方法</h4><pre><code>1. 原型链继承
+
+2. 借用构造函数继承
+
+3. 组合继承（原型+借用构造）
+
+4. 原型式继承
+
+5. 寄生式继承
+
+6. 寄生组合式继承
 </code></pre><h4 id="用过哪些设计模式"><a href="#用过哪些设计模式" class="headerlink" title="用过哪些设计模式"></a>用过哪些设计模式</h4><p>工厂模式：<br>主要的好处就是可以消除对象间的耦合，通过使用工程方法而不是new关键字。将所有实例化的代码集中在一个位置防止代码重复。<br>工厂模式解决了重复实例化的问题，但还有一个问题，那就是识别问题，因为根本无法搞清楚它们到底是哪个对象的实例。</p>
 <pre><code>function createObject(name,age,profession){
     //集中实例化函数
@@ -464,8 +498,113 @@ var test2 = createObject(&apos;tom&apos;,23,&apos;engineer&apos;); //第二个�
 <h4 id="JS继承方式及其优缺点"><a href="#JS继承方式及其优缺点" class="headerlink" title="JS继承方式及其优缺点"></a>JS继承方式及其优缺点</h4><p>原型链继承的缺点<br>    一是字面量重写原型会中断关系，使用引用类型的原型，并且子类型还无法给超类型传递参数。</p>
 <p>借用构造函数（类式继承）<br>    借用构造函数虽然解决了刚刚的两种问题，但是没有原型，则复用无从谈起。所以我们需要原型链+借用构造函数的模式，这种模式称为组合继承。</p>
 <p>组合式继承<br>    组合式继承是比较常用的一种继承方法，其背后的思路是 使用原型链实现对原型属性和方法的继承而通过构造函数来实现对实例属性的继承。这样，既通过在原型上定义方法实现了函数复用，有保证了每个实例都有它们自己的属性。</p>
-<p>#### </p>
+<h4 id="性能优化的问题"><a href="#性能优化的问题" class="headerlink" title="性能优化的问题"></a>性能优化的问题</h4><p>代码层面：<br>避免使用css样式，避免使用高级选择器，通配选择器。</p>
+<p>缓存利用：<br>缓存Ajax,使用CDN，使用外部js和css文件以便缓存，添加Expires头，服务器配置Etag,减少DNS查找等。</p>
+<p>请求数量：合并样式和脚本，使用css图片精灵，初始首屏之外的图片资源按需加载，静态资源延迟加载。</p>
+<p>请求带宽：压缩文件，开启GZIP</p>
+<p>代码层面的优化</p>
+<pre><code>* 用hash-table来优化查找
 
+* 少用全局变量
+
+* 用innerHTML代替DOM操作，减少DOM操作次数，优化javascript性能
+
+* 用setTimeout来避免页面失去响应
+
+* 缓存DOM节点查找结果
+
+* 避免使用CSS Expression
+
+* 避免全局查询
+
+* 避免使用with（with会创建自己的作用域，会增加作用域链的长度）
+
+* 多个变量声明合并
+
+* 避免图片和iFrame等的空Src。空的Src会重新加载当前页面，影响速度和效率
+
+* 尽量避免写在HTML标签中写style属性
+</code></pre><p>移动端性能优化</p>
+<pre><code>* 尽量使用css3动画，开启硬件加速
+
+* 适当使用touch事件代替click事件
+
+* 避免使用css3渐变阴影效果
+
+* 可以用transform:translateZ(0)来开启硬件加速
+
+* 不滥用float。float在渲染时计算量比较大，尽量减少使用
+
+* 不滥用web字体。web字体需要下载，解析，重绘当前页面，尽量减少使用
+
+* 合理使用requestAnimationFrame动画代替setTimeout
+
+* css中的属性（css3 transitions 、css3 3D transforms、Opacity、Canvas、WebGL、Video）会触发GPU渲染，过度使用会让手机耗电量增加
+
+* pc端的在移动端同样适用
+</code></pre><h4 id="栈和队列的区别"><a href="#栈和队列的区别" class="headerlink" title="栈和队列的区别"></a>栈和队列的区别</h4><pre><code>* 栈的插入和删除操作都在一端进行的，而队列的操作确是在两端进行的
+
+* 队列先进先出，栈先进后出
+
+* 栈只允许在表尾一端进行插入和删除，而队列只允许在表尾进行插入，在表头进行删除
+</code></pre><h4 id="栈和堆的区别"><a href="#栈和堆的区别" class="headerlink" title="栈和堆的区别"></a>栈和堆的区别</h4><pre><code>* 栈区（stack） 由编译器自动分配释放 存放函数的参数值和局部变量等
+
+* 堆区（heap） 一般由程序员分配释放，若程序员不释放，程序结束时OS回收
+
+* 堆可以看作是一棵树，栈是先进后出的数据结构
+</code></pre><h4 id="快速排序的思想及实现"><a href="#快速排序的思想及实现" class="headerlink" title="快速排序的思想及实现"></a>快速排序的思想及实现</h4><pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+
+    function quickSort(arr){
+        if(arr.length &lt;= 1){
+            //如果数组中只有一个数，就直接返回
+            return arr;
+        }
+
+        var num = Math.floor(arr.length / 2);  //找到中间数的索引值，如果是浮点数就向下取整
+
+        var numValue = arr.splice(num , 1);  //找到中间数的值
+
+        var left = [];
+
+        var right = [];
+
+        for(var i = 0;i &lt; arr.length;i++){
+            if(arr[i] &lt; numValue){
+                //小于中间数就传到左边的数组
+                left.push(arr[i]);
+            }else{
+                //大于中间数就传到右边的数组
+                right.push(arr[i]);
+            }
+        }
+
+        return quickSort(left).concat([numValue],quickSort(right)); 
+        //将三个连接起来返回左边的数组中间数右边数组
+    } 
+
+    alert(quickSort([23,12,65,34])); //弹出 12，23，34，65
+
+&lt;/script&gt;
+</code></pre><h4 id="ES6的了解"><a href="#ES6的了解" class="headerlink" title="ES6的了解"></a>ES6的了解</h4><pre><code>* 新增模板字符串（为javascript提供了简单的字符串插值功能）
+
+* 箭头函数（操作符左边为输入的参数，右边是进行操作以及返回的值）
+
+* for-of（用来遍历数据 例如数组中的值）
+
+* arguments对象可被不定参数和默认参数完美代替
+
+* 将promise对象纳入规范，提供了原生的promise对象
+
+* 增加了let和const命令，用来声明对象
+
+* 增加了块级作用域，let命令实际上就是增加块级作用域。
+
+* var命令和function声明的全局变量属于全局对象的属性
+
+* let命令、const命令、class命令声明的全局变量不属于全局对象的属性
+
+* 引入了module模块的概念
+</code></pre>
       
     </div>
 
@@ -577,7 +716,7 @@ var test2 = createObject(&apos;tom&apos;,23,&apos;engineer&apos;); //第二个�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -616,7 +755,7 @@ var test2 = createObject(&apos;tom&apos;,23,&apos;engineer&apos;); //第二个�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#position的值，relative和absolute分别是相对于谁定位的？"><span class="nav-number">1.</span> <span class="nav-text">position的值，relative和absolute分别是相对于谁定位的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何解决跨域问题"><span class="nav-number">2.</span> <span class="nav-text">如何解决跨域问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XML和JSON的区别"><span class="nav-number">3.</span> <span class="nav-text">XML和JSON的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#谈谈对webpack的看法"><span class="nav-number">4.</span> <span class="nav-text">谈谈对webpack的看法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对作用域链的理解"><span class="nav-number">5.</span> <span class="nav-text">对作用域链的理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建ajax过程"><span class="nav-number">6.</span> <span class="nav-text">创建ajax过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#渐进增强和优雅降级"><span class="nav-number">7.</span> <span class="nav-text">渐进增强和优雅降级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP和HTTPS"><span class="nav-number">8.</span> <span class="nav-text">HTTP和HTTPS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么HTTPS安全"><span class="nav-number">9.</span> <span class="nav-text">为什么HTTPS安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对前端模块化的认识"><span class="nav-number">10.</span> <span class="nav-text">对前端模块化的认识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用过哪些设计模式"><span class="nav-number">11.</span> <span class="nav-text">用过哪些设计模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#说说对闭包的理解"><span class="nav-number">12.</span> <span class="nav-text">说说对闭包的理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS继承方式及其优缺点"><span class="nav-number">13.</span> <span class="nav-text">JS继承方式及其优缺点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#position的值，relative和absolute分别是相对于谁定位的？"><span class="nav-number">1.</span> <span class="nav-text">position的值，relative和absolute分别是相对于谁定位的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何解决跨域问题"><span class="nav-number">2.</span> <span class="nav-text">如何解决跨域问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XML和JSON的区别"><span class="nav-number">3.</span> <span class="nav-text">XML和JSON的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#谈谈对webpack的看法"><span class="nav-number">4.</span> <span class="nav-text">谈谈对webpack的看法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对作用域链的理解"><span class="nav-number">5.</span> <span class="nav-text">对作用域链的理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建ajax过程"><span class="nav-number">6.</span> <span class="nav-text">创建ajax过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Flash、Ajax各自的优缺点"><span class="nav-number">7.</span> <span class="nav-text">Flash、Ajax各自的优缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ajax请求的页面历史记录状态问题"><span class="nav-number">8.</span> <span class="nav-text">Ajax请求的页面历史记录状态问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#渐进增强和优雅降级"><span class="nav-number">9.</span> <span class="nav-text">渐进增强和优雅降级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP和HTTPS"><span class="nav-number">10.</span> <span class="nav-text">HTTP和HTTPS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么HTTPS安全"><span class="nav-number">11.</span> <span class="nav-text">为什么HTTPS安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对前端模块化的认识"><span class="nav-number">12.</span> <span class="nav-text">对前端模块化的认识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#javascript对象的几种创建方式"><span class="nav-number">13.</span> <span class="nav-text">javascript对象的几种创建方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#javascript继承的6种方法"><span class="nav-number">14.</span> <span class="nav-text">javascript继承的6种方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用过哪些设计模式"><span class="nav-number">15.</span> <span class="nav-text">用过哪些设计模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#说说对闭包的理解"><span class="nav-number">16.</span> <span class="nav-text">说说对闭包的理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS继承方式及其优缺点"><span class="nav-number">17.</span> <span class="nav-text">JS继承方式及其优缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性能优化的问题"><span class="nav-number">18.</span> <span class="nav-text">性能优化的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#栈和队列的区别"><span class="nav-number">19.</span> <span class="nav-text">栈和队列的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#栈和堆的区别"><span class="nav-number">20.</span> <span class="nav-text">栈和堆的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快速排序的思想及实现"><span class="nav-number">21.</span> <span class="nav-text">快速排序的思想及实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6的了解"><span class="nav-number">22.</span> <span class="nav-text">ES6的了解</span></a></li></ol></div>
             
 
           </div>

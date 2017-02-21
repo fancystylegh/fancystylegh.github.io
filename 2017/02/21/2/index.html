@@ -1,0 +1,909 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="july" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="cookiecookie虽然在持久保存客户端数据中提供了方便，分担了服务器存储的负担，但是仍有很多局限性。
+优点：极高的扩展性和可用性
+1. 通过良好的编程，控制保存在cookie中的session对象的大小
+
+2. 通过加密和安全传输技术（SSL），减少了cookie被破解的可能性
+
+3. 只在cookie中存放不敏感数据，即使被盗也不会有重大的损失
+
+4. 控制cookie的生命周期，使它不会">
+<meta property="og:type" content="article">
+<meta property="og:title" content="font-end interview questions 2.0">
+<meta property="og:url" content="fancygh.me/2017/02/21/2/index.html">
+<meta property="og:site_name" content="july的博客">
+<meta property="og:description" content="cookiecookie虽然在持久保存客户端数据中提供了方便，分担了服务器存储的负担，但是仍有很多局限性。
+优点：极高的扩展性和可用性
+1. 通过良好的编程，控制保存在cookie中的session对象的大小
+
+2. 通过加密和安全传输技术（SSL），减少了cookie被破解的可能性
+
+3. 只在cookie中存放不敏感数据，即使被盗也不会有重大的损失
+
+4. 控制cookie的生命周期，使它不会">
+<meta property="og:updated_time" content="2017-02-21T11:09:30.677Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="font-end interview questions 2.0">
+<meta name="twitter:description" content="cookiecookie虽然在持久保存客户端数据中提供了方便，分担了服务器存储的负担，但是仍有很多局限性。
+优点：极高的扩展性和可用性
+1. 通过良好的编程，控制保存在cookie中的session对象的大小
+
+2. 通过加密和安全传输技术（SSL），减少了cookie被破解的可能性
+
+3. 只在cookie中存放不敏感数据，即使被盗也不会有重大的损失
+
+4. 控制cookie的生命周期，使它不会">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="fancygh.me/2017/02/21/2/"/>
+
+
+
+
+
+  <title> font-end interview questions 2.0 | july的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">july的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">i love my family</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="fancygh.me/2017/02/21/2/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="July">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="july的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="july的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                font-end interview questions 2.0
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-21T11:44:27+08:00">
+                2017-02-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h4><p>cookie虽然在持久保存客户端数据中提供了方便，分担了服务器存储的负担，但是仍有很多局限性。</p>
+<p>优点：极高的扩展性和可用性</p>
+<pre><code>1. 通过良好的编程，控制保存在cookie中的session对象的大小
+
+2. 通过加密和安全传输技术（SSL），减少了cookie被破解的可能性
+
+3. 只在cookie中存放不敏感数据，即使被盗也不会有重大的损失
+
+4. 控制cookie的生命周期，使它不会永远有效，即使被窃取也是一个过期的cookie
+</code></pre><p>缺点：</p>
+<pre><code>1. cookie的数量和长度有限制，最多有20条，而且每条的长度不能超过4KB
+
+2. 安全性问题
+
+3. 有些状态不能保存在客户端
+</code></pre><a id="more"></a>
+<h4 id="浏览器的本地存储"><a href="#浏览器的本地存储" class="headerlink" title="浏览器的本地存储"></a>浏览器的本地存储</h4><p>在较高版本的浏览器中，js提供了sessionStorage和globalStorage。在HTML5中提供了localStorage来取代globalStorage。</p>
+<p>sessionStorage用于本地存储一个session中的数据，这些数据只有在同一个会话页面才能访问并且当前的会话结束后数据也随之销毁。它不是一个持久化的存储，仅仅是会话级别的存储。<br>而localStorage用于持久化的本地存储，除非主动删除数据，否则数据永远不会过期。</p>
+<h4 id="web-storage和cookie的区别"><a href="#web-storage和cookie的区别" class="headerlink" title="web storage和cookie的区别"></a>web storage和cookie的区别</h4><pre><code>web storage是为了更大容量存储设计的，它拥有setItem,getItem,removeItem,clear等方法。web storage仅仅是为了本地存储数据而存在。
+
+cookie的大小是有限的，并且每次请求一个新的页面的时候，cookie都会被发送过去，这浪费了带宽。另外cookie还需要指定作用域，不可以跨域调用。cookie前端开发者自己封装setCookie,getCookie。cookie的作用是与服务器进行交互，作为HTTP规范的一部分而存在。
+</code></pre><h4 id="cookie和session的区别"><a href="#cookie和session的区别" class="headerlink" title="cookie和session的区别"></a>cookie和session的区别</h4><pre><code>1. cookie数据存放在客户的浏览器上，session的数据存放在服务器上
+
+2. cookie不安全，别人可以分析存放在本地的cookie来进行欺骗
+
+3. session会在一定时间内保存在服务器上，但当访问增加，会占用服务器性能
+
+4. 单个cookie保存的数量和长度有限制，最多有20条，而且每条的长度不能超过4KB
+</code></pre><p>所以登录信息等重要的信息应该放在session，其他的保留在cookie</p>
+<h4 id="如何删除一个cookie"><a href="#如何删除一个cookie" class="headerlink" title="如何删除一个cookie"></a>如何删除一个cookie</h4><ol>
+<li><p>将时间点设为当前时间往前一点<br> var date = new Date();</p>
+<p> date.setDate(date.getDate() - 1);  //真正的删除，setDate()方法用于设置一个月的某一天</p>
+</li>
+<li><p>expires的设置<br> document.cookie = ‘user=’ + encodeURIComponent(‘name’) + ‘;expires = ‘ + new Date(0);</p>
+</li>
+</ol>
+<h4 id="谈谈你对语义化的理解"><a href="#谈谈你对语义化的理解" class="headerlink" title="谈谈你对语义化的理解"></a>谈谈你对语义化的理解</h4><pre><code>1. 去掉或者丢失样式时也能够让页面呈现出清晰的结构
+
+2. 有利于SEO和搜索引擎建立良好的沟通，有助于爬虫抓取更多有效的信息（爬虫依赖标签来确定上下文和各个关键字的权重）
+
+3. 方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备，不同的标签的可能有不同的声音等等）
+
+4. 便于团队开发和维护，语义化更具有可读性，可以把握网页的重要动向，遵循W3C标准的团队都遵循这个标准，可以减少差异化
+</code></pre><h4 id="Doctype作用，严格模式与混杂模式如何区分"><a href="#Doctype作用，严格模式与混杂模式如何区分" class="headerlink" title="Doctype作用，严格模式与混杂模式如何区分"></a>Doctype作用，严格模式与混杂模式如何区分</h4><pre><code>1. &lt;!Doctype&gt;声明位于文档的最前面，告知浏览器以何种模式来渲染文档
+
+2. 严格模式的排版和JS运作模式是以该浏览器支持的最高标准运行
+
+3. 在混杂模式中，页面以宽松的向后兼容的方式显示。模拟老式的浏览器的行为以防止站点无法工作
+
+4. Doctype不存在或者格式不正确会导致文档以混杂模式出现
+</code></pre><h4 id="HTML和XML的区别"><a href="#HTML和XML的区别" class="headerlink" title="HTML和XML的区别"></a>HTML和XML的区别</h4><pre><code>1. 所有的标记都必须有一个相应的结束标记
+
+2. 所有的标签元素和属性的名字都必须使用小写
+
+3. 所有的XML标记都必须合理嵌套
+
+4. 所有的属性必须用引号&quot;&quot;括起来
+
+5. 把所有的&lt;和&amp;特殊符号用编码表示
+
+6. 给所有的属性赋一个值
+
+7. 不要在注释内容中使用&quot;--&quot;
+
+8. 图片必须要有说明文字
+</code></pre><h4 id="上下margin重合问题"><a href="#上下margin重合问题" class="headerlink" title="上下margin重合问题"></a>上下margin重合问题</h4><pre><code>IE和Firefox都存在，相邻的两个div的margin-left和margin-right不会重合，但是margin-top和margin-bottom却会发生重合
+
+解决的办法：养成良好的代码习惯，同时采用margin-top或者同时用margin-bottom
+</code></pre><h4 id="常见的兼容问题"><a href="#常见的兼容问题" class="headerlink" title="常见的兼容问题"></a>常见的兼容问题</h4><ol>
+<li><p>png24位的图片在IE6浏览器上出现背景，解决方案：做成png8</p>
+</li>
+<li><p>浏览器默认的margin和padding不同，解决方案：加一个全局的*{margin:0;padding:0;}来统一</p>
+</li>
+</ol>
+<p>。。。</p>
+<h4 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h4><p>浮动的框可以向左或者向右移动，直到它的外边缘碰到包含框或者另一个浮动框的边框为止。由于浮动框不在标准文档流中，所以文档的普通流的块框就当浮动框不存在。浮动的块框会漂浮在普通文档流之上。</p>
+<h4 id="清除浮动的技巧"><a href="#清除浮动的技巧" class="headerlink" title="清除浮动的技巧"></a>清除浮动的技巧</h4><pre><code>1. 使用空标签清除浮动
+这种方法是在所有的浮动标签后面添加一个空的标签定义css clear:both; 弊端就是增加了无意义的标签
+
+2. 使用overflow
+给包含浮动元素的父标签添加CSS属性overflow：auto；zoom:1;  zoom:1;是为了兼容IE6
+
+3. 使用after伪对象清除浮动
+该方法只适用于非IE浏览器。具体方法可以参照以下实例。注意height：0；否则该元素会比实际要高几个像素
+.clearfix:after{
+    content: &quot;.&quot;;
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+.clearfix{
+    zoom: 1;
+}
+
+4.我常用的,before是为了防止浏览器顶部的空白奔溃
+.clearfix:before,.clearfix:after{
+    content: &quot; &quot;;
+    display: table;  //匿名的表格单元
+}
+.clearfix:after{
+    clear: both;
+}
+</code></pre><h4 id="DOM操作–怎样添加、移除、复制、创建和查找节点"><a href="#DOM操作–怎样添加、移除、复制、创建和查找节点" class="headerlink" title="DOM操作–怎样添加、移除、复制、创建和查找节点"></a>DOM操作–怎样添加、移除、复制、创建和查找节点</h4><ol>
+<li><p>创建新节点<br> createDocumentFragment()      //创建一个DOM片段</p>
+<p> createElement()               //创建一个具体的元素</p>
+<p> createTextNode()              //创建一个文本节点</p>
+</li>
+<li><p>添加、移除、替换、插入<br> appendChild()</p>
+<p> removeChild()</p>
+<p> replaceChild()</p>
+<p> insertBefore()</p>
+</li>
+<li><p>查找<br> getElementsByTagName()         //通过元素的标签名</p>
+<p> getElementsByName()            //通过元素的Name属性的值</p>
+<p> getElementById()               //通过元素的Id,具有唯一性</p>
+</li>
+</ol>
+<h4 id="display-none-和-visibility-hidden的区别"><a href="#display-none-和-visibility-hidden的区别" class="headerlink" title="display:none 和 visibility:hidden的区别"></a>display:none 和 visibility:hidden的区别</h4><pre><code>display：none 隐藏对应的元素，在文档布局中不再给它分配空间，就当它没有存在过
+
+visibility：hidden 隐藏对应元素，但是在文档中仍然保留原来的空间
+</code></pre><h4 id="CSS中的link和-import的区别"><a href="#CSS中的link和-import的区别" class="headerlink" title="CSS中的link和@import的区别"></a>CSS中的link和@import的区别</h4><pre><code>1. link属于HTML标签，而@import是CSS提供的
+
+2. 页面被加载时，link会同时被加载，而@import会等到引用它的CSS文件被加载完再加载
+
+3. @import只在IE5以上才会被识别，而link是HTML标签,没有兼容问题
+
+4. link的权重大于@import
+</code></pre><h4 id="position-absolute和float属性的异同"><a href="#position-absolute和float属性的异同" class="headerlink" title="position:absolute和float属性的异同"></a>position:absolute和float属性的异同</h4><pre><code>- 共同点：对内联元素设置float和absolute属性，可以让元素脱离文档流，并可以设置其宽高
+
+- 不同点：float仍然会占据位置，absolute会覆盖文档流的其他元素
+</code></pre><h4 id="CSS优先级"><a href="#CSS优先级" class="headerlink" title="CSS优先级"></a>CSS优先级</h4><pre><code>计算方法：
+                                            权重
+a = 行内样式                                1000
+
+b = ID选择器的数量                           100
+
+c = 类、伪类和属性选择器的数量                10
+
+d = 标签选择器和伪元素选择器的数量             1
+</code></pre><h4 id="CSS3有哪些新特性"><a href="#CSS3有哪些新特性" class="headerlink" title="CSS3有哪些新特性"></a>CSS3有哪些新特性</h4><pre><code>css3实现圆角（border-radius），阴影（border—shadow），对文字加特效（text-shadow）,线性渐变（gradient）,旋转（transform）
+transform:rotate(9deg) scale(0.85,0.90) translate(0px,-30px) skew(-9deg,0deg);//旋转，缩放，定位，倾斜
+
+增加了更多的CSS选择器 多背景 rbga
+
+在CSS3中唯一引入的伪元素是 ::selection
+
+媒体查询，多栏布局
+
+border-image
+</code></pre><h4 id="介绍一下box-sizing属性"><a href="#介绍一下box-sizing属性" class="headerlink" title="介绍一下box-sizing属性"></a>介绍一下box-sizing属性</h4><p>box-sizing属性主要用来控制元素的盒模型的解析模式。默认值是content-box.</p>
+<pre><code>- content-box：让元素维持W3C的标准盒模型。元素的宽度/高度由 border+padding+content的宽度/高度决定，设置的宽/高属性指的是content的宽/高
+
+- border-box：让元素维持IE传统盒模型（IE6以下版本和IE6~7的怪异模式）。设置的宽/高属性指的是border+padding+content的宽/高
+</code></pre><p>标准浏览器下，按照W3C规范对盒模型解析，一旦修改了元素的边框和内距，就会影响元素的盒子尺寸。</p>
+<h4 id="HTML5新特性"><a href="#HTML5新特性" class="headerlink" title="HTML5新特性"></a>HTML5新特性</h4><pre><code>HTML5主要是关于图像，位置，存储，多任务等功能的增加
+
+拖拽释放（Drag and drop）API
+
+语义化更好的内容标签（header,nav,footer,aside,article,section）
+
+音频、视频API（audio,vedio）
+
+画布（canvas）API
+
+本地离线存储localStorage 长期储存数据，浏览器关闭后数据不丢失；sessionStorage的数据在浏览器关闭后自动删除
+
+表单控件 calendar、data、time、email、url、search
+
+新的技术 webworker,websocket,Geolocation
+</code></pre><p>移除的元素<br>    纯表现的元素： basefont、big、center、font、s、strike、tt、u;<br>    对可用性产生负面影响的元素：frame、frameset、noframes;</p>
+<p>支持HTML5新标签<br>    IE6,7,8支持通过document.createElement方法产生的标签，最好的方式是直接使用成熟的框架，使用最多的是html5shim框架<br>    <!--[if lt IE9]>
+    <script src="http://html5shim:googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]--></p>
+<h4 id="如何实现浏览器多个标签内的通信"><a href="#如何实现浏览器多个标签内的通信" class="headerlink" title="如何实现浏览器多个标签内的通信"></a>如何实现浏览器多个标签内的通信</h4><pre><code>调用localStorage、cookie等本地存储
+</code></pre><h4 id="null和undefined的区别"><a href="#null和undefined的区别" class="headerlink" title="null和undefined的区别"></a>null和undefined的区别</h4><p>null是一个表示“无”的对象，转为数值为0；null用来表示尚未存在的对象，常用作表示函数企图返回一个不存在的对象。null表示“没有对象”，即该处不应该有值。典型的用法是：</p>
+<pre><code>1. 作为函数的参数，表示该函数的参数不是对象
+
+2. 作为对象原型链的终点
+</code></pre><p>undefined是一个表示“无”的原始值，转化为数值是NaN。当声明还没有初始化的时候，变量的默认值为undefined。它表示“缺少值”。典型的用法：</p>
+<pre><code>1. 变量声明了，但还未赋值，等于undefined
+
+2. 调用函数时，应该提供的参数没有提供，该参数等于undefined
+
+3. 对象没有赋值的属性，该属性的值为undefined
+
+4. 函数没有返回值时，默认返回undefined
+</code></pre><h4 id="new操作符"><a href="#new操作符" class="headerlink" title="new操作符"></a>new操作符</h4><pre><code>1. 创建一个空对象，并且this变量引用该对象，同时还继承了该函数的原型
+
+2. 属性和方法被加入到this引用的对象中
+
+3. 新创建的对象由this引用，并且最后隐式返回this
+
+var obj = {};
+obj.__proto__ = Base.prototype;
+Base.call(obj);
+</code></pre><h4 id="js延迟加载的方式？"><a href="#js延迟加载的方式？" class="headerlink" title="js延迟加载的方式？"></a>js延迟加载的方式？</h4><pre><code>1. defer和async
+2. 动态创建DOM方式（创建script,插入到DOM中，加载完毕后callback）
+3. 按需异步载入js
+</code></pre><h4 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h4><pre><code>内存泄漏指任何对象在不再拥有或者需要它时仍然存在。
+
+setTimeout 的第一个参数使用字符串而非函数，会引发内存泄漏
+</code></pre><h4 id="Web应用从服务器主动推送Data到客户端有哪些方式？"><a href="#Web应用从服务器主动推送Data到客户端有哪些方式？" class="headerlink" title="Web应用从服务器主动推送Data到客户端有哪些方式？"></a>Web应用从服务器主动推送Data到客户端有哪些方式？</h4><pre><code>* commet: 基于HTTP长连接的服务器推送技术
+* 基于WebSocket的推送方案
+* SSE：服务器推送数据新方式
+</code></pre><h4 id="一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么？"><a href="#一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么？" class="headerlink" title="一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么？"></a>一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么？</h4><pre><code>分为四个步骤：
+1. 当发送URL请求时，不管这个URL是Web页面的URL还是Web页面上每个资源的URL，浏览器都会开启一个线程来处理这个请求，同时在远程DNS服务器上启动一个DNS查询。这能使浏览器获得请求对应的IP地址。
+
+2. 浏览器与远程Web服务器通过TCP三次握手协商来建立一个TCP/IP连接。该握手包括一个同步报文，一个同步-应答报文和一个应答报文。这三个报文在浏览器与服务器间传递。该握手首先由客户端尝试建立通信，而后服务器应答并接受用户的请求，最后由客户端发出该请求已经被接受的报文。
+
+3. 一旦TCP/IP连接成立，浏览器会通过该连接向远程服务器发送HTTP的GET请求。远程服务器找到资源并使用HTTP响应返回该资源
+
+4. 此时，web服务器提供资源服务，客户端开始下载资源
+</code></pre><h4 id="javascript的同源策略"><a href="#javascript的同源策略" class="headerlink" title="javascript的同源策略"></a>javascript的同源策略</h4><pre><code>概念：同源策略是客户端脚本（尤其是javascript）的重要的安全度量标准。这里的同源策略指的是：协议，域名，端口相同，是一种安全协议。指一段脚本只能读取来自同一来源的窗口和文档的属性。
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/20/questions/" rel="next" title="重装系统之后的一些小问题">
+                <i class="fa fa-chevron-left"></i> 重装系统之后的一些小问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="July" />
+          <p class="site-author-name" itemprop="name">July</p>
+          <p class="site-description motion-element" itemprop="description">enjoy everyday</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie"><span class="nav-number">1.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器的本地存储"><span class="nav-number">2.</span> <span class="nav-text">浏览器的本地存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#web-storage和cookie的区别"><span class="nav-number">3.</span> <span class="nav-text">web storage和cookie的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie和session的区别"><span class="nav-number">4.</span> <span class="nav-text">cookie和session的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何删除一个cookie"><span class="nav-number">5.</span> <span class="nav-text">如何删除一个cookie</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#谈谈你对语义化的理解"><span class="nav-number">6.</span> <span class="nav-text">谈谈你对语义化的理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Doctype作用，严格模式与混杂模式如何区分"><span class="nav-number">7.</span> <span class="nav-text">Doctype作用，严格模式与混杂模式如何区分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML和XML的区别"><span class="nav-number">8.</span> <span class="nav-text">HTML和XML的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#上下margin重合问题"><span class="nav-number">9.</span> <span class="nav-text">上下margin重合问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见的兼容问题"><span class="nav-number">10.</span> <span class="nav-text">常见的兼容问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浮动"><span class="nav-number">11.</span> <span class="nav-text">浮动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清除浮动的技巧"><span class="nav-number">12.</span> <span class="nav-text">清除浮动的技巧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM操作–怎样添加、移除、复制、创建和查找节点"><span class="nav-number">13.</span> <span class="nav-text">DOM操作–怎样添加、移除、复制、创建和查找节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#display-none-和-visibility-hidden的区别"><span class="nav-number">14.</span> <span class="nav-text">display:none 和 visibility:hidden的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS中的link和-import的区别"><span class="nav-number">15.</span> <span class="nav-text">CSS中的link和@import的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#position-absolute和float属性的异同"><span class="nav-number">16.</span> <span class="nav-text">position:absolute和float属性的异同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS优先级"><span class="nav-number">17.</span> <span class="nav-text">CSS优先级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS3有哪些新特性"><span class="nav-number">18.</span> <span class="nav-text">CSS3有哪些新特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍一下box-sizing属性"><span class="nav-number">19.</span> <span class="nav-text">介绍一下box-sizing属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML5新特性"><span class="nav-number">20.</span> <span class="nav-text">HTML5新特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何实现浏览器多个标签内的通信"><span class="nav-number">21.</span> <span class="nav-text">如何实现浏览器多个标签内的通信</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null和undefined的区别"><span class="nav-number">22.</span> <span class="nav-text">null和undefined的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#new操作符"><span class="nav-number">23.</span> <span class="nav-text">new操作符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js延迟加载的方式？"><span class="nav-number">24.</span> <span class="nav-text">js延迟加载的方式？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存泄漏"><span class="nav-number">25.</span> <span class="nav-text">内存泄漏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Web应用从服务器主动推送Data到客户端有哪些方式？"><span class="nav-number">26.</span> <span class="nav-text">Web应用从服务器主动推送Data到客户端有哪些方式？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么？"><span class="nav-number">27.</span> <span class="nav-text">一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#javascript的同源策略"><span class="nav-number">28.</span> <span class="nav-text">javascript的同源策略</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">July</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
