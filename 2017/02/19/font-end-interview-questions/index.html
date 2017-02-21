@@ -117,7 +117,7 @@ fixed:老的IE浏览器不支持，生成绝对定位的元素，相对于浏览
 static: 静态的，默认的，没有定位，元素出现在正常流中。
 absolute: 生成绝对定位的元素，相对于最近一级的定位不是static的父元素进行定位。默认宽度为内容宽度，脱离文档流。
 fixed:老的IE浏览器不支持，生成绝对定位的元素，相对于浏览器窗口或frame进行定位。默认宽度是内容宽度，脱离了文档流。（">
-<meta property="og:updated_time" content="2017-02-21T11:07:19.970Z">
+<meta property="og:updated_time" content="2017-02-21T12:33:03.519Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="font-end interview questions 1.0">
 <meta name="twitter:description" content="position的值，relative和absolute分别是相对于谁定位的？
@@ -386,23 +386,8 @@ fixed:老的IE浏览器不支持，生成绝对定位的元素，相对于浏览
 <li>relative: 生成相对定位的元素，相对于其在普通流的位置进行定位。仍在文档流中，参照物是其本身。使用场景：绝对定位的参照物。<a id="more"></a></li>
 <li>sticky: 生成粘性定位的元素，容器的位置根据正常文档流计算得出。</li>
 </ul>
-<h4 id="如何解决跨域问题"><a href="#如何解决跨域问题" class="headerlink" title="如何解决跨域问题"></a>如何解决跨域问题</h4><p>JSONP：<br>原理是：动态的插入script标签，通过script标签引入一个js文件，这个js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入。<br>由于同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，为了实现跨域请求，可以通过script标签实现跨域请求，然后在服务端输出JSON数据并执行回调函数，从而解决了跨域的数据请求。<br>优点是兼容性好，简单易用，支持浏览器与服务器双向通信。缺点是只支持GET请求。<br>JSONP:json+padding(内填充)，顾名思义，就是把JSON填充到一个盒子里</p>
-<pre><code>&lt;script&gt;
-    function createJs(sUrl){
-        var oScript = document.createElement(&apos;script&apos;);
-        oScript.type = &quot;text/javascript&quot;;
-        oScript.src = sUrl;
-        document.getElementsByTagName(&apos;head&apos;)[0].appendChild(oScript);
-    }
-    createJs(&apos;jsonp.js&apos;);
-    box({
-        &apos;name&apos;: &apos;test&apos;
-    });
-    function box(json){
-        alert(json.name);
-    }
-&lt;/script&gt;
-</code></pre><p>CORS<br>服务器端对于CORS的支持，主要是通过设置Access-Control-Allow-Origin来进行的。如果浏览器检测到相应的设置，就可以允许Ajax进行跨域的访问。</p>
+<h4 id="如何解决跨域问题"><a href="#如何解决跨域问题" class="headerlink" title="如何解决跨域问题"></a>如何解决跨域问题</h4><p>JSONP：<br>原理是：动态的插入script标签，通过script标签引入一个js文件，这个js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入。<br>由于同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，为了实现跨域请求，可以通过script标签实现跨域请求，然后在服务端输出JSON数据并执行回调函数，从而解决了跨域的数据请求。<br>优点是兼容性好，简单易用，支持浏览器与服务器双向通信。缺点是只支持GET请求。<br>JSONP:json+padding(内填充)，顾名思义，就是把JSON填充到一个盒子里<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">createJs</span>(<span class="params">sUrl</span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> oScript = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</div><div class="line">		oScript.type = <span class="string">"text/javascript"</span>;</div><div class="line">		oScript.src = sUrl;</div><div class="line">		<span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>].appendChild(oScript);</div><div class="line">	&#125;</div><div class="line">	createJs(<span class="string">'jsonp.js'</span>);</div><div class="line">	box(&#123;</div><div class="line">		<span class="string">'name'</span>: <span class="string">'test'</span></div><div class="line">	&#125;);</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params">json</span>)</span>&#123;</div><div class="line">		alert(json.name);</div><div class="line">	&#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure></p>
+<p>CORS<br>服务器端对于CORS的支持，主要是通过设置Access-Control-Allow-Origin来进行的。如果浏览器检测到相应的设置，就可以允许Ajax进行跨域的访问。</p>
 <p>通过修改document.domain来跨子域<br>将子域和主域的document.domain设为同一个主域。前提条件：这两个域名必须同属于一个基础域名，而且所用的协议，端口都要一致，否则无法利用document.domain进行跨域</p>
 <p>使用window.name来进行跨域<br>window对象有一个name属性，该属性有个特征：即在一个窗口(window)的生命周期内，窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限。</p>
 <p>使用HTML5中新引进的window.postMessage方法来跨域传送数据。还有flash、在服务器上设置代理页面等跨域方式。</p>
@@ -466,11 +451,8 @@ json的速度要远远快于xml.
 <h4 id="为什么HTTPS安全"><a href="#为什么HTTPS安全" class="headerlink" title="为什么HTTPS安全"></a>为什么HTTPS安全</h4><p>因为网络请求需要中间有很多的服务器路由器的转发。中间的节点都可以篡改信息，而如果使用HTTPS，密钥在你和终点站才有。https之所以安全，是因为利用了SSL或TSL协议传输。它包含证书，卸载，流量转发，负载均衡，页面适配，浏览器适配，refer传递等。保障了传输过程的安全性。</p>
 <h4 id="对前端模块化的认识"><a href="#对前端模块化的认识" class="headerlink" title="对前端模块化的认识"></a>对前端模块化的认识</h4><pre><code>AMD是RequireJS在推广过程中对模块定义的规范化产出。AMD是提前执行
 CMD是SeaJS。。。CMD是延迟执行
-</code></pre><p>CMD模块方式</p>
-<pre><code>define(function(require,exports,module){
-    //模块代码
-});
-</code></pre><h4 id="javascript对象的几种创建方式"><a href="#javascript对象的几种创建方式" class="headerlink" title="javascript对象的几种创建方式"></a>javascript对象的几种创建方式</h4><pre><code>1. 工厂模式
+</code></pre><p>CMD模块方式<br>    define(function(require,exports,module){<br>        //模块代码<br>    });</p>
+<h4 id="javascript对象的几种创建方式"><a href="#javascript对象的几种创建方式" class="headerlink" title="javascript对象的几种创建方式"></a>javascript对象的几种创建方式</h4><pre><code>1. 工厂模式
 
 2. 构造函数模式
 
@@ -494,21 +476,8 @@ CMD是SeaJS。。。CMD是延迟执行
 5. 寄生式继承
 
 6. 寄生组合式继承
-</code></pre><h4 id="用过哪些设计模式"><a href="#用过哪些设计模式" class="headerlink" title="用过哪些设计模式"></a>用过哪些设计模式</h4><p>工厂模式：<br>主要的好处就是可以消除对象间的耦合，通过使用工程方法而不是new关键字。将所有实例化的代码集中在一个位置防止代码重复。<br>工厂模式解决了重复实例化的问题，但还有一个问题，那就是识别问题，因为根本无法搞清楚它们到底是哪个对象的实例。</p>
-<pre><code>function createObject(name,age,profession){
-    //集中实例化函数
-    var obj = new Object();
-    obj.name = name;
-    obj.age = age;
-    obj.profession = profession;
-    obj.move = function(){
-        return this.name + &apos;at&apos; + this.age + &apos;engaged in&apos; + this.profession;
-    }
-    return obj;
-}
-var test1 = createObject(&apos;trigkit4&apos;,22,&apos;programmer&apos;); //第一个实例
-var test2 = createObject(&apos;tom&apos;,23,&apos;engineer&apos;); //第二个实例
-</code></pre><p>构造函数模式<br>使用构造函数的方法，既解决了重复实例化的问题，又解决了对象识别的问题，该模式与工厂模式的不同之处在于：<br>    1.构造函数方法没有显示的创建对象（new Object()）</p>
+</code></pre><h4 id="用过哪些设计模式"><a href="#用过哪些设计模式" class="headerlink" title="用过哪些设计模式"></a>用过哪些设计模式</h4><p>工厂模式：<br>主要的好处就是可以消除对象间的耦合，通过使用工程方法而不是new关键字。将所有实例化的代码集中在一个位置防止代码重复。<br>工厂模式解决了重复实例化的问题，但还有一个问题，那就是识别问题，因为根本无法搞清楚它们到底是哪个对象的实例。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createObject</span>(<span class="params">name,age,profession</span>)</span>&#123;</div><div class="line">	<span class="comment">//集中实例化函数</span></div><div class="line">	<span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">	obj.name = name;</div><div class="line">	obj.age = age;</div><div class="line">	obj.profession = profession;</div><div class="line">	obj.move = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.name + <span class="string">'at'</span> + <span class="keyword">this</span>.age + <span class="string">'engaged in'</span> + <span class="keyword">this</span>.profession;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> obj;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> test1 = createObject(<span class="string">'trigkit4'</span>,<span class="number">22</span>,<span class="string">'programmer'</span>); <span class="comment">//第一个实例</span></div><div class="line"><span class="keyword">var</span> test2 = createObject(<span class="string">'tom'</span>,<span class="number">23</span>,<span class="string">'engineer'</span>); <span class="comment">//第二个实例</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure></p>
+<p>构造函数模式<br>使用构造函数的方法，既解决了重复实例化的问题，又解决了对象识别的问题，该模式与工厂模式的不同之处在于：<br>    1.构造函数方法没有显示的创建对象（new Object()）</p>
 <pre><code>2.直接将属性和方法赋值给this对象
 
 3.没有return语句
@@ -570,40 +539,8 @@ var test2 = createObject(&apos;tom&apos;,23,&apos;engineer&apos;); //第二个�
 * 堆区（heap） 一般由程序员分配释放，若程序员不释放，程序结束时OS回收
 
 * 堆可以看作是一棵树，栈是先进后出的数据结构
-</code></pre><h4 id="快速排序的思想及实现"><a href="#快速排序的思想及实现" class="headerlink" title="快速排序的思想及实现"></a>快速排序的思想及实现</h4><pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
-
-    function quickSort(arr){
-        if(arr.length &lt;= 1){
-            //如果数组中只有一个数，就直接返回
-            return arr;
-        }
-
-        var num = Math.floor(arr.length / 2);  //找到中间数的索引值，如果是浮点数就向下取整
-
-        var numValue = arr.splice(num , 1);  //找到中间数的值
-
-        var left = [];
-
-        var right = [];
-
-        for(var i = 0;i &lt; arr.length;i++){
-            if(arr[i] &lt; numValue){
-                //小于中间数就传到左边的数组
-                left.push(arr[i]);
-            }else{
-                //大于中间数就传到右边的数组
-                right.push(arr[i]);
-            }
-        }
-
-        return quickSort(left).concat([numValue],quickSort(right)); 
-        //将三个连接起来返回左边的数组中间数右边数组
-    } 
-
-    alert(quickSort([23,12,65,34])); //弹出 12，23，34，65
-
-&lt;/script&gt;
-</code></pre><h4 id="ES6的了解"><a href="#ES6的了解" class="headerlink" title="ES6的了解"></a>ES6的了解</h4><pre><code>* 新增模板字符串（为javascript提供了简单的字符串插值功能）
+</code></pre><h4 id="快速排序的思想及实现"><a href="#快速排序的思想及实现" class="headerlink" title="快速排序的思想及实现"></a>快速排序的思想及实现</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">quickSort</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">		<span class="keyword">if</span>(arr.length &lt;= <span class="number">1</span>)&#123;</div><div class="line">			<span class="comment">//如果数组中只有一个数，就直接返回</span></div><div class="line">			<span class="keyword">return</span> arr;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">var</span> num = <span class="built_in">Math</span>.floor(arr.length / <span class="number">2</span>);  <span class="comment">//找到中间数的索引值，如果是浮点数就向下取整</span></div><div class="line"></div><div class="line">		<span class="keyword">var</span> numValue = arr.splice(num , <span class="number">1</span>);  <span class="comment">//找到中间数的值</span></div><div class="line"></div><div class="line">		<span class="keyword">var</span> left = [];</div><div class="line"></div><div class="line">		<span class="keyword">var</span> right = [];</div><div class="line"></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; arr.length;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(arr[i] &lt; numValue)&#123;</div><div class="line">				<span class="comment">//小于中间数就传到左边的数组</span></div><div class="line">				left.push(arr[i]);</div><div class="line">			&#125;<span class="keyword">else</span>&#123;</div><div class="line">				<span class="comment">//大于中间数就传到右边的数组</span></div><div class="line">				right.push(arr[i]);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">return</span> quickSort(left).concat([numValue],quickSort(right)); </div><div class="line">		<span class="comment">//将三个连接起来返回左边的数组中间数右边数组</span></div><div class="line">	&#125; </div><div class="line"></div><div class="line">	alert(quickSort([<span class="number">23</span>,<span class="number">12</span>,<span class="number">65</span>,<span class="number">34</span>])); <span class="comment">//弹出 12，23，34，65</span></div><div class="line"></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="ES6的了解"><a href="#ES6的了解" class="headerlink" title="ES6的了解"></a>ES6的了解</h4><pre><code>* 新增模板字符串（为javascript提供了简单的字符串插值功能）
 
 * 箭头函数（操作符左边为输入的参数，右边是进行操作以及返回的值）
 

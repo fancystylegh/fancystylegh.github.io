@@ -127,7 +127,7 @@
 3. 只在cookie中存放不敏感数据，即使被盗也不会有重大的损失
 
 4. 控制cookie的生命周期，使它不会">
-<meta property="og:updated_time" content="2017-02-21T11:09:30.677Z">
+<meta property="og:updated_time" content="2017-02-21T12:38:14.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="font-end interview questions 2.0">
 <meta name="twitter:description" content="cookiecookie虽然在持久保存客户端数据中提供了方便，分担了服务器存储的负担，但是仍有很多局限性。
@@ -424,10 +424,11 @@ cookie的大小是有限的，并且每次请求一个新的页面的时候，co
 4. 单个cookie保存的数量和长度有限制，最多有20条，而且每条的长度不能超过4KB
 </code></pre><p>所以登录信息等重要的信息应该放在session，其他的保留在cookie</p>
 <h4 id="如何删除一个cookie"><a href="#如何删除一个cookie" class="headerlink" title="如何删除一个cookie"></a>如何删除一个cookie</h4><ol>
-<li><p>将时间点设为当前时间往前一点<br> var date = new Date();</p>
-<p> date.setDate(date.getDate() - 1);  //真正的删除，setDate()方法用于设置一个月的某一天</p>
+<li><p>将时间点设为当前时间往前一点</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line"></div><div class="line">date.setDate(date.getDate() - <span class="number">1</span>);  <span class="comment">//真正的删除，setDate()方法用于设置一个月的某一天</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>expires的设置<br> document.cookie = ‘user=’ + encodeURIComponent(‘name’) + ‘;expires = ‘ + new Date(0);</p>
+<li><p>expires的设置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.cookie = <span class="string">'user='</span> + <span class="built_in">encodeURIComponent</span>(<span class="string">'name'</span>) + <span class="string">';expires = '</span> + <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">0</span>);</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <h4 id="谈谈你对语义化的理解"><a href="#谈谈你对语义化的理解" class="headerlink" title="谈谈你对语义化的理解"></a>谈谈你对语义化的理解</h4><pre><code>1. 去掉或者丢失样式时也能够让页面呈现出清晰的结构
@@ -478,27 +479,10 @@ cookie的大小是有限的，并且每次请求一个新的页面的时候，co
 
 3. 使用after伪对象清除浮动
 该方法只适用于非IE浏览器。具体方法可以参照以下实例。注意height：0；否则该元素会比实际要高几个像素
-.clearfix:after{
-    content: &quot;.&quot;;
-    display: block;
-    clear: both;
-    height: 0;
-    overflow: hidden;
-    visibility: hidden;
-}
-.clearfix{
-    zoom: 1;
-}
-
-4.我常用的,before是为了防止浏览器顶部的空白奔溃
-.clearfix:before,.clearfix:after{
-    content: &quot; &quot;;
-    display: table;  //匿名的表格单元
-}
-.clearfix:after{
-    clear: both;
-}
-</code></pre><h4 id="DOM操作–怎样添加、移除、复制、创建和查找节点"><a href="#DOM操作–怎样添加、移除、复制、创建和查找节点" class="headerlink" title="DOM操作–怎样添加、移除、复制、创建和查找节点"></a>DOM操作–怎样添加、移除、复制、创建和查找节点</h4><ol>
+</code></pre><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span>&#123;</div><div class="line">	<span class="attribute">content</span>: <span class="string">"."</span>;</div><div class="line">	<span class="attribute">display</span>: block;</div><div class="line">	<span class="attribute">clear</span>: both;</div><div class="line">	<span class="attribute">height</span>: <span class="number">0</span>;</div><div class="line">	<span class="attribute">overflow</span>: hidden;</div><div class="line">	<span class="attribute">visibility</span>: hidden;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.clearfix</span>&#123;</div><div class="line">	<span class="attribute">zoom</span>: <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code>4.我常用的,before是为了防止浏览器顶部的空白奔溃
+</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.clearfix:before,.clearfix:after&#123;</div><div class="line">	content: " ";</div><div class="line">	display: table;  //匿名的表格单元</div><div class="line">&#125;</div><div class="line">.clearfix:after&#123;</div><div class="line">	clear: both;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="DOM操作–怎样添加、移除、复制、创建和查找节点"><a href="#DOM操作–怎样添加、移除、复制、创建和查找节点" class="headerlink" title="DOM操作–怎样添加、移除、复制、创建和查找节点"></a>DOM操作–怎样添加、移除、复制、创建和查找节点</h4><ol>
 <li><p>创建新节点<br> createDocumentFragment()      //创建一个DOM片段</p>
 <p> createElement()               //创建一个具体的元素</p>
 <p> createTextNode()              //创建一个文本节点</p>
@@ -587,11 +571,8 @@ border-image
 2. 属性和方法被加入到this引用的对象中
 
 3. 新创建的对象由this引用，并且最后隐式返回this
-
-var obj = {};
-obj.__proto__ = Base.prototype;
-Base.call(obj);
-</code></pre><h4 id="js延迟加载的方式？"><a href="#js延迟加载的方式？" class="headerlink" title="js延迟加载的方式？"></a>js延迟加载的方式？</h4><pre><code>1. defer和async
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line">obj.__proto__ = Base.prototype;</div><div class="line">Base.call(obj);</div></pre></td></tr></table></figure>
+<h4 id="js延迟加载的方式？"><a href="#js延迟加载的方式？" class="headerlink" title="js延迟加载的方式？"></a>js延迟加载的方式？</h4><pre><code>1. defer和async
 2. 动态创建DOM方式（创建script,插入到DOM中，加载完毕后callback）
 3. 按需异步载入js
 </code></pre><h4 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h4><pre><code>内存泄漏指任何对象在不再拥有或者需要它时仍然存在。
