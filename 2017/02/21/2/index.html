@@ -127,7 +127,7 @@
 3. 只在cookie中存放不敏感数据，即使被盗也不会有重大的损失
 
 4. 控制cookie的生命周期，使它不会">
-<meta property="og:updated_time" content="2017-02-21T12:38:14.253Z">
+<meta property="og:updated_time" content="2017-02-22T04:37:02.742Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="font-end interview questions 2.0">
 <meta name="twitter:description" content="cookiecookie虽然在持久保存客户端数据中提供了方便，分担了服务器存储的负担，但是仍有很多局限性。
@@ -590,6 +590,51 @@ setTimeout 的第一个参数使用字符串而非函数，会引发内存泄漏
 
 4. 此时，web服务器提供资源服务，客户端开始下载资源
 </code></pre><h4 id="javascript的同源策略"><a href="#javascript的同源策略" class="headerlink" title="javascript的同源策略"></a>javascript的同源策略</h4><pre><code>概念：同源策略是客户端脚本（尤其是javascript）的重要的安全度量标准。这里的同源策略指的是：协议，域名，端口相同，是一种安全协议。指一段脚本只能读取来自同一来源的窗口和文档的属性。
+</code></pre><h4 id="为什么要有同源策略"><a href="#为什么要有同源策略" class="headerlink" title="为什么要有同源策略"></a>为什么要有同源策略</h4><p>举例说明：一个黑客可以利用IFrame把真正的银行登录页面嵌在页面上，当你登录上去的时候，他可以通过javascript读取表单的内容，用户名和密码就暴露了</p>
+<h4 id="GET和POST的区别"><a href="#GET和POST的区别" class="headerlink" title="GET和POST的区别"></a>GET和POST的区别</h4><pre><code>GET:一般用于信息的获取，使用URL传递参数，对所发送的信息数有限制，一般在2000个字符
+
+POST:一般用于修改服务器上的资源，对所发的信息数没有限制
+
+GET通过Requset.QueryString来获得变量的值，也就是通过地址栏来传值。POST通过Request.Form来获取变量的值，也就是通过提交表单来传值。
+
+使用POST请求的情况：
+* 无法使用缓存文件
+
+* 向服务器发送大量数据
+
+* 发送包含未知字符的用户输入
+</code></pre><h4 id="谈谈对重构的理解"><a href="#谈谈对重构的理解" class="headerlink" title="谈谈对重构的理解"></a>谈谈对重构的理解</h4><p>网站重构：在不改变外部行为的前提下，简化结构，增加可读性，而在网站前端保持一致的行为。也就是说在不改变UI的情况下，对网站进行优化，在扩展的同时保持一致的UI。</p>
+<pre><code>对传统网站来说重构通常是：
+* 表格（table）布局改成DIV+CSS
+
+* 使网站前端兼容现代浏览器（针对不合规范的CSS）
+
+* 对于移动平台的优化
+
+* 针对于SEO进行优化
+
+深层次的网站重构应该考虑的方面：
+* 减少代码的耦合性
+
+* 让代码保持弹性
+
+* 严格按照规范编写代码
+
+* 设计可扩展的API
+
+* 代替原有的框架、语言
+
+* 增强用户体验
+
+* 压缩JS、CSS、image等前端资源
+
+* 程序的性能优化
+
+* 采用CDN来加速资源加载
+
+* 对于JS DOM的优化
+
+* HTTP服务器文件的缓存
 </code></pre>
       
     </div>
@@ -629,6 +674,10 @@ setTimeout 的第一个参数使用字符串而非函数，会引发内存泄漏
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/22/3/" rel="prev" title="font-end interview questions 3.0">
+                font-end interview questions 3.0 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -698,7 +747,7 @@ setTimeout 的第一个参数使用字符串而非函数，会引发内存泄漏
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -737,7 +786,7 @@ setTimeout 的第一个参数使用字符串而非函数，会引发内存泄漏
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie"><span class="nav-number">1.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器的本地存储"><span class="nav-number">2.</span> <span class="nav-text">浏览器的本地存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#web-storage和cookie的区别"><span class="nav-number">3.</span> <span class="nav-text">web storage和cookie的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie和session的区别"><span class="nav-number">4.</span> <span class="nav-text">cookie和session的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何删除一个cookie"><span class="nav-number">5.</span> <span class="nav-text">如何删除一个cookie</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#谈谈你对语义化的理解"><span class="nav-number">6.</span> <span class="nav-text">谈谈你对语义化的理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Doctype作用，严格模式与混杂模式如何区分"><span class="nav-number">7.</span> <span class="nav-text">Doctype作用，严格模式与混杂模式如何区分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML和XML的区别"><span class="nav-number">8.</span> <span class="nav-text">HTML和XML的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#上下margin重合问题"><span class="nav-number">9.</span> <span class="nav-text">上下margin重合问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见的兼容问题"><span class="nav-number">10.</span> <span class="nav-text">常见的兼容问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浮动"><span class="nav-number">11.</span> <span class="nav-text">浮动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清除浮动的技巧"><span class="nav-number">12.</span> <span class="nav-text">清除浮动的技巧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM操作–怎样添加、移除、复制、创建和查找节点"><span class="nav-number">13.</span> <span class="nav-text">DOM操作–怎样添加、移除、复制、创建和查找节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#display-none-和-visibility-hidden的区别"><span class="nav-number">14.</span> <span class="nav-text">display:none 和 visibility:hidden的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS中的link和-import的区别"><span class="nav-number">15.</span> <span class="nav-text">CSS中的link和@import的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#position-absolute和float属性的异同"><span class="nav-number">16.</span> <span class="nav-text">position:absolute和float属性的异同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS优先级"><span class="nav-number">17.</span> <span class="nav-text">CSS优先级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS3有哪些新特性"><span class="nav-number">18.</span> <span class="nav-text">CSS3有哪些新特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍一下box-sizing属性"><span class="nav-number">19.</span> <span class="nav-text">介绍一下box-sizing属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML5新特性"><span class="nav-number">20.</span> <span class="nav-text">HTML5新特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何实现浏览器多个标签内的通信"><span class="nav-number">21.</span> <span class="nav-text">如何实现浏览器多个标签内的通信</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null和undefined的区别"><span class="nav-number">22.</span> <span class="nav-text">null和undefined的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#new操作符"><span class="nav-number">23.</span> <span class="nav-text">new操作符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js延迟加载的方式？"><span class="nav-number">24.</span> <span class="nav-text">js延迟加载的方式？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存泄漏"><span class="nav-number">25.</span> <span class="nav-text">内存泄漏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Web应用从服务器主动推送Data到客户端有哪些方式？"><span class="nav-number">26.</span> <span class="nav-text">Web应用从服务器主动推送Data到客户端有哪些方式？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么？"><span class="nav-number">27.</span> <span class="nav-text">一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#javascript的同源策略"><span class="nav-number">28.</span> <span class="nav-text">javascript的同源策略</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie"><span class="nav-number">1.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器的本地存储"><span class="nav-number">2.</span> <span class="nav-text">浏览器的本地存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#web-storage和cookie的区别"><span class="nav-number">3.</span> <span class="nav-text">web storage和cookie的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie和session的区别"><span class="nav-number">4.</span> <span class="nav-text">cookie和session的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何删除一个cookie"><span class="nav-number">5.</span> <span class="nav-text">如何删除一个cookie</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#谈谈你对语义化的理解"><span class="nav-number">6.</span> <span class="nav-text">谈谈你对语义化的理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Doctype作用，严格模式与混杂模式如何区分"><span class="nav-number">7.</span> <span class="nav-text">Doctype作用，严格模式与混杂模式如何区分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML和XML的区别"><span class="nav-number">8.</span> <span class="nav-text">HTML和XML的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#上下margin重合问题"><span class="nav-number">9.</span> <span class="nav-text">上下margin重合问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见的兼容问题"><span class="nav-number">10.</span> <span class="nav-text">常见的兼容问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浮动"><span class="nav-number">11.</span> <span class="nav-text">浮动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清除浮动的技巧"><span class="nav-number">12.</span> <span class="nav-text">清除浮动的技巧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM操作–怎样添加、移除、复制、创建和查找节点"><span class="nav-number">13.</span> <span class="nav-text">DOM操作–怎样添加、移除、复制、创建和查找节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#display-none-和-visibility-hidden的区别"><span class="nav-number">14.</span> <span class="nav-text">display:none 和 visibility:hidden的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS中的link和-import的区别"><span class="nav-number">15.</span> <span class="nav-text">CSS中的link和@import的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#position-absolute和float属性的异同"><span class="nav-number">16.</span> <span class="nav-text">position:absolute和float属性的异同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS优先级"><span class="nav-number">17.</span> <span class="nav-text">CSS优先级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS3有哪些新特性"><span class="nav-number">18.</span> <span class="nav-text">CSS3有哪些新特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍一下box-sizing属性"><span class="nav-number">19.</span> <span class="nav-text">介绍一下box-sizing属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML5新特性"><span class="nav-number">20.</span> <span class="nav-text">HTML5新特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何实现浏览器多个标签内的通信"><span class="nav-number">21.</span> <span class="nav-text">如何实现浏览器多个标签内的通信</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null和undefined的区别"><span class="nav-number">22.</span> <span class="nav-text">null和undefined的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#new操作符"><span class="nav-number">23.</span> <span class="nav-text">new操作符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js延迟加载的方式？"><span class="nav-number">24.</span> <span class="nav-text">js延迟加载的方式？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存泄漏"><span class="nav-number">25.</span> <span class="nav-text">内存泄漏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Web应用从服务器主动推送Data到客户端有哪些方式？"><span class="nav-number">26.</span> <span class="nav-text">Web应用从服务器主动推送Data到客户端有哪些方式？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么？"><span class="nav-number">27.</span> <span class="nav-text">一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#javascript的同源策略"><span class="nav-number">28.</span> <span class="nav-text">javascript的同源策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要有同源策略"><span class="nav-number">29.</span> <span class="nav-text">为什么要有同源策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GET和POST的区别"><span class="nav-number">30.</span> <span class="nav-text">GET和POST的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#谈谈对重构的理解"><span class="nav-number">31.</span> <span class="nav-text">谈谈对重构的理解</span></a></li></ol></div>
             
 
           </div>
