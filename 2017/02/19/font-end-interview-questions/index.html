@@ -117,7 +117,7 @@ fixed:老的IE浏览器不支持，生成绝对定位的元素，相对于浏览
 static: 静态的，默认的，没有定位，元素出现在正常流中。
 absolute: 生成绝对定位的元素，相对于最近一级的定位不是static的父元素进行定位。默认宽度为内容宽度，脱离文档流。
 fixed:老的IE浏览器不支持，生成绝对定位的元素，相对于浏览器窗口或frame进行定位。默认宽度是内容宽度，脱离了文档流。（">
-<meta property="og:updated_time" content="2017-02-23T10:46:12.385Z">
+<meta property="og:updated_time" content="2017-02-26T12:51:52.080Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="font-end interview questions 1.0">
 <meta name="twitter:description" content="position的值，relative和absolute分别是相对于谁定位的？
@@ -383,7 +383,10 @@ fixed:老的IE浏览器不支持，生成绝对定位的元素，相对于浏览
 <li>static: 静态的，默认的，没有定位，元素出现在正常流中。</li>
 <li>absolute: 生成绝对定位的元素，相对于最近一级的定位不是static的父元素进行定位。默认宽度为内容宽度，脱离文档流。</li>
 <li>fixed:老的IE浏览器不支持，生成绝对定位的元素，相对于浏览器窗口或frame进行定位。默认宽度是内容宽度，脱离了文档流。（通常用于固定顶栏或底栏，遮罩）</li>
-<li>relative: 生成相对定位的元素，相对于其在普通流的位置进行定位。仍在文档流中，参照物是其本身。使用场景：绝对定位的参照物。<a id="more"></a></li>
+<li>relative: 生成相对定位的元素，相对于其在普通流的位置进行定位。仍在文档流中，参照物是其本身。使用场景：绝对定位的参照物。</li>
+</ul>
+<a id="more"></a>
+<ul>
 <li>sticky: 生成粘性定位的元素，容器的位置根据正常文档流计算得出。</li>
 </ul>
 <h4 id="如何解决跨域问题"><a href="#如何解决跨域问题" class="headerlink" title="如何解决跨域问题"></a>如何解决跨域问题</h4><p>JSONP：<br>原理是：动态的插入script标签，通过script标签引入一个js文件，这个js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入。<br>由于同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，为了实现跨域请求，可以通过script标签实现跨域请求，然后在服务端输出JSON数据并执行回调函数，从而解决了跨域的数据请求。<br>优点是兼容性好，简单易用，支持浏览器与服务器双向通信。缺点是只支持GET请求。<br>JSONP:json+padding(内填充)，顾名思义，就是把JSON填充到一个盒子里<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">createJs</span>(<span class="params">sUrl</span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> oScript = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</div><div class="line">		oScript.type = <span class="string">"text/javascript"</span>;</div><div class="line">		oScript.src = sUrl;</div><div class="line">		<span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>].appendChild(oScript);</div><div class="line">	&#125;</div><div class="line">	createJs(<span class="string">'jsonp.js'</span>);</div><div class="line">	box(&#123;</div><div class="line">		<span class="string">'name'</span>: <span class="string">'test'</span></div><div class="line">	&#125;);</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params">json</span>)</span>&#123;</div><div class="line">		alert(json.name);</div><div class="line">	&#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure></p>
@@ -671,7 +674,7 @@ CMD是SeaJS。。。CMD是延迟执行
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
