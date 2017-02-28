@@ -115,7 +115,7 @@ BOM浏览器对象模型，使用BOM可以控制浏览器显示页面以外的�
 <meta property="og:description" content="什么是jsjs是一种具有面向对象能力的、解释型的程序设计语言。更具体一点，它是基于对象和事件驱动并具有相对安全性的客户端脚本语言。
 DOM文档对象模型是针对XML但经过扩展用于HTML的应用程序编程接口。
 BOM浏览器对象模型，使用BOM可以控制浏览器显示页面以外的部分。">
-<meta property="og:updated_time" content="2017-02-27T11:53:52.707Z">
+<meta property="og:updated_time" content="2017-02-28T11:12:29.124Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js">
 <meta name="twitter:description" content="什么是jsjs是一种具有面向对象能力的、解释型的程序设计语言。更具体一点，它是基于对象和事件驱动并具有相对安全性的客户端脚本语言。
@@ -393,11 +393,11 @@ BOM浏览器对象模型，使用BOM可以控制浏览器显示页面以外的�
 <li><p>NaN: 即非数值，是一个特殊值，这个数值用于表示一个本来要返回数值的操作数未返回数值的情况。NaN不与任何值相等。<br>isNaN()函数，用来判断这个值到底是不是NaN。isNaN()函数在接受到一个值之后，会尝试将这个值转化为数值。isNaN()函数也适用于对象。在调用这个函数过程中，首先会调用valueOf()方法，然后确定返回值是否能转化成数值。如果不能，基于这个返回值再调用toString()方法。</p>
 </li>
 <li><p>有三个函数可以把非数值转化为数值在：Number()、parseInt()和parseFloat()。Number()函数是转型函数，可以用在任何数据类型，另外两个则专门用于把字符串转成数值。</p>
-<p>  alert(Number(true));            //1，Boolean类型的true和false分别转换成1和0<br>  alert(Number(25));                //25，数值型直接返回<br>  alert(Number(null));            //0，空对象返回0<br>  alert(Number(undefined));        //NaN，undefined返回NaN</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">alert(<span class="built_in">Number</span>(<span class="literal">true</span>));			<span class="comment">//1，Boolean类型的true和false分别转换成1和0</span></div><div class="line">alert(<span class="built_in">Number</span>(<span class="number">25</span>));				<span class="comment">//25，数值型直接返回</span></div><div class="line">alert(<span class="built_in">Number</span>(<span class="literal">null</span>));			<span class="comment">//0，空对象返回0</span></div><div class="line">alert(<span class="built_in">Number</span>(<span class="literal">undefined</span>));		<span class="comment">//NaN，undefined返回NaN</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>由于Number()函数在转换字符串时比较复杂且不够合理，因此在处理整数的时候更常用的是parseInt()。<br>    alert(parsetInt(‘456Lee’));        //456，会返回整数部分<br>    alert(parsetInt(‘Lee456Lee’));        //NaN，如果第一个不是数值，就返回NaN<br>    alert(parseInt(‘12Lee56Lee’));        //12，从第一数值开始取，到最后一个连续数值结束<br>    alert(parseInt(‘56.12’));            //56，小数点不是数值，会被去掉<br>    alert(parseInt(‘’));                //NaN，空返回NaN</p>
-<p>ECMAScript为parseInt()提供了第二个参数，用于解决各种进制的转换。<br>    alert(parseInt(‘0xAF’));            //175，十六进制<br>    alert(parseInt(‘AF’,16));            //175，第二参数指定十六进制，可以去掉0x前导<br>    alert(parseInt(‘AF’));            //NaN，理所当然<br>    alert(parseInt(‘101010101’,2));    //314，二进制转换<br>    alert(parseInt(‘70’,8))            //56，八进制转换</p>
+<p>由于Number()函数在转换字符串时比较复杂且不够合理，因此在处理整数的时候更常用的是parseInt()。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">alert(parsetInt(<span class="string">'456Lee'</span>));		<span class="comment">//456，会返回整数部分</span></div><div class="line">alert(parsetInt(<span class="string">'Lee456Lee'</span>));		<span class="comment">//NaN，如果第一个不是数值，就返回NaN</span></div><div class="line">alert(<span class="built_in">parseInt</span>(<span class="string">'12Lee56Lee'</span>));		<span class="comment">//12，从第一数值开始取，到最后一个连续数值结束</span></div><div class="line">alert(<span class="built_in">parseInt</span>(<span class="string">'56.12'</span>));			<span class="comment">//56，小数点不是数值，会被去掉</span></div><div class="line">alert(<span class="built_in">parseInt</span>(<span class="string">''</span>));				<span class="comment">//NaN，空返回NaN</span></div></pre></td></tr></table></figure></p>
+<p>ECMAScript为parseInt()提供了第二个参数，用于解决各种进制的转换。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">alert(<span class="built_in">parseInt</span>(<span class="string">'0xAF'</span>));			<span class="comment">//175，十六进制</span></div><div class="line">alert(<span class="built_in">parseInt</span>(<span class="string">'AF'</span>,<span class="number">16</span>));			<span class="comment">//175，第二参数指定十六进制，可以去掉0x前导</span></div><div class="line">alert(<span class="built_in">parseInt</span>(<span class="string">'AF'</span>));			<span class="comment">//NaN，理所当然</span></div><div class="line">alert(<span class="built_in">parseInt</span>(<span class="string">'101010101'</span>,<span class="number">2</span>));	<span class="comment">//314，二进制转换</span></div><div class="line">alert(<span class="built_in">parseInt</span>(<span class="string">'70'</span>,<span class="number">8</span>))			<span class="comment">//56，八进制转换</span></div></pre></td></tr></table></figure></p>
 <p>parseFloat()是用于浮点数值转换的，和parseInt()一样，从第一位解析到非浮点数值位置。</p>
 <ul>
 <li><p>string类型：表示由于0或者多个16位unicode字符组成的字符数列，即字符串。<br>toString()方法可以把值转换成字符串。</p>
@@ -409,12 +409,12 @@ BOM浏览器对象模型，使用BOM可以控制浏览器显示页面以外的�
 <ul>
 <li><p>一元运算符：只能操作一个值的运算符<br>++i 前置的运算符会先累加再赋值；<br>i++ 后置运算符则先赋值再累加。</p>
 </li>
-<li><p>算数运算符<br>var box = 1 + NaN;   //NaN，只要有一个NaN就是NaN</p>
+<li><p>算数运算符<br><code>var box = 1 + NaN;   //NaN，只要有一个NaN就是NaN</code></p>
 </li>
 </ul>
-<p>var box = Infinity + -Infinity;   //NaN，正无穷和负无穷相加是NaN</p>
+<p><code>var box = Infinity + -Infinity;   //NaN，正无穷和负无穷相加是NaN</code></p>
 <ul>
-<li>关系运算符：用于比较的运算符称为关系运算符。<br>var box = ‘a’&gt;’b’;  //false a=97,b=98</li>
+<li>关系运算符：用于比较的运算符称为关系运算符。<br><code>var box = &#39;a&#39;&gt;&#39;b&#39;;  //false a=97,b=98</code></li>
 </ul>
 <p>在相等和不等的比较上，如果操作数是非数值，则遵循一下规则：</p>
 <pre><code>1. 一个操作数是布尔值，则比较之前将其转换为数值，false转成0，true转成1；
@@ -432,26 +432,16 @@ BOM浏览器对象模型，使用BOM可以控制浏览器显示页面以外的�
 2. 第二个操作数是对象，则第一个操作数返回true，才返回第二个操作数，否则返回false;
 3. 有一个操作数是null，则返回null；
 4. 有一个操作数是undefined，则返回undefined。
-
-var box = 对象 &amp;&amp; (5 &gt; 4);            //true，返回第二个操作数
-var box = (5 &gt; 4) &amp;&amp; 对象;            //[object Object]
-var box = (3 &gt; 4) &amp;&amp; 对象;            //false
-var box = (5 &gt; 4) &amp;&amp; null;            //null
-</code></pre><p>||：如果两边的操作数有一个操作数不是布尔值的情况下，逻辑与运算就不一定返回布尔值，此时，遵循已下规则：</p>
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = 对象 &amp;&amp; (<span class="number">5</span> &gt; <span class="number">4</span>);			<span class="comment">//true，返回第二个操作数</span></div><div class="line"><span class="keyword">var</span> box = (<span class="number">5</span> &gt; <span class="number">4</span>) &amp;&amp; 对象;			<span class="comment">//[object Object]</span></div><div class="line"><span class="keyword">var</span> box = (<span class="number">3</span> &gt; <span class="number">4</span>) &amp;&amp; 对象;			<span class="comment">//false</span></div><div class="line"><span class="keyword">var</span> box = (<span class="number">5</span> &gt; <span class="number">4</span>) &amp;&amp; <span class="literal">null</span>;			<span class="comment">//null</span></div></pre></td></tr></table></figure>
+<p>||：如果两边的操作数有一个操作数不是布尔值的情况下，逻辑与运算就不一定返回布尔值，此时，遵循已下规则：</p>
 <pre><code>1. 第一个操作数是对象，则返回第一个操作数；
 2. 第一个操作数的求值结果为false，则返回第二个操作数；
 3. 两个操作数都是对象，则返回第一个操作数；
 4. 两个操作数都是null，则返回null；
 5. 两个操作数都是NaN，则返回NaN；
 6. 两个操作数都是undefined，则返回undefined；
-
-var box = 对象 || (5 &gt; 3);            //[object Object]
-var box = (5 &gt; 3) || 对象;            //true
-var box = 对象1 || 对象2;            //[object Object]
-var box = null || null;                //null
-var box = NaN || NaN;                //NaN
-var box = undefined || undefined;        //undefined
-</code></pre><p>和逻辑与运算符相似，逻辑或运算符也是短路操作。当第一操作数的求值结果为true，就不会对第二个操作数求值了</p>
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = 对象 || (<span class="number">5</span> &gt; <span class="number">3</span>);			<span class="comment">//[object Object]</span></div><div class="line"><span class="keyword">var</span> box = (<span class="number">5</span> &gt; <span class="number">3</span>) || 对象;			<span class="comment">//true</span></div><div class="line"><span class="keyword">var</span> box = 对象<span class="number">1</span> || 对象<span class="number">2</span>;			<span class="comment">//[object Object]</span></div><div class="line"><span class="keyword">var</span> box = <span class="literal">null</span> || <span class="literal">null</span>;				<span class="comment">//null</span></div><div class="line"><span class="keyword">var</span> box = <span class="literal">NaN</span> || <span class="literal">NaN</span>;				<span class="comment">//NaN</span></div><div class="line"><span class="keyword">var</span> box = <span class="literal">undefined</span> || <span class="literal">undefined</span>;		<span class="comment">//undefined</span></div></pre></td></tr></table></figure>
+<p>和逻辑与运算符相似，逻辑或运算符也是短路操作。当第一操作数的求值结果为true，就不会对第二个操作数求值了</p>
 <p>！：逻辑非运算符可以用于任何值。无论这个值是什么数据类型，这个运算符都会返回一个布尔值。它的流程是：先将这个值转换成布尔值，然后取反，规则如下：</p>
 <pre><code>1. 操作数是一个对象，返回false；
 2. 操作数是一个空字符串，返回true；
@@ -461,28 +451,19 @@ var box = undefined || undefined;        //undefined
 6. 操作数是null，返回true；
 7. 操作数是NaN，返回true；
 8. 操作数是undefined，返回true；
-
-var box = !(5 &gt; 4);                    //false
-var box = !{};                        //false
-var box = !&apos;&apos;;                        //true
-var box = !&apos;Lee&apos;;                    //false
-var box = !0;                        //true
-var box = !8;                        //false
-var box = !null;                    //true
-var box = !NaN;                    //true
-var box = !undefined;                //true
-</code></pre><ul>
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = !(<span class="number">5</span> &gt; <span class="number">4</span>);					<span class="comment">//false</span></div><div class="line"><span class="keyword">var</span> box = !&#123;&#125;;						<span class="comment">//false</span></div><div class="line"><span class="keyword">var</span> box = !<span class="string">''</span>;						<span class="comment">//true</span></div><div class="line"><span class="keyword">var</span> box = !<span class="string">'Lee'</span>;					<span class="comment">//false</span></div><div class="line"><span class="keyword">var</span> box = !<span class="number">0</span>;						<span class="comment">//true</span></div><div class="line"><span class="keyword">var</span> box = !<span class="number">8</span>;						<span class="comment">//false</span></div><div class="line"><span class="keyword">var</span> box = !<span class="literal">null</span>;					<span class="comment">//true</span></div><div class="line"><span class="keyword">var</span> box = !<span class="literal">NaN</span>;					<span class="comment">//true</span></div><div class="line"><span class="keyword">var</span> box = !<span class="literal">undefined</span>;				<span class="comment">//true</span></div></pre></td></tr></table></figure>
+<ul>
 <li><p>赋值运算符：用（=）表示，就是把右边的值赋给左边的变量</p>
 </li>
 <li><p>其他运算符</p>
 </li>
 </ul>
 <ol>
-<li><p>字符串运算符：”+”,它的作用是将两个字符串相加。至少一个操作符是字符串即可。<br>var box = ‘100’+100;    //100100</p>
+<li><p>字符串运算符：”+”,它的作用是将两个字符串相加。至少一个操作符是字符串即可。<br> <code>var box = &#39;100&#39;+100;    //100100</code></p>
 </li>
-<li><p>逗号运算符：可以在一条语句中执行多个操作。<br> var box = 100, age = 20, height = 178;      //多个变量声明</p>
+<li><p>逗号运算符：可以在一条语句中执行多个操作。<br> <code>var box = 100, age = 20, height = 178;      //多个变量声明</code></p>
 </li>
-<li><p>三元条件运算符：其实就是if语句的简写形式<br> var box = 5 &gt; 4 ? ‘对’ : ‘错’;   </p>
+<li><p>三元条件运算符：其实就是if语句的简写形式<br> <code>var box = 5 &gt; 4 ? &#39;对&#39; : &#39;错&#39;;</code>  </p>
 </li>
 </ol>
 <ul>
@@ -491,140 +472,91 @@ var box = !undefined;                //true
 <h4 id="流程控制语句"><a href="#流程控制语句" class="headerlink" title="流程控制语句"></a>流程控制语句</h4><ul>
 <li><p>if语句：条件判断语句</p>
 </li>
-<li><p>switch语句：多重条件判断，用于多个值相等的比较。<br>  var box = 1;<br>  switch(box){                            //用于判断box相等的多个值</p>
-<pre><code>case 1:
-    alert(&apos;one&apos;);
-    break；
-case 2:
-    alert(&apos;two&apos;);
-    break；
-case 3:
-    alert(&apos;three&apos;);
-    break；
-default:                             //相当于if语句里的else
-    alert(&apos;error&apos;);
-</code></pre><p>  }</p>
+<li><p>switch语句：多重条件判断，用于多个值相等的比较。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="number">1</span>;</div><div class="line"><span class="keyword">switch</span>(box)&#123;                            <span class="comment">//用于判断box相等的多个值</span></div><div class="line">	<span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">		alert(<span class="string">'one'</span>);</div><div class="line">		<span class="keyword">break</span>；</div><div class="line">	<span class="keyword">case</span> <span class="number">2</span>:</div><div class="line">		alert(<span class="string">'two'</span>);</div><div class="line">		<span class="keyword">break</span>；</div><div class="line">	<span class="keyword">case</span> <span class="number">3</span>:</div><div class="line">		alert(<span class="string">'three'</span>);</div><div class="line">		<span class="keyword">break</span>；</div><div class="line">	<span class="keyword">default</span>:                             <span class="comment">//相当于if语句里的else</span></div><div class="line">		alert(<span class="string">'error'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>do…while语句：是一种先运行，后判断的循环语句。不管条件是否满足，至少先运行一次循环体。<br>  var box = 1;             //如果是1，执行5次，如果是10，执行一次<br>  do{</p>
-<pre><code>alert(box);
-box++;
-</code></pre><p>  }while(box &lt;= 5);         //先运行一次，再判断</p>
+<li><p>do…while语句：是一种先运行，后判断的循环语句。不管条件是否满足，至少先运行一次循环体。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="number">1</span>;             <span class="comment">//如果是1，执行5次，如果是10，执行一次</span></div><div class="line"><span class="keyword">do</span>&#123;</div><div class="line">	alert(box);</div><div class="line">	box++;</div><div class="line">&#125;<span class="keyword">while</span>(box &lt;= <span class="number">5</span>);         <span class="comment">//先运行一次，再判断</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>while语句：是先判断，后运行的循环语句。满足条件后才可以运行循环体。<br>  var box = 1;               //如果是1，执行5次，如果是10，不执行<br>  while(box &lt;= 5){            //先判断，再执行</p>
-<pre><code>alert(box);
-box++;
-</code></pre><p>  }</p>
+<li><p>while语句：是先判断，后运行的循环语句。满足条件后才可以运行循环体。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="number">1</span>;               <span class="comment">//如果是1，执行5次，如果是10，不执行</span></div><div class="line"><span class="keyword">while</span>(box &lt;= <span class="number">5</span>)&#123;            <span class="comment">//先判断，再执行</span></div><div class="line">	alert(box);</div><div class="line">	box++;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>for语句：先判断后运行的循环语句。但它具有在执行循环之前初始变量和定义循环后要执行代码的能力。<br>  for(var box = 1;box &lt;= 5;box++){      //第一步：声明变量 var box = 1;</p>
-<pre><code>alert(box);                       //第二步：判断box &lt;= 5
-</code></pre><p>  }                                     //第三步：alert(box)</p>
-<pre><code>//第四步：box++
-//第五步：从第二步再来，直到判断为false
-</code></pre></li>
-<li><p>for…in语句：一种精准的迭代语句，可以用来枚举对象的属性<br>  var box = {                    //创建一个对象</p>
-<pre><code>&apos;name&apos;: &apos;july&apos;,            //键值对，左边是属性名，右边是值
-&apos;age&apos;: 21,
-&apos;height&apos;:162
-</code></pre><p>  };<br>  for(var p in box){              //列举出对象的所有属性</p>
-<pre><code>alert(p);
-</code></pre><p>  }</p>
+<li><p>for语句：先判断后运行的循环语句。但它具有在执行循环之前初始变量和定义循环后要执行代码的能力。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> box = <span class="number">1</span>;box &lt;= <span class="number">5</span>;box++)&#123;      <span class="comment">//第一步：声明变量 var box = 1;</span></div><div class="line">	alert(box);                       <span class="comment">//第二步：判断box &lt;= 5</span></div><div class="line">&#125;                                     <span class="comment">//第三步：alert(box)</span></div><div class="line">                                      <span class="comment">//第四步：box++</span></div><div class="line">                                      <span class="comment">//第五步：从第二步再来，直到判断为false</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>break和continue语句：用于在循环中精确地控制代码的执行。break语句会立即退出循环，强制继续执行循环体后面的语句，而continue语句退出当前循环，继续后面的循环。<br>  for(var box = 1;box &lt;= 10;box++){</p>
-<pre><code>if(box == 5)break;               //如果box是5，就退出循环
-document.write(box);
-document.write(&apos;&lt;/br&gt;&apos;);
-</code></pre><p>  }</p>
-<p>  for(var box = 1;box &lt;= 10;box++){</p>
-<pre><code>if(box == 5)continue;            //如果box是5，就退出当前循环
-document.write(box);
-document.write(&apos;&lt;/br&gt;&apos;);
-</code></pre><p>  }</p>
+<li><p>for…in语句：一种精准的迭代语句，可以用来枚举对象的属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = &#123;                    <span class="comment">//创建一个对象</span></div><div class="line">	<span class="string">'name'</span>: <span class="string">'july'</span>,            <span class="comment">//键值对，左边是属性名，右边是值</span></div><div class="line">	<span class="string">'age'</span>: <span class="number">21</span>,</div><div class="line">	<span class="string">'height'</span>:<span class="number">162</span></div><div class="line">&#125;;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> p <span class="keyword">in</span> box)&#123;              <span class="comment">//列举出对象的所有属性</span></div><div class="line">	alert(p);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>with语句：将代码的作用域设置到一个特定的对象中。<br>  var box = {                      //创建一个对象</p>
-<pre><code>&apos;name&apos;: &apos;july&apos;,            //键值对，左边是属性名，右边是值
-&apos;age&apos;: 21,
-&apos;height&apos;:162
-</code></pre><p>  }<br>  var n = box.name;              //从对象里取值赋给变量<br>  var a = box.age;<br>  var h = box.height;</p>
+<li><p>break和continue语句：用于在循环中精确地控制代码的执行。break语句会立即退出循环，强制继续执行循环体后面的语句，而continue语句退出当前循环，继续后面的循环。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> box = <span class="number">1</span>;box &lt;= <span class="number">10</span>;box++)&#123;</div><div class="line">	<span class="keyword">if</span>(box == <span class="number">5</span>)<span class="keyword">break</span>;               <span class="comment">//如果box是5，就退出循环</span></div><div class="line">	<span class="built_in">document</span>.write(box);</div><div class="line">	<span class="built_in">document</span>.write(<span class="string">'&lt;/br&gt;'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> box = <span class="number">1</span>;box &lt;= <span class="number">10</span>;box++)&#123;</div><div class="line">	<span class="keyword">if</span>(box == <span class="number">5</span>)<span class="keyword">continue</span>;            <span class="comment">//如果box是5，就退出当前循环</span></div><div class="line">	<span class="built_in">document</span>.write(box);</div><div class="line">	<span class="built_in">document</span>.write(<span class="string">'&lt;/br&gt;'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>with语句：将代码的作用域设置到一个特定的对象中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = &#123;                      <span class="comment">//创建一个对象</span></div><div class="line">	<span class="string">'name'</span>: <span class="string">'july'</span>,            <span class="comment">//键值对，左边是属性名，右边是值</span></div><div class="line">	<span class="string">'age'</span>: <span class="number">21</span>,</div><div class="line">	<span class="string">'height'</span>:<span class="number">162</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> n = box.name;              <span class="comment">//从对象里取值赋给变量</span></div><div class="line"><span class="keyword">var</span> a = box.age;</div><div class="line"><span class="keyword">var</span> h = box.height;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>可以将上面的三段赋值操作改成：<br>    with(box){                       //省略了box对象名<br>        var n = name;<br>        var a = age;<br>        var h  = height;<br>    }</p>
+<p>可以将上面的三段赋值操作改成：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span>(box)&#123;                       <span class="comment">//省略了box对象名</span></div><div class="line">	<span class="keyword">var</span> n = name;</div><div class="line">	<span class="keyword">var</span> a = age;</div><div class="line">	<span class="keyword">var</span> h  = height;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><ul>
-<li><p>函数声明：这边使用的function关键字来声明，后跟一组参数以及函数体。<br>  function box(){                //没有参数的函数</p>
-<pre><code>alert(&apos;只有函数被调用，我才会被执行&apos;);
-</code></pre><p>  }<br>  box();                         //直接调用函数</p>
-<p>  function box(name,age){                  //带参数的函数</p>
-<pre><code>alert(&apos;你的姓名：&apos;+name+&apos;,年龄&apos;+age);
-</code></pre><p>  }<br>  box(‘july’,21);                          //调用函数，并传参</p>
+<li><p>函数声明：这边使用的function关键字来声明，后跟一组参数以及函数体。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params"></span>)</span>&#123;                <span class="comment">//没有参数的函数</span></div><div class="line">	alert(<span class="string">'只有函数被调用，我才会被执行'</span>);</div><div class="line">&#125;</div><div class="line">box();                         <span class="comment">//直接调用函数</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params">name,age</span>)</span>&#123;                  <span class="comment">//带参数的函数</span></div><div class="line">	alert(<span class="string">'你的姓名：'</span>+name+<span class="string">',年龄'</span>+age);</div><div class="line">&#125;</div><div class="line">box(<span class="string">'july'</span>,<span class="number">21</span>);                          <span class="comment">//调用函数，并传参</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>return返回值：任何函数都可以通过return语句跟后面的要返回的值来实现返回值。<br>  function box(){                         //没有参数的函数</p>
-<pre><code>return &apos;我被返回了！&apos;;              //通过return把函数的最终值返回
-</code></pre><p>  }<br>  alert(box());                           //调用函数会得到返回值，然后外面输出</p>
-<p>  function box(name,age){                        //有参数的函数</p>
-<pre><code>return &apos;你的姓名：&apos;+name+&apos;，年龄：&apos;+age;   //通过return把函数的最终值返回
-</code></pre><p>  }<br>  alert(box(‘july’,21));                         //调用函数得到返回值，然后外面输出</p>
+<li><p>return返回值：任何函数都可以通过return语句跟后面的要返回的值来实现返回值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params"></span>)</span>&#123;                         <span class="comment">//没有参数的函数</span></div><div class="line">	<span class="keyword">return</span> <span class="string">'我被返回了！'</span>;              <span class="comment">//通过return把函数的最终值返回</span></div><div class="line">&#125;</div><div class="line">alert(box());                           <span class="comment">//调用函数会得到返回值，然后外面输出</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params">name,age</span>)</span>&#123;                        <span class="comment">//有参数的函数</span></div><div class="line">	<span class="keyword">return</span> <span class="string">'你的姓名：'</span>+name+<span class="string">'，年龄：'</span>+age;   <span class="comment">//通过return把函数的最终值返回</span></div><div class="line">&#125;</div><div class="line">alert(box(<span class="string">'july'</span>,<span class="number">21</span>));                         <span class="comment">//调用函数得到返回值，然后外面输出</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>arguments对象：函数体内通过arguments对象来接受传递进来的参数。<br>  function box(){</p>
-<pre><code>return arguments[0]+&apos;|&apos;+arguments[1];       //得到每次参数的值
-</code></pre><p>  }<br>  alert(box(1,2,3,4,5,6));                        //传递参数</p>
+<li><p>arguments对象：函数体内通过arguments对象来接受传递进来的参数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="built_in">arguments</span>[<span class="number">0</span>]+<span class="string">'|'</span>+<span class="built_in">arguments</span>[<span class="number">1</span>];       <span class="comment">//得到每次参数的值</span></div><div class="line">&#125;</div><div class="line">alert(box(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>));                        <span class="comment">//传递参数</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>arguments对象的length属性可以得到参数的数量<br>    function box(){<br>        return arguments.length;              //得到6<br>    }<br>    alert(box(1,2,3,4,5,6));</p>
+<p>arguments对象的length属性可以得到参数的数量<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="built_in">arguments</span>.length;              <span class="comment">//得到6</span></div><div class="line">&#125;</div><div class="line">alert(box(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>));</div></pre></td></tr></table></figure></p>
 <h4 id="对象和数组"><a href="#对象和数组" class="headerlink" title="对象和数组"></a>对象和数组</h4><p>对象是引用类型，而对象的值就是引用类型的实例。在ECMAScript中引用类型是一种数据结构，用于将数据和功能组织在一起。它也被称作类。</p>
 <ul>
 <li>Object类型：虽然Object实例不具有多少功能，但对于在应用程序中的存储和传输数据而言，却很理想。<br>创建Object类型有两种：一种是使用new运算符，一种是字面量表示法。</li>
 </ul>
 <ol>
-<li><p>使用new运算符创建Object<br> var box = new Object();                //new方式<br> box.name = ‘july’;                     //创建属性字段<br> box.age = 21;                          //创建属性字段</p>
+<li><p>使用new运算符创建Object</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="keyword">new</span> <span class="built_in">Object</span>();                <span class="comment">//new方式</span></div><div class="line">box.name = <span class="string">'july'</span>;                     <span class="comment">//创建属性字段</span></div><div class="line">box.age = <span class="number">21</span>;                          <span class="comment">//创建属性字段</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>new关键字可以省略<br> var box = Object();                   //省略了new关键字</p>
+<li><p>new关键字可以省略<br> <code>var box = Object();                   //省略了new关键字</code></p>
 </li>
-<li><p>使用字面量方式创建Object<br> var box = {                      //字面量方式</p>
-<pre><code>name: &apos;july&apos;,                //创建属性字段
-age: 21
-</code></pre><p> }；</p>
+<li><p>使用字面量方式创建Object</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = &#123;                      <span class="comment">//字面量方式</span></div><div class="line">	name: <span class="string">'july'</span>,                <span class="comment">//创建属性字段</span></div><div class="line">	age: <span class="number">21</span></div><div class="line">&#125;；</div></pre></td></tr></table></figure>
 </li>
-<li><p>属性字段也可以使用字符串形式<br> var box = {</p>
-<pre><code>&apos;name&apos;:&apos;july&apos;,
-&apos;age&apos;: 21
-</code></pre><p> };</p>
+<li><p>属性字段也可以使用字符串形式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = &#123;</div><div class="line">	<span class="string">'name'</span>:<span class="string">'july'</span>,</div><div class="line">	<span class="string">'age'</span>: <span class="number">21</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 </li>
-<li><p>使用字面量及传统复制方式<br>  var box = {};                //字面量方式声明空的对象<br>  box.name=’july’;             //点符号给属性赋值<br>  box.age= 21;</p>
+<li><p>使用字面量及传统复制方式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = &#123;&#125;;                <span class="comment">//字面量方式声明空的对象</span></div><div class="line">box.name=<span class="string">'july'</span>;             <span class="comment">//点符号给属性赋值</span></div><div class="line">box.age= <span class="number">21</span>;</div></pre></td></tr></table></figure>
 </li>
-<li><p>两种属性输出方式<br> alert(box.age);                                //点表示法输出<br> alert(box[‘age’]);                            //中括号表示法输出，注意引号</p>
+<li><p>两种属性输出方式<br> <code>alert(box.age);                                //点表示法输出</code><br> <code>alert(box[&#39;age&#39;]);                            //中括号表示法输出，注意引号</code></p>
 </li>
 </ol>
 <p>PS：在使用字面量声明Object对象时，不会调用Object()构造函数(Firefox除外)。</p>
 <ol>
-<li><p>给对象创建方法<br> var box = {                                </p>
-<pre><code>run : function () {                        //对象中的方法
-    return &apos;运行&apos;;
-}
-</code></pre><p> }<br> alert(box.run());                            //调用对象中的方法</p>
+<li><p>给对象创建方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = &#123;								</div><div class="line">	<span class="attr">run</span> : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;						<span class="comment">//对象中的方法</span></div><div class="line">		<span class="keyword">return</span> <span class="string">'运行'</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">alert(box.run());							<span class="comment">//调用对象中的方法</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>使用delete删除对象属性<br> delete box.name;                            //删除属性</p>
+<li><p>使用delete删除对象属性<br> <code>delete box.name;                            //删除属性</code></p>
 </li>
 </ol>
-<p>在实际开发过程中，一般我们更加喜欢字面量的声明方式。因为它清晰，语法代码少，而且还给人一种封装的感觉。字面量也是向函数传递大量可选参数的首选方式。<br>    function box(obj){                                   //参数是一个对象<br>        if(obj.name != undefined) alert(obj.name);       //判断属性是否存在<br>        if(obj.age != undefined) alert(obj.age);<br>    }</p>
-<pre><code>box({                             //调用函数传递一个对象
-    name: &apos;july&apos;,
-    age: 21
-    });
-</code></pre><ul>
+<p>在实际开发过程中，一般我们更加喜欢字面量的声明方式。因为它清晰，语法代码少，而且还给人一种封装的感觉。字面量也是向函数传递大量可选参数的首选方式。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params">obj</span>)</span>&#123;                                   <span class="comment">//参数是一个对象</span></div><div class="line">	<span class="keyword">if</span>(obj.name != <span class="literal">undefined</span>) alert(obj.name);       <span class="comment">//判断属性是否存在</span></div><div class="line">	<span class="keyword">if</span>(obj.age != <span class="literal">undefined</span>) alert(obj.age);</div><div class="line">&#125;</div><div class="line"></div><div class="line">box(&#123;                             <span class="comment">//调用函数传递一个对象</span></div><div class="line">	name: <span class="string">'july'</span>,</div><div class="line">	<span class="attr">age</span>: <span class="number">21</span></div><div class="line">	&#125;);</div></pre></td></tr></table></figure></p>
+<ul>
 <li>Array类型：ECMAScript中的数组每个元素可以保存任何类型，而且数组的大小也是可以调整。<br>创建Array类型有两种方式：第一种是new运算符，第二种是字面量。</li>
 </ul>
 <ol>
-<li><p>使用new关键字创建数组<br> var box = new Array();                //创建了一个数组<br> var box = new Array(10);              //创建一个包含10个元素的数组<br> var box = new Array(‘july’,21);       //创建一个数组并分配好了元素</p>
+<li><p>使用new关键字创建数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="keyword">new</span> <span class="built_in">Array</span>();                <span class="comment">//创建了一个数组</span></div><div class="line"><span class="keyword">var</span> box = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>);              <span class="comment">//创建一个包含10个元素的数组</span></div><div class="line"><span class="keyword">var</span> box = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">'july'</span>,<span class="number">21</span>);       <span class="comment">//创建一个数组并分配好了元素</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>可以省略new关键字<br> var box = Array();</p>
+<li><p>可以省略new关键字<br> <code>var box = Array();</code></p>
 </li>
-<li><p>使用字面量方式创建数组<br> var box = [];                      //创建一个空的数组<br> var box = [‘july’,21];             //创建包含元素的数组</p>
+<li><p>使用字面量方式创建数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = [];                      <span class="comment">//创建一个空的数组</span></div><div class="line"><span class="keyword">var</span> box = [<span class="string">'july'</span>,<span class="number">21</span>];             <span class="comment">//创建包含元素的数组</span></div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>PS：和Object一样，字面量的写法不会调用Array()构造函数。(Firefox除外)。</p>
 <ol>
-<li><p>使用索引下标来读取数组的值<br> alert(box[1]);                   //获取第二个元素<br> box[1] = 28；                    //修改第二个元素<br> box[2] = ‘学生’；                //添加第三个元素</p>
+<li><p>使用索引下标来读取数组的值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	alert(box[<span class="number">1</span>]);                   <span class="comment">//获取第二个元素</span></div><div class="line">	box[<span class="number">1</span>] = <span class="number">28</span>；                    <span class="comment">//修改第二个元素</span></div><div class="line">	box[<span class="number">2</span>] = <span class="string">'学生'</span>；                <span class="comment">//添加第三个元素</span></div><div class="line"><span class="string">`</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>使用length属性获取数组元素量<br> alert(box.length);                    //获取元素个数</p>
+<li><p>使用length属性获取数组元素量<br> <code>alert(box.length);                    //获取元素个数</code></p>
 </li>
 </ol>
 <p>PS：数组最多可包含4294967295个元素，超出即会发生异常。</p>
@@ -632,41 +564,49 @@ age: 21
 <li>对象中的方法</li>
 </ul>
 <ol>
-<li>转换方法：对象或数组都具有toLocalString()、toString()和valueOf()方法。其中oString()和valueOf()无论重写了谁，都会返回相同的值。数组会讲每个值进行字符串形式的拼接，以逗号隔开。<br> var　box = [‘july’,21];                //字面量数组<br> alert(box);                            //隐式调用了toString()<br> alert(box.toString());                 //和valueOf()返回一致<br> alert(box.toLocalString());            //返回值和上面两种一致</li>
+<li>转换方法：对象或数组都具有toLocalString()、toString()和valueOf()方法。其中oString()和valueOf()无论重写了谁，都会返回相同的值。数组会讲每个值进行字符串形式的拼接，以逗号隔开。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span>　box = [<span class="string">'july'</span>,<span class="number">21</span>];                <span class="comment">//字面量数组</span></div><div class="line">alert(box);                            <span class="comment">//隐式调用了toString()</span></div><div class="line">alert(box.toString());                 <span class="comment">//和valueOf()返回一致</span></div><div class="line">alert(box.toLocalString());            <span class="comment">//返回值和上面两种一致</span></div></pre></td></tr></table></figure>
+</li>
 </ol>
 <p>默认情况下，数组字符串都会以逗号隔开。如果使用join()方法，则可以使用不同的分隔符来构建这个字符串。<br>    var box = [‘july’,21];<br>    alert(box.join(‘|’));                 //july|21  </p>
 <ol>
-<li><p>栈方法<br>push()方法可以接收任意数量的参数，把它们逐个添加到数组的末尾，并返回修改后数组的长度。而pop()方法则从数组末尾移除最后一个元素，减少数组的length值，然后返回移除的元素。<br>  var box = [‘july’,21];                 //字面量声明<br>  alert(box.push(‘南京’));               //数组末尾添加一个元素，并返回长度<br>  alert(box);                            //查看数组<br>  alert(box.pop());                      //移除数组末尾元素，并返回移除的元素<br>  alert(box);                            //查看元素</p>
+<li><p>栈方法<br>push()方法可以接收任意数量的参数，把它们逐个添加到数组的末尾，并返回修改后数组的长度。而pop()方法则从数组末尾移除最后一个元素，减少数组的length值，然后返回移除的元素。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = [<span class="string">'july'</span>,<span class="number">21</span>];                 <span class="comment">//字面量声明</span></div><div class="line">alert(box.push(<span class="string">'南京'</span>));               <span class="comment">//数组末尾添加一个元素，并返回长度</span></div><div class="line">alert(box);                            <span class="comment">//查看数组</span></div><div class="line">alert(box.pop());                      <span class="comment">//移除数组末尾元素，并返回移除的元素</span></div><div class="line">alert(box);                            <span class="comment">//查看元素</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>队列方法<br>栈方法是后进先出，而列队方法就是先进先出。列队在数组的末端添加元素，从数组的前端移除元素。通过push()向数组末端添加一个元素，然后通过shift()方法从数组前端移除一个元素。<br>  var box = [‘july’,21];                 //字面量声明<br>  alert(box.push(‘南京’));               //数组末尾添加一个元素，并返回长度<br>  alert(box);                            //查看数组<br>  alert(box.shift());                    //移除数组开头元素，并返回移除的元素<br>  alert(box);                            //查看元素</p>
+<li><p>队列方法<br>栈方法是后进先出，而列队方法就是先进先出。列队在数组的末端添加元素，从数组的前端移除元素。通过push()向数组末端添加一个元素，然后通过shift()方法从数组前端移除一个元素。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = [<span class="string">'july'</span>,<span class="number">21</span>];                 <span class="comment">//字面量声明</span></div><div class="line">alert(box.push(<span class="string">'南京'</span>));               <span class="comment">//数组末尾添加一个元素，并返回长度</span></div><div class="line">alert(box);                            <span class="comment">//查看数组</span></div><div class="line">alert(box.shift());                    <span class="comment">//移除数组开头元素，并返回移除的元素</span></div><div class="line">alert(box);                            <span class="comment">//查看元素</span></div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>ECMAScript还为数组提供了一个unshift()方法，它和shift()方法的功能完全相反。unshift()方法为数组的前端添加一个元素。<br>     var box = [‘july’,21];                 //字面量声明<br>     alert(box.unshift(‘南京’));            //数组开头添加一个元素，返回的是undefined不是数组的新长度<br>     alert(box);                            //查看数组<br>     alert(box.pop());                      //移除数组末尾元素，并返回移除的元素<br>     alert(box);                            //查看元素</p>
+<p>ECMAScript还为数组提供了一个unshift()方法，它和shift()方法的功能完全相反。unshift()方法为数组的前端添加一个元素。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = [<span class="string">'july'</span>,<span class="number">21</span>];                 <span class="comment">//字面量声明</span></div><div class="line">alert(box.unshift(<span class="string">'南京'</span>));            <span class="comment">//数组开头添加一个元素，返回的是undefined不是数组的新长度</span></div><div class="line">alert(box);                            <span class="comment">//查看数组</span></div><div class="line">alert(box.pop());                      <span class="comment">//移除数组末尾元素，并返回移除的元素</span></div><div class="line">alert(box);                            <span class="comment">//查看元素</span></div></pre></td></tr></table></figure></p>
 <ol>
 <li>重排序方法：数组中已经存在两个直接用来排序的方法 reverse()和sort()</li>
 </ol>
-<p>reverse()逆向排序<br>    var box = [1,2,3,4,5];                //数组<br>    alert(box.reverse());                 //逆向排序方法，返回排序后的数组<br>    alert(box);                           //源数组也被逆向排序</p>
-<p>sort()从小到大排序<br>    var box = [9,7,8,6,5,2];               //数组<br>    alert(box.sort());                     //从小到大排序，返回排序后的数组<br>    alert(box);                            //源数组也被从小到大排序了</p>
-<p>sort方法的默认排序在数字排序上有些问题，因为数字排序和数字字符串排序的算法是一样的。我们必须修改这一特征，修改的方式，就是给sort(参数)方法传递一个函数参数。<br>    function compare(value1, value2) {            //数字排序的函数参数<br>        if (value1 &lt; value2) {                    //小于，返回负数<br>            return -1;<br>        } else if (value1 &gt; value2) {                //大于，返回正数<br>            return 1;<br>        } else {                                //其他，返回0<br>            return 0;<br>        }<br>    }<br>    var box = [0,1,5,10,15];                        //验证数字字符串，和数字的区别<br>    alert(box.sort(compare));                    //传参</p>
+<p>reverse()逆向排序<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];                <span class="comment">//数组</span></div><div class="line">alert(box.reverse());                 <span class="comment">//逆向排序方法，返回排序后的数组</span></div><div class="line">alert(box);                           <span class="comment">//源数组也被逆向排序</span></div></pre></td></tr></table></figure></p>
+<p>sort()从小到大排序<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = [<span class="number">9</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">2</span>];               <span class="comment">//数组</span></div><div class="line">alert(box.sort());                     <span class="comment">//从小到大排序，返回排序后的数组</span></div><div class="line">alert(box);                            <span class="comment">//源数组也被从小到大排序了</span></div></pre></td></tr></table></figure></p>
+<p>sort方法的默认排序在数字排序上有些问题，因为数字排序和数字字符串排序的算法是一样的。我们必须修改这一特征，修改的方式，就是给sort(参数)方法传递一个函数参数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">compare</span>(<span class="params">value1, value2</span>) </span>&#123;			<span class="comment">//数字排序的函数参数</span></div><div class="line">	<span class="keyword">if</span> (value1 &lt; value2) &#123;					<span class="comment">//小于，返回负数</span></div><div class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (value1 &gt; value2) &#123;				<span class="comment">//大于，返回正数</span></div><div class="line">		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">	&#125; <span class="keyword">else</span> &#123;								<span class="comment">//其他，返回0</span></div><div class="line">		<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> box = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">15</span>];						<span class="comment">//验证数字字符串，和数字的区别</span></div><div class="line">alert(box.sort(compare));					<span class="comment">//传参</span></div></pre></td></tr></table></figure></p>
 <p>PS：如果要反向操作，即从大到小排序，正负颠倒即可。当然，如果要逆序用reverse()更加方便。</p>
 <h5 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h5><ul>
-<li><p>concat()方法可以基于当前数组创建一个新数组。<br>  var box = [‘july’,21];                  //当前数组<br>  var box2 = box.concat(‘南京’)；          //创建新数组，并添加新元素<br>  alert(box2);                            //输出新数组<br>  alert(box);                             //当前数组没有任何变化</p>
+<li><p>concat()方法可以基于当前数组创建一个新数组。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = [<span class="string">'july'</span>,<span class="number">21</span>];                  <span class="comment">//当前数组</span></div><div class="line"><span class="keyword">var</span> box2 = box.concat(<span class="string">'南京'</span>)；          <span class="comment">//创建新数组，并添加新元素</span></div><div class="line">alert(box2);                            <span class="comment">//输出新数组</span></div><div class="line">alert(box);                             <span class="comment">//当前数组没有任何变化</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>slice()方法可以基于当前数组获取指定区域元素并创建一个新数组。<br>  var box = [‘july’,21,’南京’];                  //当前数组<br>  var box2 = box.slice(1)；             //box.slice(1,3),2-4之间的元素<br>  alert(box2);                            //输出新数组  21，南京<br>  alert(box);                             //当前数组</p>
+<li><p>slice()方法可以基于当前数组获取指定区域元素并创建一个新数组。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = [<span class="string">'july'</span>,<span class="number">21</span>,<span class="string">'南京'</span>];                  <span class="comment">//当前数组</span></div><div class="line"><span class="keyword">var</span> box2 = box.slice(<span class="number">1</span>)；             <span class="comment">//box.slice(1,3),2-4之间的元素</span></div><div class="line">alert(box2);                            <span class="comment">//输出新数组  21，南京</span></div><div class="line">alert(box);                             <span class="comment">//当前数组</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>splice()主要用途是向数组的中部插入元素。</p>
 </li>
 </ul>
 <ol>
-<li><p>splice中的删除功能：<br> var box = [‘july’,21,’南京’];                  //当前数组<br> var box2 = box.splice(0,2)；             //截取前两个元素<br> alert(box2);                              //返回截取的元素<br> alert(box);                                   //当前数组被截取的元素被删除</p>
+<li><p>splice中的删除功能：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = [<span class="string">'july'</span>,<span class="number">21</span>,<span class="string">'南京'</span>];                  <span class="comment">//当前数组</span></div><div class="line"><span class="keyword">var</span> box2 = box.splice(<span class="number">0</span>,<span class="number">2</span>)；             <span class="comment">//截取前两个元素</span></div><div class="line">alert(box2);                              <span class="comment">//返回截取的元素</span></div><div class="line">alert(box);                                   <span class="comment">//当前数组被截取的元素被删除</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>splice中的插入功能：<br> var box = [‘july’,21,’南京’];                       //当前数组<br> var box2 = box.splice(1,0,’信息工程’,’江苏’)；      //没有截取，但插入了两条<br> alert(box2);                                       //在第二个位置上插入了两条<br> alert(box);   </p>
+<li><p>splice中的插入功能：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = [<span class="string">'july'</span>,<span class="number">21</span>,<span class="string">'南京'</span>];                       <span class="comment">//当前数组</span></div><div class="line"><span class="keyword">var</span> box2 = box.splice(<span class="number">1</span>,<span class="number">0</span>,<span class="string">'信息工程'</span>,<span class="string">'江苏'</span>)；      <span class="comment">//没有截取，但插入了两条</span></div><div class="line">alert(box2);                                       <span class="comment">//在第二个位置上插入了两条</span></div><div class="line">alert(box);</div></pre></td></tr></table></figure>
 </li>
-<li><p>splice中的替换功能：<br> var box = [‘july’,21,’南京’];                       //当前数组<br> var box2 = box.splice(1,1,100)；                    //截取了第2条，替换成100<br> alert(box2);                                       //输出截取的21<br> alert(box);                                      </p>
+<li><p>splice中的替换功能：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = [<span class="string">'july'</span>,<span class="number">21</span>,<span class="string">'南京'</span>];                       <span class="comment">//当前数组</span></div><div class="line"><span class="keyword">var</span> box2 = box.splice(<span class="number">1</span>,<span class="number">1</span>,<span class="number">100</span>)；                    <span class="comment">//截取了第2条，替换成100</span></div><div class="line">alert(box2);                                       <span class="comment">//输出截取的21</span></div><div class="line">alert(box);</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <h4 id="时间与日期"><a href="#时间与日期" class="headerlink" title="时间与日期"></a>时间与日期</h4><p>创建一个日期对象，使用new运算符和Date构造方法。<br>    var box = new Date();         //创建一个日期对象<br>在调用Date构造方法而不传递参数的情况下，新建的对象自动获取当前的时间和日期。<br>    alert(box);                   //不同的浏览器显示不同</p>
-<p>组件方法：是为我们单独获取你想要的各种时间/日期而提供的方法。需要注意的时候，这些方法中，有带UTC的，有不带UTC的。UTC日期指的是在没有时区偏差的情况下的日期值。<br>    alert(box.getTime());                    //获取日期的毫秒数，和valueOf()返回一致<br>    alert(box.setTime(100));                    //以毫秒数设置日期，会改变整个日期<br>    alert(box.getFullYear());                    //获取四位年份<br>    alert(box.setFullYear(2012));                //设置四位年份，返回的是毫秒数<br>    alert(box.getMonth());                    //获取月份，没指定月份，从0开始算起<br>    alert(box.setMonth(11));                    //设置月份<br>    alert(box.getDate());                    //获取日期<br>    alert(box.setDate(8));                    //设置日期，返回毫秒数<br>    alert(box.getDay());                    //返回星期几，0表示星期日，6表示星期六<br>    alert(box.setDay(2));                    //设置星期几<br>    alert(box.getHours());                    //返回时<br>    alert(box.setHours(12));                    //设置时<br>    alert(box.getMinutes());                    //返回分钟<br>    alert(box.setMinutes(22));                //设置分钟<br>    alert(box.getSeconds());                    //返回秒数<br>    alert(box.setSeconds(44));                //设置秒数<br>    alert(box.getMilliseconds());                //返回毫秒数<br>    alert(box.setMilliseconds());                //设置毫秒数<br>    alert(box.getTimezoneOffset());            //返回本地时间和UTC时间相差的分钟数</p>
+<p>组件方法：是为我们单独获取你想要的各种时间/日期而提供的方法。需要注意的时候，这些方法中，有带UTC的，有不带UTC的。UTC日期指的是在没有时区偏差的情况下的日期值。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">alert(box.getTime());					<span class="comment">//获取日期的毫秒数，和valueOf()返回一致</span></div><div class="line">alert(box.setTime(<span class="number">100</span>));					<span class="comment">//以毫秒数设置日期，会改变整个日期</span></div><div class="line">alert(box.getFullYear());					<span class="comment">//获取四位年份</span></div><div class="line">alert(box.setFullYear(<span class="number">2012</span>));				<span class="comment">//设置四位年份，返回的是毫秒数</span></div><div class="line">alert(box.getMonth());					<span class="comment">//获取月份，没指定月份，从0开始算起</span></div><div class="line">alert(box.setMonth(<span class="number">11</span>));					<span class="comment">//设置月份</span></div><div class="line">alert(box.getDate());					<span class="comment">//获取日期</span></div><div class="line">alert(box.setDate(<span class="number">8</span>));					<span class="comment">//设置日期，返回毫秒数</span></div><div class="line">alert(box.getDay());					<span class="comment">//返回星期几，0表示星期日，6表示星期六</span></div><div class="line">alert(box.setDay(<span class="number">2</span>));					<span class="comment">//设置星期几</span></div><div class="line">alert(box.getHours());					<span class="comment">//返回时</span></div><div class="line">alert(box.setHours(<span class="number">12</span>));					<span class="comment">//设置时</span></div><div class="line">alert(box.getMinutes());					<span class="comment">//返回分钟</span></div><div class="line">alert(box.setMinutes(<span class="number">22</span>));				<span class="comment">//设置分钟</span></div><div class="line">alert(box.getSeconds());					<span class="comment">//返回秒数</span></div><div class="line">alert(box.setSeconds(<span class="number">44</span>));				<span class="comment">//设置秒数</span></div><div class="line">alert(box.getMilliseconds());				<span class="comment">//返回毫秒数</span></div><div class="line">alert(box.setMilliseconds());				<span class="comment">//设置毫秒数</span></div><div class="line">alert(box.getTimezoneOffset());			<span class="comment">//返回本地时间和UTC时间相差的分钟数</span></div></pre></td></tr></table></figure></p>
 <p>PS：以上方法除了getTimezoneOffset()，其他都具有UTC功能，例如setDate()及getDate()获取星期几，那么就会有setUTCDate()及getUTCDate()。表示世界协调时间。    </p>
 <h4 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h4><ol>
 <li><p>什么是正则表达式？<br>它是一个描述字符模式的对象。ECMAScript的RegExp类表示正则表达式，而String和RegExp都定义了使用正则表达式进行强大的模式匹配和文本检索与替换的函数。<br>它主要用来验证客户端的输入数据。用户填完表单单机按钮之后，表单就会被发送到服务器，在服务器端通常会用PHP、ASP、.net等服务器脚本对其进行进一步处理。因为客户端验证，可以节约大量的服务器端的系统资源，并且提供更好的用户体验。</p>
@@ -675,26 +615,26 @@ age: 21
 </li>
 </ol>
 <ul>
-<li><p>两种创建方式：<br>  var box = new RegExp(‘box’);             //第一个参数字符串<br>  var box = new RegExp(‘box’,’ig’);         //第二个参数可选模式修饰符<br>模式修饰符的可选参数<br>  i            忽略大小写<br>  g             全局匹配<br>  m             多行匹配</p>
+<li><p>两种创建方式：<br>  <code>var box = new RegExp(&#39;box&#39;);             //第一个参数字符串</code><br>  <code>var box = new RegExp(&#39;box&#39;,&#39;ig&#39;);         //第二个参数可选模式修饰符</code><br>模式修饰符的可选参数<br>  i            忽略大小写<br>  g             全局匹配<br>  m             多行匹配</p>
 </li>
 <li><p>测试正则表达式：RegExp对象包含两个方法：test()和exec(),用于测试字符串匹配。<br>  test             在字符串中测试模式匹配，返回true或false<br>  exec             在字符串中执行匹配搜索，返回结果数组</p>
 </li>
 </ul>
-<p>/<em>使用new运算符的test方法示例</em>/<br>    var pattern = new RegExp(‘box’,’i’);              //创建正则模式，不区分大小写<br>    var str = ‘This is a Box!’;                      //创建要对比的字符串<br>    alert(pattern.test(str));                        //通过test()方法验证是否匹配</p>
-<p>/<em>使用字面量方式的test方法示例</em>/<br>    var pattern = /box/i;               //创建正则模式，不区分大小写<br>    var str = ‘This is a Box!’;<br>    alert(pattern.test(str));</p>
-<p>/<em>使用一条语句实现正则匹配</em>/<br>    alert(/box/i.test(‘This is a Box!’));            //模式和字符串替换掉了两个变量</p>
-<p>/<em>使用exec返回匹配数组</em>/<br>    var pattern = /box/i;<br>    var str = ‘This is a Box!’;<br>    alert(pattern.exec(str));                     //匹配了返回数组，否则返回null</p>
+<p>/<em>使用new运算符的test方法示例</em>/<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pattern = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'box'</span>,<span class="string">'i'</span>);              <span class="comment">//创建正则模式，不区分大小写</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">'This is a Box!'</span>;                      <span class="comment">//创建要对比的字符串</span></div><div class="line">alert(pattern.test(str));                        <span class="comment">//通过test()方法验证是否匹配</span></div></pre></td></tr></table></figure></p>
+<p>/<em>使用字面量方式的test方法示例</em>/<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/box/i</span>;               <span class="comment">//创建正则模式，不区分大小写</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">'This is a Box!'</span>;</div><div class="line">alert(pattern.test(str));</div></pre></td></tr></table></figure></p>
+<p>/<em>使用一条语句实现正则匹配</em>/<br>    <code>alert(/box/i.test(&#39;This is a Box!&#39;));            //模式和字符串替换掉了两个变量</code></p>
+<p>/<em>使用exec返回匹配数组</em>/<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/box/i</span>;</div><div class="line"><span class="keyword">var</span> str = <span class="string">'This is a Box!'</span>;</div><div class="line">alert(pattern.exec(str));                     <span class="comment">//匹配了返回数组，否则返回null</span></div></pre></td></tr></table></figure></p>
 <ul>
 <li>使用字符串的正则表达式方法<br>除了test()和exec()方法，String对象也提供了4个使用正则表达式的方法。</li>
 </ul>
-<p>/<em>使用match方法获取匹配数组</em>/<br>    var pattern = /box/ig;                  //全局搜索<br>    var str = ‘This is a Box!,That is a Box too’;<br>    alert(str.match(pattern));              //匹配到两个Box,Box<br>    alert(str.match(pattern).length);       //获取数组的长度</p>
-<p>/<em>使用search来查找匹配数据</em>/<br>    var pattern = /box/ig;<br>    var str = ‘This is a Box!,That is a Box too’;<br>    alert(str.search(pattern));                 //查找到返回位置，否则返回-1</p>
-<p>/<em>使用replace替换匹配到的数据</em>/<br>    var pattern = /box/ig;<br>    var str = ‘This is a Box!,That is a Box too’;<br>    alert(str.replace(pattern,’Tom’));                 //将Box替换成Tom</p>
-<p>/<em>使用split拆分成字符串数组</em>/<br>    var pattern = /box/ig;<br>    var str = ‘This is a Box!,That is a Box too’;<br>    alert(str.split(pattern));                        //将空格拆开分组成数组</p>
+<p>/<em>使用match方法获取匹配数组</em>/<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/box/ig</span>;                  <span class="comment">//全局搜索</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">'This is a Box!,That is a Box too'</span>;           </div><div class="line">alert(str.match(pattern));              <span class="comment">//匹配到两个Box,Box</span></div><div class="line">alert(str.match(pattern).length);       <span class="comment">//获取数组的长度</span></div></pre></td></tr></table></figure></p>
+<p>/<em>使用search来查找匹配数据</em>/<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/box/ig</span>;</div><div class="line"><span class="keyword">var</span> str = <span class="string">'This is a Box!,That is a Box too'</span>;</div><div class="line">alert(str.search(pattern));                 <span class="comment">//查找到返回位置，否则返回-1</span></div></pre></td></tr></table></figure></p>
+<p>/<em>使用replace替换匹配到的数据</em>/<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/box/ig</span>;</div><div class="line"><span class="keyword">var</span> str = <span class="string">'This is a Box!,That is a Box too'</span>;</div><div class="line">alert(str.replace(pattern,<span class="string">'Tom'</span>));                 <span class="comment">//将Box替换成Tom</span></div></pre></td></tr></table></figure></p>
+<p>/<em>使用split拆分成字符串数组</em>/<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/box/ig</span>;</div><div class="line"><span class="keyword">var</span> str = <span class="string">'This is a Box!,That is a Box too'</span>;</div><div class="line">alert(str.split(pattern));                        <span class="comment">//将空格拆开分组成数组</span></div></pre></td></tr></table></figure></p>
 <p>RegExp对象的静态属性<br>    属性               短名                     含义<br>    input              $_                    当前被匹配的字符串<br>    lastMatch          $&amp;                    最后一个匹配字符串<br>    lastParen          $+                   最后一对圆括号内的匹配子串<br>    leftContext        $`                    最后一次匹配前的子串<br>    multiline          $*                 用于指定是否所有的表达式都用于多行的布尔值<br>    rightContext       $’                      在上次匹配之后的子串</p>
-<p>/<em>使用静态属性</em>/<br>    var pattern = /(g)oogle/;<br>    var str = ‘This is google！’;<br>    pattern.test(str);                            //执行一下<br>    alert(RegExp.input);                        //This is google！当前被匹配的字符串<br>    alert(RegExp.leftContext);                    //This is  最后一次被匹配前的子串<br>    alert(RegExp.rightContext);                    //！      匹配之后的子串<br>    alert(RegExp.lastMatch);                    //google     最后一个匹配字符串<br>    alert(RegExp.lastParen);                        //g      最后一堆圆括号内的匹配子串<br>    alert(RegExp.multiline);                        //false   </p>
+<p>/<em>使用静态属性</em>/<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/(g)oogle/</span>;</div><div class="line"><span class="keyword">var</span> str = <span class="string">'This is google！'</span>;</div><div class="line">pattern.test(str);							<span class="comment">//执行一下</span></div><div class="line">alert(<span class="built_in">RegExp</span>.input);						<span class="comment">//This is google！当前被匹配的字符串</span></div><div class="line">alert(<span class="built_in">RegExp</span>.leftContext);					<span class="comment">//This is  最后一次被匹配前的子串</span></div><div class="line">alert(<span class="built_in">RegExp</span>.rightContext);					<span class="comment">//！      匹配之后的子串</span></div><div class="line">alert(<span class="built_in">RegExp</span>.lastMatch);					<span class="comment">//google     最后一个匹配字符串</span></div><div class="line">alert(<span class="built_in">RegExp</span>.lastParen);						<span class="comment">//g      最后一堆圆括号内的匹配子串</span></div><div class="line">alert(<span class="built_in">RegExp</span>.multiline);						<span class="comment">//false</span></div></pre></td></tr></table></figure></p>
 <p>RegExp.input可以改写成RegExp[‘$<em>‘]，依次类推。但RegExp.input比较特殊，它还可以写成RegExp.$</em>。</p>
-<p><em>使用实例属性</em>/<br>    var pattern = /google/ig;<br>    alert(pattern.global);                        //true，是否全局了<br>    alert(pattern.ignoreCase);                    //true，是否忽略大小写<br>    alert(pattern.multiline);                        //false，是否支持换行<br>    alert(pattern.lastIndex);                        //0，下次的匹配位置<br>    alert(pattern.source);                        //google，正则表达式的源字符串</p>
+<p><em>使用实例属性</em>/<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/google/ig</span>;</div><div class="line">alert(pattern.global);						<span class="comment">//true，是否全局了</span></div><div class="line">alert(pattern.ignoreCase);					<span class="comment">//true，是否忽略大小写</span></div><div class="line">alert(pattern.multiline);						<span class="comment">//false，是否支持换行</span></div><div class="line">alert(pattern.lastIndex);						<span class="comment">//0，下次的匹配位置</span></div><div class="line">alert(pattern.source);						<span class="comment">//google，正则表达式的源字符串</span></div></pre></td></tr></table></figure></p>
 <ol>
 <li>获取控制<br>则表达式元字符是包含特殊含义的字符。它们有一些特殊功能，可以控制匹配模式的方式。反斜杠后的元字符将失去其特殊含义。</li>
 </ol>
@@ -715,18 +655,20 @@ age: 21
 <li>常用的正则</li>
 </ol>
 <ul>
-<li><p>检查邮政编码<br>  var pattern = /[1-9][0-9]{5}/;                    //共6位数字，第一位不能为0<br>  var str = ‘224000’;<br>  alert(pattern.test(str));</p>
+<li><p>检查邮政编码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/[1-9][0-9]&#123;5&#125;/</span>;					<span class="comment">//共6位数字，第一位不能为0</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">'224000'</span>;</div><div class="line">alert(pattern.test(str));</div></pre></td></tr></table></figure>
 </li>
-<li><p>检查文件压缩包<br>  var pattern = /[\w]+.zip|rar|gz/;                //\w表示所有数字和字母加下划线<br>  var str = ‘123.zip’;                            //.表示匹配.，后面是一个选择<br>  alert(pattern.test(str));</p>
+<li><p>检查文件压缩包</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/[\w]+\.zip|rar|gz/</span>;				<span class="comment">//\w表示所有数字和字母加下划线</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">'123.zip'</span>;							<span class="comment">//\.表示匹配.，后面是一个选择</span></div><div class="line">alert(pattern.test(str));</div></pre></td></tr></table></figure>
 </li>
-<li><p>删除多余空格<br>  var pattern = /\s/g;                            //g必须全局，才能全部匹配<br>  var str = ‘111 222 333’;<br>  var result = str.replace(pattern,’’);                //把空格匹配成无空格<br>  alert(result);</p>
+<li><p>删除多余空格</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/\s/g</span>;							<span class="comment">//g必须全局，才能全部匹配</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">'111 222 333'</span>;</div><div class="line"><span class="keyword">var</span> result = str.replace(pattern,<span class="string">''</span>);				<span class="comment">//把空格匹配成无空格</span></div><div class="line">alert(result);</div></pre></td></tr></table></figure>
 </li>
-<li><p>删除首尾空格<br>  var pattern = /^\s+/;                            //强制首<br>  var str = ‘          goo  gle            ‘;<br>  var result = str.replace(pattern, ‘’);<br>  pattern = /\s+$/;                            //强制尾<br>  result = result.replace(pattern, ‘’);<br>  alert(‘|’ + result + ‘|’);</p>
-<p>  var pattern = /^\s<em>(.+?)\s</em>$/;                    //使用了非贪婪捕获<br>  var str = ‘            google          ‘;<br>  alert(‘|’ + pattern.exec(str)[1] + ‘|’);</p>
-<p>  var pattern = /^\s<em>(.+?)\s</em>$/;<br>  var str = ‘            google          ‘;<br>  alert(‘|’ + str.replace(pattern, ‘$1’) + ‘|’);            //使用了分组获取</p>
+<li><p>删除首尾空格</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/^\s+/</span>;							<span class="comment">//强制首</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">'          goo  gle            '</span>;</div><div class="line"><span class="keyword">var</span> result = str.replace(pattern, <span class="string">''</span>);</div><div class="line">pattern = <span class="regexp">/\s+$/</span>;							<span class="comment">//强制尾</span></div><div class="line">result = result.replace(pattern, <span class="string">''</span>);</div><div class="line">alert(<span class="string">'|'</span> + result + <span class="string">'|'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/^\s*(.+?)\s*$/</span>;					<span class="comment">//使用了非贪婪捕获</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">'            google          '</span>;</div><div class="line">alert(<span class="string">'|'</span> + pattern.exec(str)[<span class="number">1</span>] + <span class="string">'|'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/^\s*(.+?)\s*$/</span>;	</div><div class="line"><span class="keyword">var</span> str = <span class="string">'            google          '</span>;</div><div class="line">alert(<span class="string">'|'</span> + str.replace(pattern, <span class="string">'$1'</span>) + <span class="string">'|'</span>);			<span class="comment">//使用了分组获取</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>简单的电子邮件验证<br>  var pattern = /^([a-zA-Z0-9<em>.-]+)@([a-zA-Z0-9</em>.-]+).([a-zA-Z]{2,4})$/;<br>  var str = ‘yc60.com@gmail.com’;<br>  alert(pattern.test(str));</p>
-<p>  var pattern = /^([\w.-]+)@([\w.-]+).([\w]{2,4})$/;<br>  var str = ‘yc60.com@gmail.com’;<br>  alert(pattern.test(str));</p>
+<li><p>简单的电子邮件验证</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/^([a-zA-Z0-9_\.\-]+)@([a-zA-Z0-9_\.\-]+)\.([a-zA-Z]&#123;2,4&#125;)$/</span>;</div><div class="line"><span class="keyword">var</span> str = <span class="string">'yc60.com@gmail.com'</span>;</div><div class="line">alert(pattern.test(str));</div><div class="line"></div><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/^([\w\.\-]+)@([\w\.\-]+)\.([\w]&#123;2,4&#125;)$/</span>;</div><div class="line"><span class="keyword">var</span> str = <span class="string">'yc60.com@gmail.com'</span>;</div><div class="line">alert(pattern.test(str));</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>PS：以上是简单电子邮件验证，复杂的要比这个复杂很多</p>

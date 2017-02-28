@@ -111,7 +111,7 @@
 <meta property="og:url" content="fancygh.me/2017/02/27/js2/index.html">
 <meta property="og:site_name" content="july的博客">
 <meta property="og:description" content="function类型Function(函数)类型实际上是对象。每个函数都是Function类型的实例，而且都与其他引用类型一样具有属性和方法。由于函数是对象，因此函数名实际上也是一个指向函数对象的指针。">
-<meta property="og:updated_time" content="2017-02-28T10:49:42.266Z">
+<meta property="og:updated_time" content="2017-02-28T11:12:30.927Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js---02">
 <meta name="twitter:description" content="function类型Function(函数)类型实际上是对象。每个函数都是Function类型的实例，而且都与其他引用类型一样具有属性和方法。由于函数是对象，因此函数名实际上也是一个指向函数对象的指针。">
@@ -375,83 +375,34 @@
 <li>函数的声明方式</li>
 </ol>
 <ul>
-<li>普通的函数声明<br>  function box(num1,num2){<pre><code>return num1+num2;
-</code></pre>  }<br>  alert(box(1,2));                //3</li>
-</ul>
-<ul>
-<li>使用变量初始化函数<br>  var box = function(num1,num2){<pre><code>return num1+num2;
-</code></pre>  };<br>  alert(box(1,2));             //3</li>
-</ul>
-<ul>
-<li>使用Function构造函数—不推荐，因为这种语法会导致解析两次代码<br>  var box = new Function(‘num1’,’num2’,’return num1+num2’);<br>  alert(box(1,2));            //3</li>
+<li><p>普通的函数声明</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params">num1,num2</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> num1+num2;</div><div class="line">&#125;</div><div class="line">alert(box(<span class="number">1</span>,<span class="number">2</span>));                <span class="comment">//3</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>使用变量初始化函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="function"><span class="keyword">function</span>(<span class="params">num1,num2</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> num1+num2;</div><div class="line">&#125;;</div><div class="line">alert(box(<span class="number">1</span>,<span class="number">2</span>));             <span class="comment">//3</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>使用Function构造函数—不推荐，因为这种语法会导致解析两次代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'num1'</span>,<span class="string">'num2'</span>,<span class="string">'return num1+num2'</span>);  </div><div class="line">alert(box(<span class="number">1</span>,<span class="number">2</span>));            <span class="comment">//3</span></div></pre></td></tr></table></figure>
+</li>
 </ul>
 <ol>
-<li><p>作为值的函数<br>ECMAScript中的函数名本身就是变量，所以函数也可以作为值来使用。也就是说，不仅可以像传递参数一样把一个函数传递给另一个函数，而且可以将一个函数作为另一个函数的结果返回。<br> function box(sum,num){</p>
-<pre><code>return sum(num);
-</code></pre><p> }<br> function sum(num) {</p>
-<pre><code>return num + 10;
-</code></pre><p> }</p>
-<p> var result = box(sum, 10);                    //这里的sum是一个函数，当作参数传递到另一个函数里，而不是函数的返回值</p>
+<li><p>作为值的函数<br>ECMAScript中的函数名本身就是变量，所以函数也可以作为值来使用。也就是说，不仅可以像传递参数一样把一个函数传递给另一个函数，而且可以将一个函数作为另一个函数的结果返回。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params">sum,num</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> sum(num);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num</span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> num + <span class="number">10</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> result = box(sum, <span class="number">10</span>);					<span class="comment">//这里的sum是一个函数，当作参数传递到另一个函数里，而不是函数的返回值</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>函数内部属性<br>在函数内部，有两个特殊的对象：arguments和this。arguments是一个类数组对象，包含着传入函数中的所有参数，主要用途是保存函数参数。但这个对象还有一个名叫callee的属性，该属性是一个指针，指向拥有这个arguments对象的函数。<br> function box(num){</p>
-<pre><code>if(num &lt;= 1){
-    return 1;
-}else{
-    return num*box(num-1);           //一个简单的的递归，阶乘 4*3*2*1
-}
-</code></pre><p> }</p>
+<li><p>函数内部属性<br>在函数内部，有两个特殊的对象：arguments和this。arguments是一个类数组对象，包含着传入函数中的所有参数，主要用途是保存函数参数。但这个对象还有一个名叫callee的属性，该属性是一个指针，指向拥有这个arguments对象的函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(num &lt;= <span class="number">1</span>)&#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		<span class="keyword">return</span> num*box(num<span class="number">-1</span>);           <span class="comment">//一个简单的的递归，阶乘 4*3*2*1</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>对于阶乘函数一般要用到递归算法，所以函数内部一定会调用自身；如果函数名不改变是没有问题的，但一旦改变函数名，内部的自身调用需要逐一修改。为了解决这个问题，我们可以使用arguments.callee来代替。<br>    function box(num){<br>        if(num &lt;= 1){<br>            return 1;<br>        }else{<br>            return num*arguments.callee(num-1);     //使用arguments.callee来调用自身自身<br>        }<br>    }</p>
-<p>函数内部另一个特殊对象是this，其行为与Java和C#中的this大致相似。换句话说，this引用的是函数据以执行操作的对象，或者说函数调用语句所处的那个作用域。PS：当在全局作用域中调用函数时，this对象引用的就是window。window是JS中最大的对象，是最外围的对象。</p>
-<pre><code>window.color = &apos;红色的&apos;；                  //全局的，或者var color = &apos;红色的&apos;;也行
-alert(this.color);                         //打印全局的color
-
-var box = {
-    color: &apos;蓝色的&apos;，                      //这里的color是box的属性，局部的color
-    sayColor: function(){
-        alert(this.color);                 //此时的this代表的是box对象只能box里的color
-    }
-};
-
-box.sayColor();                             //打印局部的color
-alert(this.color);                          //还是全局的
-</code></pre><ol>
-<li>函数的属性和方法<br>ECMAScript中的函数是对象，因此函数也有属性和方法。每个函数都包含两个属性：length和prototype。其中，length属性表示函数希望接收的命名参数的个数。<br> function box(name,age){<pre><code>alert(name+age);
-</code></pre> }<br> alert(box.length);</li>
+<p>对于阶乘函数一般要用到递归算法，所以函数内部一定会调用自身；如果函数名不改变是没有问题的，但一旦改变函数名，内部的自身调用需要逐一修改。为了解决这个问题，我们可以使用arguments.callee来代替。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(num &lt;= <span class="number">1</span>)&#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		<span class="keyword">return</span> num*<span class="built_in">arguments</span>.callee(num<span class="number">-1</span>);     <span class="comment">//使用arguments.callee来调用自身自身</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>函数内部另一个特殊对象是this，其行为与Java和C#中的this大致相似。换句话说，this引用的是函数据以执行操作的对象，或者说函数调用语句所处的那个作用域。PS：当在全局作用域中调用函数时，this对象引用的就是window。window是JS中最大的对象，是最外围的对象。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.color = <span class="string">'红色的'</span>；                  <span class="comment">//全局的，或者var color = '红色的';也行</span></div><div class="line">alert(<span class="keyword">this</span>.color);                         <span class="comment">//打印全局的color</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> box = &#123;</div><div class="line">	<span class="attr">color</span>: <span class="string">'蓝色的'</span>，                      <span class="comment">//这里的color是box的属性，局部的color</span></div><div class="line">	sayColor: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		alert(<span class="keyword">this</span>.color);                 <span class="comment">//此时的this代表的是box对象只能box里的color</span></div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">box.sayColor();                             <span class="comment">//打印局部的color</span></div><div class="line">alert(<span class="keyword">this</span>.color);                          <span class="comment">//还是全局的</span></div></pre></td></tr></table></figure></p>
+<ol>
+<li>函数的属性和方法<br>ECMAScript中的函数是对象，因此函数也有属性和方法。每个函数都包含两个属性：length和prototype。其中，length属性表示函数希望接收的命名参数的个数。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params">name,age</span>)</span>&#123;</div><div class="line">	alert(name+age);</div><div class="line">&#125;</div><div class="line">alert(box.length);</div></pre></td></tr></table></figure>
+</li>
 </ol>
-<p>PS：对于prototype属性，它是保存所有实例方法的真正所在，也就是原型。prototype下有两个方法：apply()和call()，每个函数都包含这两个非继承而来的方法。这两个方法的用途都在特定的作用域中调用函数，实际上等于设置函数体内this对象的值。<br>    function box(num1,num2){<br>        return num1+num2;             //原函数<br>    }</p>
-<pre><code>function sayBox(num1,num2){                    //apply和call可以冒充另外一个函数
-    return box.apply(this,[num1,num2]);      //this表示这是在window作用域 []表示box所需的参数，来冒充box
-}
-
-function sayBox2(num1,num2){
-    return box.apply(this,arguments);         //arguments对象可以当数组传递，表示box所需要的参数
-}
-
-alert(sayBox(10,10));             //20
-alert(sayBox2(10,10));            //20
-</code></pre><p>call()方法于apply()方法相同，他们的区别仅仅在于接收参数的方式不同。对于call()方法而言，第一个参数是作用域，没有变化，变化只是其余的参数都是直接传递给函数的。<br>    function box(num1, num2) {<br>        return num1 + num2;<br>    }</p>
-<pre><code>function callBox(num1, num2) {
-    return box.call(this, num1, num2);            //和apply区别在于后面的传参，call是一个一个值传递，apply是必须要传数组
-}
-
-alert(callBox(10,10));
-</code></pre><p>apply()和call()方法经常使用的地方是能够扩展函数赖以运行的作用域，通过冒充能扩展作用域。<br>    var color = ‘红色的’;              //全局，或者window.color = ‘红色的’</p>
-<pre><code>var box = {
-    color: &apos;蓝色的&apos;               //局部
-}；
-
-function sayColor(){
-    alert(this.color);
-}
-
-sayColor();                      //作用域在window
-
-sayColor.call(this);             //作用域在window，冒充window
-sayColor.call(window);           //作用域在window
-sayColor.call(box);              //作用域在box对象里面，冒充box，apply后面要传参，call要更方便一点
-</code></pre><p>使用call()或者apply()来扩充作用域的最大的好处就是对象不需要与方法发生任何耦合关系。box对象和sayColor()方法之间不会有多余的关联操作。</p>
+<p>PS：对于prototype属性，它是保存所有实例方法的真正所在，也就是原型。prototype下有两个方法：apply()和call()，每个函数都包含这两个非继承而来的方法。这两个方法的用途都在特定的作用域中调用函数，实际上等于设置函数体内this对象的值<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params">num1,num2</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> num1+num2;             <span class="comment">//原函数</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayBox</span>(<span class="params">num1,num2</span>)</span>&#123;                    <span class="comment">//apply和call可以冒充另外一个函数</span></div><div class="line">	<span class="keyword">return</span> box.apply(<span class="keyword">this</span>,[num1,num2]);      <span class="comment">//this表示这是在window作用域 []表示box所需的参数，来冒充box</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayBox2</span>(<span class="params">num1,num2</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> box.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);         <span class="comment">//arguments对象可以当数组传递，表示box所需要的参数</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">alert(sayBox(<span class="number">10</span>,<span class="number">10</span>));             <span class="comment">//20</span></div><div class="line">alert(sayBox2(<span class="number">10</span>,<span class="number">10</span>));            <span class="comment">//20</span></div></pre></td></tr></table></figure></p>
+<p>call()方法于apply()方法相同，他们的区别仅仅在于接收参数的方式不同。对于call()方法而言，第一个参数是作用域，没有变化，变化只是其余的参数都是直接传递给函数的。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params">num1, num2</span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> num1 + num2;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">callBox</span>(<span class="params">num1, num2</span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> box.call(<span class="keyword">this</span>, num1, num2);			<span class="comment">//和apply区别在于后面的传参，call是一个一个值传递，apply是必须要传数组</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">alert(callBox(<span class="number">10</span>,<span class="number">10</span>));</div></pre></td></tr></table></figure></p>
+<p>apply()和call()方法经常使用的地方是能够扩展函数赖以运行的作用域，通过冒充能扩展作用域。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> color = <span class="string">'红色的'</span>;              <span class="comment">//全局，或者window.color = '红色的'</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> box = &#123;</div><div class="line">	<span class="attr">color</span>: <span class="string">'蓝色的'</span>               <span class="comment">//局部</span></div><div class="line">&#125;；</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayColor</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	alert(<span class="keyword">this</span>.color);</div><div class="line">&#125;</div><div class="line"></div><div class="line">sayColor();                      <span class="comment">//作用域在window</span></div><div class="line"></div><div class="line">sayColor.call(<span class="keyword">this</span>);             <span class="comment">//作用域在window，冒充window</span></div><div class="line">sayColor.call(<span class="built_in">window</span>);           <span class="comment">//作用域在window</span></div><div class="line">sayColor.call(box);              <span class="comment">//作用域在box对象里面，冒充box，apply后面要传参，call要更方便一点</span></div></pre></td></tr></table></figure></p>
+<p>使用call()或者apply()来扩充作用域的最大的好处就是对象不需要与方法发生任何耦合关系。box对象和sayColor()方法之间不会有多余的关联操作。</p>
 <h3 id="变量、作用域及内存"><a href="#变量、作用域及内存" class="headerlink" title="变量、作用域及内存"></a>变量、作用域及内存</h3><p>JavaScript变量是松散型的(不强制类型)本质，决定了它只是在特定时间用于保存特定值的一个名字而已。</p>
 <ol>
 <li>变量及作用域</li>
@@ -462,79 +413,62 @@ sayColor.call(box);              //作用域在box对象里面，冒充box，app
 <p>基本类型值：指的是那些保存在栈内存中的简单数据段，即这种值完全保存在内存中的一个位置。基本类型值有以下几种：Undefined、Null、Boolean、Number和String。这些类型在内存中分别占有固定大小的空间，他们的值保存在栈空间，我们通过按值来访问的。</p>
 <p>引用类型值：是指那些保存在堆内存中的对象，意思是变量中保存的实际上只是一个指针，这个指针指向内存中的另一个位置，该位置保存对象。</p>
 <ul>
-<li>动态属性<br>定义基本类型值和引用类型值的方式是相似的：创建一个变量并为该变量赋值。但是，当这个值保存到变量中以后，对不同类型值可以执行的操作则大相径庭。<br>  var box = new Object();              //创建引用类型，或者写成{}<br>  box.name = ‘Lee’;                    //新增一个属性<br>  alert(box.name);                     //输出</li>
+<li>动态属性<br>定义基本类型值和引用类型值的方式是相似的：创建一个变量并为该变量赋值。但是，当这个值保存到变量中以后，对不同类型值可以执行的操作则大相径庭。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="keyword">new</span> <span class="built_in">Object</span>();              <span class="comment">//创建引用类型，或者写成&#123;&#125;</span></div><div class="line">box.name = <span class="string">'Lee'</span>;                    <span class="comment">//新增一个属性</span></div><div class="line">alert(box.name);                     <span class="comment">//输出</span></div></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>如果是基本类型的值添加属性的话，就会出现问题了。<br>    var box = ‘Lee’;                            //创建一个基本类型<br>    box.age = 27;                                //给基本类型添加属性<br>    alert(box.age);                                //undefined    </p>
+<p>如果是基本类型的值添加属性的话，就会出现问题了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var box = &apos;Lee&apos;;							//创建一个基本类型</div><div class="line">box.age = 27;								//给基本类型添加属性</div><div class="line">alert(box.age);								//undefined</div></pre></td></tr></table></figure></p>
 <ul>
-<li><p>复制变量值<br>在变量复制方面，基本类型和引用类型也有所不同。基本类型复制的是值本身，而引用类型复制的是地址。都是复制栈内存里的，不能复制堆内存。<br>  var box = ‘Lee’;                       //在栈内存生成一个box’Lee’<br>  var box2 = box;                        //在栈内存再生成一个box2’Lee’<br>box2是虽然是box1的一个副本，但是它是完全独立的，两个变量分别操作时互不影响。<br>  var box = new Object();                //创建一个引用类型<br>  box.name = ‘Lee’;                      //新增一个属性<br>  var box2 = box;                        //把引用地址赋值给box2<br>在引用类型中，box2其实就是box，因为他们指向的是同一个对象。如果这个对象中的name属性被修改了，box2.name和box.name输出的值都会被相应修改掉了。</p>
-</li>
-<li><p>传递参数<br>ECMAScript中所有函数的参数都是按值传递的，言下之意就是说，参数不会按引用传递，虽然变量有基本类型和引用类型之分。<br>  function box(num){                      //按值传递，传递的参数是基本类型</p>
-<pre><code>num += 10;                          //这里的num是局部变量，全局无效
-return num;
-</code></pre><p>  }<br>  var num = 50;<br>  var result = box(num);<br>  alert(result);                          //60<br>  alert(num);                             //50，全局的num 如果是按引用传递，那么函数里的num会成为类似全局的变量。但是JS里没有按引用传递，但是PHP里有。</p>
+<li>复制变量值<br>在变量复制方面，基本类型和引用类型也有所不同。基本类型复制的是值本身，而引用类型复制的是地址。都是复制栈内存里的，不能复制堆内存。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="string">'Lee'</span>;                       <span class="comment">//在栈内存生成一个box'Lee'</span></div><div class="line"><span class="keyword">var</span> box2 = box;                        <span class="comment">//在栈内存再生成一个box2'Lee'</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
+<p>box2是虽然是box1的一个副本，但是它是完全独立的，两个变量分别操作时互不影响。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">	<span class="keyword">var</span> box = <span class="keyword">new</span> <span class="built_in">Object</span>();                <span class="comment">//创建一个引用类型</span></div><div class="line">	box.name = <span class="string">'Lee'</span>;                      <span class="comment">//新增一个属性</span></div><div class="line">	<span class="keyword">var</span> box2 = box;                        <span class="comment">//把引用地址赋值给box2</span></div><div class="line"><span class="string">``</span><span class="string">`	</span></div><div class="line">在引用类型中，box2其实就是box，因为他们指向的是同一个对象。如果这个对象中的name属性被修改了，box2.name和box.name输出的值都会被相应修改掉了。</div><div class="line"></div><div class="line">* 传递参数</div><div class="line">ECMAScript中所有函数的参数都是按值传递的，言下之意就是说，参数不会按引用传递，虽然变量有基本类型和引用类型之分。</div><div class="line">`<span class="string">``</span>js</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params">num</span>)</span>&#123;                      <span class="comment">//按值传递，传递的参数是基本类型</span></div><div class="line">		num += <span class="number">10</span>;                          <span class="comment">//这里的num是局部变量，全局无效</span></div><div class="line">		<span class="keyword">return</span> num;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">var</span> num = <span class="number">50</span>;</div><div class="line">	<span class="keyword">var</span> result = box(num);</div><div class="line">	alert(result);                          <span class="comment">//60</span></div><div class="line">	alert(num);                             <span class="comment">//50，全局的num</span></div></pre></td></tr></table></figure></p>
+<p>如果是按引用传递，那么函数里的num会成为类似全局的变量。但是JS里没有按引用传递，但是PHP里有。</p>
 <p>PS：以上的代码中，传递的参数是一个基本类型的值。而函数里的num是一个局部变量，和外面的num没有任何联系。</p>
 <ul>
-<li>检测类型<br>要检测一个变量的类型，我们可以通过typeof运算符来判别。诸如：<br>  var box = ‘Lee’;<br>  alert(typeof box);                    //string</li>
+<li>检测类型<br>要检测一个变量的类型，我们可以通过typeof运算符来判别。诸如：<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="string">'Lee'</span>;</div><div class="line">alert(<span class="keyword">typeof</span> box);                    <span class="comment">//string</span></div></pre></td></tr></table></figure>
+</li>
 </ul>
 <p>虽然typeof运算符在检查基本数据类型的时候非常好用，但检测引用类型的时候，它就不是那么好用了。通常，我们并不想知道它是不是对象，而是想知道它到底是什么类型的对象。因为数组也是object，null也是Object等等。</p>
-<p>这时我们应该采用instanceof运算符来查看。<br>    var box = [1,2,3];<br>    alert(box instanceof Array);                  //是否是数组</p>
-<pre><code>var box2 = {};
-alert(box2 instanceof Object);                //是否是对象
-
-var box3 = /g/;
-alert(box3 instanceof RegExp);                //是否是正则表达式
-
-var box4 = new String(&apos;Lee&apos;);                 //需要new一个
-alert(box4 instanceof String);                //是否是字符串对象
-</code></pre><p>PS：当使用instanceof检查基本类型的值时，它会返回false。</p>
+<p>这时我们应该采用instanceof运算符来查看。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line">alert(box <span class="keyword">instanceof</span> <span class="built_in">Array</span>);                  <span class="comment">//是否是数组</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> box2 = &#123;&#125;;</div><div class="line">alert(box2 <span class="keyword">instanceof</span> <span class="built_in">Object</span>);                <span class="comment">//是否是对象</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> box3 = <span class="regexp">/g/</span>;</div><div class="line">alert(box3 <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>);                <span class="comment">//是否是正则表达式</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> box4 = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'Lee'</span>);                 <span class="comment">//需要new一个</span></div><div class="line">alert(box4 <span class="keyword">instanceof</span> <span class="built_in">String</span>);                <span class="comment">//是否是字符串对象</span></div></pre></td></tr></table></figure></p>
+<p>PS：当使用instanceof检查基本类型的值时，它会返回false。</p>
 <ul>
 <li>执行环境及作用域<br>执行环境：是JavaScript中最为重要的一个概念。执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。</li>
 </ul>
-<p>全局执行环境：是最外围的执行环境。在Web浏览器中，全局执行环境被认为是window对象。因此所有的全局变量和函数都是作为window对象的属性和方法创建的。<br>    var box = ‘blue’;                          //声明一个全局变量<br>    function setBox(){<br>        alert(box);                           //全局变量可以在函数里访问<br>    }<br>    setBox();                                 //执行函数</p>
-<p>全局的变量和函数，都是window对象的属性和方法。<br>    var box = ‘blue’;<br>    function setBox(){<br>        alert(window.box);                    //全局变量即window的属性<br>    }<br>    window.setBox();                          //全局函数即window的方法</p>
+<p>全局执行环境：是最外围的执行环境。在Web浏览器中，全局执行环境被认为是window对象。因此所有的全局变量和函数都是作为window对象的属性和方法创建的。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="string">'blue'</span>;                          <span class="comment">//声明一个全局变量</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setBox</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	alert(box);                           <span class="comment">//全局变量可以在函数里访问</span></div><div class="line">&#125;</div><div class="line">setBox();                                 <span class="comment">//执行函数</span></div></pre></td></tr></table></figure></p>
+<p>全局的变量和函数，都是window对象的属性和方法。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="string">'blue'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setBox</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	alert(<span class="built_in">window</span>.box);                    <span class="comment">//全局变量即window的属性</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">window</span>.setBox();                          <span class="comment">//全局函数即window的方法</span></div></pre></td></tr></table></figure></p>
 <p>PS：当执行环境中的所有代码执行完毕后，该环境被销毁，保存在其中的所有变量和函数定义也随之销毁。如果是全局环境下，需要程序执行完毕，或者网页被关闭才会销毁。</p>
 <p>PS：每个执行环境都有一个与之关联的变量对象，就好比全局的window可以调用变量和属性一样。局部的环境也有一个类似window 的变量对象，环境中定义的所有变量和函数都保存在这个对象中。(我们无法访问这个变量对象，但解析器会处理数据时后台使用它)</p>
-<p>函数里的局部作用域里的变量替换全局变量，但作用域仅限在函数体内这个局部环境。<br>    var box = ‘blue’;<br>    function setBox(){<br>        var box = ‘red’;                      //这里是局部变量，出来就不认识了，去掉var就变成全局变量<br>        alert(box);<br>    }<br>    setBox();                                 //执行以下这个函数<br>    alert(box);</p>
-<p>通过传参，可以替换函数体内的局部变量，但作用域仅限在函数体内这个局部环境。<br>    var box = ‘blue’;<br>    function setBox(box) {                        //通过传参，也是局部变量，作用域在setBox范围下<br>        alert(box);<br>    }<br>    setBox(‘red’);                              //red<br>    alert(box);                                 //blue</p>
-<p>函数体内还包含着函数，只有这个函数才可以访问内一层的函数。<br>    var box = ‘blue’;<br>    function setBox(){<br>        function setColor(){<br>            var b = ‘orange’;<br>            alert(box);<br>            alert(b);<br>        }<br>        setColor();                   //setColor()的执行环境在setBox()内<br>    }<br>    setBox();</p>
+<p>函数里的局部作用域里的变量替换全局变量，但作用域仅限在函数体内这个局部环境。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="string">'blue'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setBox</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> box = <span class="string">'red'</span>;                      <span class="comment">//这里是局部变量，出来就不认识了，去掉var就变成全局变量</span></div><div class="line">	alert(box);</div><div class="line">&#125;</div><div class="line">setBox();                                 <span class="comment">//执行以下这个函数</span></div><div class="line">alert(box);</div></pre></td></tr></table></figure></p>
+<p>通过传参，可以替换函数体内的局部变量，但作用域仅限在函数体内这个局部环境。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="string">'blue'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setBox</span>(<span class="params">box</span>) </span>&#123;						<span class="comment">//通过传参，也是局部变量，作用域在setBox范围下</span></div><div class="line">	alert(box);</div><div class="line">&#125;</div><div class="line">setBox(<span class="string">'red'</span>);                              <span class="comment">//red</span></div><div class="line">alert(box);                                 <span class="comment">//blue</span></div></pre></td></tr></table></figure></p>
+<p>函数体内还包含着函数，只有这个函数才可以访问内一层的函数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="string">'blue'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setBox</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">setColor</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> b = <span class="string">'orange'</span>;</div><div class="line">		alert(box);</div><div class="line">		alert(b);</div><div class="line">	&#125;</div><div class="line">	setColor();                   <span class="comment">//setColor()的执行环境在setBox()内</span></div><div class="line">&#125;</div><div class="line">setBox();</div></pre></td></tr></table></figure></p>
 <p>PS：每个函数被调用时都会创建自己的执行环境。当执行到这个函数时，函数的环境就会被推到环境栈中去执行，而执行后又在环境栈中弹出(退出)，把控制权交给上一级的执行环境。</p>
 <p>PS：当代码在一个环境中执行时，就会形成一种叫做作用域链的东西。它的用途是保证对执行环境中有访问权限的变量和函数进行有序访问。作用域链的前端，就是执行环境的变量对象</p>
 <ul>
-<li><p>没有块级作用域<br>块级作用域表示诸如if语句等有花括号封闭的代码块，所以，支持条件判断来定义变量。</p>
-<p>  if(true){                            //if语句代码块没有局部作用域</p>
-<pre><code>var box = &apos;Lee&apos;;              
-</code></pre><p>  }</p>
+<li>没有块级作用域<br>块级作用域表示诸如if语句等有花括号封闭的代码块，所以，支持条件判断来定义变量。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;                            <span class="comment">//if语句代码块没有局部作用域</span></div><div class="line">	<span class="keyword">var</span> box = <span class="string">'Lee'</span>;              </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>for循环也是如此<br>    for(var i = 0; i &lt; 10; i++){           //没有局部作用域<br>        var box = ‘Lee’;<br>    }<br>    alert(i);<br>    alert(box);</p>
-<p>var关键字在函数里的区别<br>    function box(num1,num2){<br>        var sum = num1 + num2;             //如果去掉var就是全局变量<br>        return sum;<br>    }<br>    alert(box(10,10));<br>    alert(sum);                         //报错</p>
+<p>for循环也是如此<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;           <span class="comment">//没有局部作用域</span></div><div class="line">	<span class="keyword">var</span> box = <span class="string">'Lee'</span>; </div><div class="line">&#125;</div><div class="line">alert(i);</div><div class="line">alert(box);</div></pre></td></tr></table></figure></p>
+<p>var关键字在函数里的区别<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params">num1,num2</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> sum = num1 + num2;             <span class="comment">//如果去掉var就是全局变量</span></div><div class="line">	<span class="keyword">return</span> sum;</div><div class="line">&#125;</div><div class="line">alert(box(<span class="number">10</span>,<span class="number">10</span>));</div><div class="line">alert(sum);                         <span class="comment">//报错</span></div></pre></td></tr></table></figure></p>
 <p>PS：不使用var就初始化变量会导致各种意外发生。所以初始化变量的时候一定要加上var。</p>
-<p>一般确定变量都是通过搜索来确定该标识符实际代表什么。<br>    var box = ‘blue’;<br>    function getBox(){<br>        return box;                        //代表全局box<br>                                    //如果加上函数体加上var box = ‘red’;<br>    }<br>    alert(getBox());                    //那么最后返回值就是red</p>
+<p>一般确定变量都是通过搜索来确定该标识符实际代表什么。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="string">'blue'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getBox</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> box;                        <span class="comment">//代表全局box</span></div><div class="line">	                            <span class="comment">//如果加上函数体加上var box = 'red';</span></div><div class="line">&#125;</div><div class="line">alert(getBox());                    <span class="comment">//那么最后返回值就是red</span></div></pre></td></tr></table></figure></p>
 <p>PS：变量查询中，访问局部变量要比全局变量更快，因为不需要向上搜索作用域链。</p>
 <ol>
 <li>内存问题<br>JavaScript具有自动垃圾收集机制，它会自行管理内存分配及无用内存的回收。最常用的垃圾收集方式是标记清除。</li>
 </ol>
 <p>垃圾收集器会在运行的时候给存储在内存中的变量加上标记。然后，它会去掉环境中正在使用变量的标记，而没有被去掉标记的变量将被视为准备删除的变量。最后，垃圾收集器完成内存清理工作，销毁那些带标记的值并回收他们所占用的内存空间。</p>
-<p>一般来说，确保占用最少的内存可以让页面获得更好的性能。那么优化内存的最佳方案，就是一旦数据不再有用，那么将其设置为null来释放引用，这个做法叫做解除引用。这一做法适用于大多数全局变量和全局对象。</p>
-<pre><code>var o = {
-    name: &apos;July&apos;
-};
-o = null;                   //解除对象引用，等待垃圾收集器回收
-</code></pre><h3 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h3><p>每当读取一个基本类型值的时候，后台就会创建一个对应的基本包装类型的对象，从而能够调用一些方法来操作这些数据。</p>
+<p>一般来说，确保占用最少的内存可以让页面获得更好的性能。那么优化内存的最佳方案，就是一旦数据不再有用，那么将其设置为null来释放引用，这个做法叫做解除引用。这一做法适用于大多数全局变量和全局对象。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o = &#123;</div><div class="line">	<span class="attr">name</span>: <span class="string">'July'</span></div><div class="line">&#125;;</div><div class="line">o = <span class="literal">null</span>;                   <span class="comment">//解除对象引用，等待垃圾收集器回收</span></div></pre></td></tr></table></figure></p>
+<h3 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h3><p>每当读取一个基本类型值的时候，后台就会创建一个对应的基本包装类型的对象，从而能够调用一些方法来操作这些数据。</p>
 <ol>
-<li>基本包装类型概述<br> var box = ‘abcde’;               //定义一个字符串<br> var box2 = box.substring(2);        //截掉字符串前两位<br> alert(box2);                    //输出新字符串</li>
+<li>基本包装类型概述<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="string">'abcde'</span>;               <span class="comment">//定义一个字符串</span></div><div class="line"><span class="keyword">var</span> box2 = box.substring(<span class="number">2</span>);        <span class="comment">//截掉字符串前两位</span></div><div class="line">alert(box2);                    <span class="comment">//输出新字符串</span></div></pre></td></tr></table></figure>
+</li>
 </ol>
 <p>变量box是一个字符串类型，而box.substring(2)又说明它是一个对象(PS：只有对象才会调用方法)，最后把处理结果赋值给box2。</p>
 <ul>
-<li><p>字面量写法：<br>  var box = ‘abcde’;            //字面量<br>  box.name = ‘july’;             //无效属性<br>  box.age = function(){         //无效方法</p>
-<pre><code>return 100;
-</code></pre><p>  }；<br>  alert(box);                   //abcde<br>  alert(box.substring(2));      //cde<br>  alert(typeof box);           //string<br>  alert(box.name);              //undefined<br>  alert(box.age());             //错误</p>
+<li><p>字面量写法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="string">'abcde'</span>;            <span class="comment">//字面量</span></div><div class="line">box.name = <span class="string">'july'</span>;             <span class="comment">//无效属性</span></div><div class="line">box.age = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;         <span class="comment">//无效方法</span></div><div class="line">	<span class="keyword">return</span> <span class="number">100</span>;</div><div class="line">&#125;；</div><div class="line">alert(box);                   <span class="comment">//abcde</span></div><div class="line">alert(box.substring(<span class="number">2</span>));      <span class="comment">//cde</span></div><div class="line">alert(<span class="keyword">typeof</span> box);           <span class="comment">//string</span></div><div class="line">alert(box.name);              <span class="comment">//undefined</span></div><div class="line">alert(box.age());             <span class="comment">//错误</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>new 运算符写法：<br>  var box = new String(‘abcde’);           //new运算符<br>  box.name = ‘july’;                        //有效属性<br>  box.age = function(){                  //有效方法</p>
-<pre><code>return 100；
-</code></pre><p>  }<br>  alert(box);                   //abcde<br>  alert(box.substring(2));      //cde<br>  alert(typeof box);           //object<br>  alert(box.name);              //july<br>  alert(box.age());             //100</p>
+<li><p>new 运算符写法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'abcde'</span>);           <span class="comment">//new运算符</span></div><div class="line">box.name = <span class="string">'july'</span>;                        <span class="comment">//有效属性</span></div><div class="line">box.age = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;                  <span class="comment">//有效方法</span></div><div class="line">	<span class="keyword">return</span> <span class="number">100</span>；</div><div class="line">&#125;</div><div class="line">alert(box);                   <span class="comment">//abcde</span></div><div class="line">alert(box.substring(<span class="number">2</span>));      <span class="comment">//cde</span></div><div class="line">alert(<span class="keyword">typeof</span> box);           <span class="comment">//object</span></div><div class="line">alert(box.name);              <span class="comment">//july</span></div><div class="line">alert(box.age());             <span class="comment">//100</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>不管字面量形式还是new运算符形式，都可以使用它的内置方法。并且Boolean和Number特性与String相同，三种类型可以成为基本包装类型。</p>
@@ -564,32 +498,12 @@ alert(box.charAt(1));            //b
 alert(box.charCodeAt(1));        //98
 alert(box[1]);                   //b,通过数组的方式截取，在IE浏览器会显示undefined，所以使用时要慎重。
 </code></pre><p>字符串操作方法：<br>    方  法                                         描述<br>    concat(str1…str2)                  将字符串参数串联到调用该方法的字符串<br>    slice(n,m)                          返回字符串n到m之间位置的字符串<br>    substring(n,m)                      返回字符串n到m之间位置的字符串<br>    substr(n,m)                          返回字符串n开始的m个字符串</p>
-<pre><code>var box = &apos;july&apos;;
-alert(box.concat(&apos;is&apos;,&apos;a&apos;,&apos;student&apos;,&apos;!&apos;));           //july is a student!
-alert(box.slice(1));                      //uly
-alert(box.slice(1,3));                    //ul
-alert(box.substring(1));                  //uly
-alert(box.substring(1,3));                //ul
-alert(box.substr(1));                     //uly
-alert(box.substr(1,3));                    //uly  从1开始的3个字符串
-
-var box = &apos;mr.july&apos;;
-alert(box.slice(-3));                      //7+(-3)=4位开始 uly
-alert(box.substring(-3));                  //mr.july 负数全部返回
-alert(box.substr(-3));                     //7+(-3)=4位开始 uly
-
-var box = &apos;mr.july&apos;;
-alert(box.slice(3,-1));                  //6+(-1)=5,(3,5) ju
-alert(box.substring(3,-1));                //mr. 第二参数为负，直接转为0
-</code></pre><p>PS：IE的JavaScript实现在处理向substr()方法传递负值的情况下存在问题，它会返回原始字符串，使用时要切记</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="string">'july'</span>;</div><div class="line">alert(box.concat(<span class="string">'is'</span>,<span class="string">'a'</span>,<span class="string">'student'</span>,<span class="string">'!'</span>));           <span class="comment">//july is a student!</span></div><div class="line">alert(box.slice(<span class="number">1</span>));                      <span class="comment">//uly</span></div><div class="line">alert(box.slice(<span class="number">1</span>,<span class="number">3</span>));                    <span class="comment">//ul</span></div><div class="line">alert(box.substring(<span class="number">1</span>));                  <span class="comment">//uly</span></div><div class="line">alert(box.substring(<span class="number">1</span>,<span class="number">3</span>));                <span class="comment">//ul</span></div><div class="line">alert(box.substr(<span class="number">1</span>));                     <span class="comment">//uly</span></div><div class="line">alert(box.substr(<span class="number">1</span>,<span class="number">3</span>));                    <span class="comment">//uly  从1开始的3个字符串</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> box = <span class="string">'mr.july'</span>;</div><div class="line">alert(box.slice(<span class="number">-3</span>));                      <span class="comment">//7+(-3)=4位开始 uly</span></div><div class="line">alert(box.substring(<span class="number">-3</span>));                  <span class="comment">//mr.july 负数全部返回</span></div><div class="line">alert(box.substr(<span class="number">-3</span>));                     <span class="comment">//7+(-3)=4位开始 uly</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> box = <span class="string">'mr.july'</span>;</div><div class="line">alert(box.slice(<span class="number">3</span>,<span class="number">-1</span>));                  <span class="comment">//6+(-1)=5,(3,5) ju</span></div><div class="line">alert(box.substring(<span class="number">3</span>,<span class="number">-1</span>));                <span class="comment">//mr. 第二参数为负，直接转为0</span></div></pre></td></tr></table></figure>
+<p>PS：IE的JavaScript实现在处理向substr()方法传递负值的情况下存在问题，它会返回原始字符串，使用时要切记</p>
 <p>字符串位置方法：<br>       方  法                                      描述<br>    indexOf(str, n)                  从n开始搜索的第一个str，并将搜索的索引值返回<br>    lastIndexOf(str, n)              从n开始搜索的最后一个str，并将搜索的索引值返回</p>
-<pre><code>var box = &apos;Mr.Lee is Lee&apos;;
-alert(box.indexOf(&apos;L&apos;));            //3
-alert(box.indexOf(&apos;L&apos;,5));          //10
-alert(box.lastIndexOf(&apos;L&apos;));        //10
-alert(box.lastIndexOf(&apos;L&apos;,5));      //3,从指定位置向前搜索
-</code></pre><p>PS：如果没有找到想要的字符串，则返回-1</p>
-<p>例子：找出全部的L<br>    var box = ‘Mr.Lee is Lee’;        //包含两个L的字符串<br>    var boxarr = [];                  //存放L位置的数组<br>    var pos = box.indexOf(‘L’);       //先获取第一个L的位置<br>    while(pos &gt; -1){                   //如果位置大于-1,说明还存在L<br>        boxarr.push(pos);             //添加到数组<br>        pos = box.indexOf(‘L’,pos+1);         //从新赋值pos目前的位置<br>    }<br>    alert(boxarr);                //输出</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="string">'Mr.Lee is Lee'</span>;</div><div class="line">alert(box.indexOf(<span class="string">'L'</span>));            <span class="comment">//3</span></div><div class="line">alert(box.indexOf(<span class="string">'L'</span>,<span class="number">5</span>));          <span class="comment">//10</span></div><div class="line">alert(box.lastIndexOf(<span class="string">'L'</span>));        <span class="comment">//10</span></div><div class="line">alert(box.lastIndexOf(<span class="string">'L'</span>,<span class="number">5</span>));      <span class="comment">//3,从指定位置向前搜索</span></div></pre></td></tr></table></figure>
+<p>PS：如果没有找到想要的字符串，则返回-1</p>
+<p>例子：找出全部的L<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">var</span> box = <span class="string">'Mr.Lee is Lee'</span>;        <span class="comment">//包含两个L的字符串</span></div><div class="line"><span class="keyword">var</span> boxarr = [];                  <span class="comment">//存放L位置的数组</span></div><div class="line"><span class="keyword">var</span> pos = box.indexOf(<span class="string">'L'</span>);       <span class="comment">//先获取第一个L的位置</span></div><div class="line"><span class="keyword">while</span>(pos &gt; <span class="number">-1</span>)&#123;                   <span class="comment">//如果位置大于-1,说明还存在L</span></div><div class="line">	boxarr.push(pos);             <span class="comment">//添加到数组</span></div><div class="line">	pos = box.indexOf(<span class="string">'L'</span>,pos+<span class="number">1</span>);         <span class="comment">//从新赋值pos目前的位置</span></div><div class="line">&#125;</div><div class="line">alert(boxarr);                <span class="comment">//输出</span></div></pre></td></tr></table></figure></p>
 <p>大小写转换方法：<br>      方  法                                 描述<br>    toLowerCase(str)                将字符串全部转换为小写<br>    toUpperCase(str)                将字符串全部转换为大写<br>    toLocaleLowerCase(str)            将字符串全部转换为小写，并且本地化<br>    toLocaleupperCase(str)            将字符串全部转换为大写，并且本地化</p>
 <p>符串的模式匹配方法：<br>      方  法                                           描述<br>    match(pattern)                               返回pattern 中的子串或null<br>    replace(pattern, replacement)             用replacement 替换pattern<br>    search(pattern)                              返回字符串中pattern 开始位置<br>    split(pattern)                              返回字符串按指定pattern 拆分的数组</p>
 <p>其他方法：<br>       方  法                                  描述<br>    fromCharCode(ascii)               静态方法，输出Ascii码对应值<br>    localeCompare(str1,str2)       比较两个字符串，并返回相应的值</p>
@@ -606,8 +520,7 @@ alert(box.lastIndexOf(&apos;L&apos;,5));      //3,从指定位置向前搜索
 <p>encodeURIComponent()则会对它发现的任何非标准字符进行编码。因为encodeURIComponent()编码比encodeURI()编码来的更加彻底，一般来说encodeURIComponent()使用频率要高一些。</p>
 <p>使用了URI编码过后，还可以进行解码，通过decodeURI()和decodeURIComponent()来进行解码</p>
 <ul>
-<li><p>eval()方法<br>担当一个字符串解析器的作用，只接受一个参数，而这个参数就是要执行的JavaScript代码的字符串。<br>  eval(‘var box = 100’);               //解析了字符串代码<br>  alert(box);<br>  eval(‘alert(100)’);</p>
-<p>  eval(‘function box(){return 123}’);          //函数也可以<br>  alert(box());</p>
+<li>eval()方法<br>担当一个字符串解析器的作用，只接受一个参数，而这个参数就是要执行的JavaScript代码的字符串。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">eval</span>(<span class="string">'var box = 100'</span>);               <span class="comment">//解析了字符串代码</span></div><div class="line">alert(box);</div><div class="line"><span class="built_in">eval</span>(<span class="string">'alert(100)'</span>);</div><div class="line"></div><div class="line"><span class="built_in">eval</span>(<span class="string">'function box()&#123;return 123&#125;'</span>);          <span class="comment">//函数也可以</span></div><div class="line">alert(box());</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>eval()方法的功能非常强大，但也非常危险。因此使用的时候必须极为谨慎。特别是在用户输入数据的情况下，非常有可能导致程序的安全性，比如代码注入等等。</p>
@@ -635,32 +548,14 @@ alert(box.lastIndexOf(&apos;L&apos;,5));      //3,从指定位置向前搜索
 </ul>
 <h3 id="面向对象与原型"><a href="#面向对象与原型" class="headerlink" title="面向对象与原型"></a>面向对象与原型</h3><p>ECMAScript有两种开发模式：1.函数式(过程化)，2.面向对象(OOP)。<br>面向对象的语言有一个标志，那就是类的概念，而通过类可以创建任意多个具有相同属性和方法的对象。但是，ECMAScript没有类的概念，因此它的对象也与基于类的语言中的对象有所不同。</p>
 <ol>
-<li>创建对象<br>创建一个对象，然后给这个对象新建属性和方法。<br> var box = new Object();           //创建一个Object对象<br> box.name = ‘july’;                //创建一个name属性并赋值<br> box.age = 100;                    //创建一个age属性并赋值<br> box.run = function(){            //创建一个run()方法并返回值<pre><code>return this.name + this.age + &apos;运行中...&apos;；
-</code></pre> }；<br> alert(box.run());                //输出属性和方法的值</li>
+<li>创建对象<br>创建一个对象，然后给这个对象新建属性和方法。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="keyword">new</span> <span class="built_in">Object</span>();           <span class="comment">//创建一个Object对象</span></div><div class="line">box.name = <span class="string">'july'</span>;                <span class="comment">//创建一个name属性并赋值</span></div><div class="line">box.age = <span class="number">100</span>;                    <span class="comment">//创建一个age属性并赋值</span></div><div class="line">box.run = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;            <span class="comment">//创建一个run()方法并返回值</span></div><div class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.name + <span class="keyword">this</span>.age + <span class="string">'运行中...'</span>；</div><div class="line">&#125;；</div><div class="line">alert(box.run());                <span class="comment">//输出属性和方法的值</span></div></pre></td></tr></table></figure>
+</li>
 </ol>
 <p>上面创建了一个对象，并且创建属性和方法，在run()方法里的this，就是代表box对象本身。这种是JavaScript创建对象最基本的方法，但有个缺点，想创建一个类似的对象，就会产生大量的代码。</p>
-<p>为了解决多个类似对象声明的问题，我们可以使用一种叫做工厂模式的方法，这种方法就是为了解决实例化对象产生大量重复的问题。</p>
-<pre><code>function createObject(name,age){         //集中实例化的函数
-    var obj = new Object();
-    obj.name = name;
-    obj.age = age;
-    obj.run = function(){
-        return this.name + this.age + &apos;运行中...&apos;;
-    };
-    return obj;
-}
-var box1 = createObject(&apos;Tom&apos;,20);       //第一个实例
-var box2 = createObject(&apos;jack&apos;,22);         //第二个实例
-alert(box1.run());
-alert(box2.run());
-</code></pre><p>工厂模式解决了重复实例化的问题，但还有一个问题，那就是识别问题，因为根本无法搞清楚他们到底是哪个对象的实例。</p>
-<p>ECMAScript中可以采用构造函数(构造方法)可用来创建特定的对象。<br>    function Box(name,age){             //构造函数模式<br>        this.name = name;<br>        this.age = age;<br>        this.run = function(){<br>            return this.name + this.age + ‘运行中…’;<br>        };<br>    }</p>
-<pre><code>var box1 = new Box(&apos;Tom&apos;,20);             //new Box()即可
-var box2 = new Box(&apos;jack&apos;,22);   
-
-alert(box1.run());
-alert(box1 instanceof Box);            //很清晰的识别它从属于Box
-</code></pre><p>使用了构造函数的方法，和使用工厂模式的方法他们不同之处如下：</p>
+<p>为了解决多个类似对象声明的问题，我们可以使用一种叫做工厂模式的方法，这种方法就是为了解决实例化对象产生大量重复的问题。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createObject</span>(<span class="params">name,age</span>)</span>&#123;         <span class="comment">//集中实例化的函数</span></div><div class="line">	<span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">	obj.name = name;</div><div class="line">	obj.age = age;</div><div class="line">	obj.run = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.name + <span class="keyword">this</span>.age + <span class="string">'运行中...'</span>;</div><div class="line">	&#125;;</div><div class="line">	<span class="keyword">return</span> obj;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> box1 = createObject(<span class="string">'Tom'</span>,<span class="number">20</span>);       <span class="comment">//第一个实例</span></div><div class="line"><span class="keyword">var</span> box2 = createObject(<span class="string">'jack'</span>,<span class="number">22</span>);         <span class="comment">//第二个实例</span></div><div class="line">alert(box1.run());</div><div class="line">alert(box2.run());</div></pre></td></tr></table></figure></p>
+<p>工厂模式解决了重复实例化的问题，但还有一个问题，那就是识别问题，因为根本无法搞清楚他们到底是哪个对象的实例。</p>
+<p>ECMAScript中可以采用构造函数(构造方法)可用来创建特定的对象。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Box</span>(<span class="params">name,age</span>)</span>&#123;             <span class="comment">//构造函数模式</span></div><div class="line">	<span class="keyword">this</span>.name = name;</div><div class="line">	<span class="keyword">this</span>.age = age;</div><div class="line">	<span class="keyword">this</span>.run = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.name + <span class="keyword">this</span>.age + <span class="string">'运行中...'</span>;</div><div class="line">	&#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> box1 = <span class="keyword">new</span> Box(<span class="string">'Tom'</span>,<span class="number">20</span>);             <span class="comment">//new Box()即可</span></div><div class="line"><span class="keyword">var</span> box2 = <span class="keyword">new</span> Box(<span class="string">'jack'</span>,<span class="number">22</span>);   </div><div class="line"></div><div class="line">alert(box1.run());</div><div class="line">alert(box1 <span class="keyword">instanceof</span> Box);            <span class="comment">//很清晰的识别它从属于Box</span></div></pre></td></tr></table></figure></p>
+<p>使用了构造函数的方法，和使用工厂模式的方法他们不同之处如下：</p>
 <ol>
 <li>构造函数方法没有显示的创建对象(new Object())；</li>
 <li>直接将属性和方法赋值给this对象；</li>
@@ -678,58 +573,34 @@ alert(box1 instanceof Box);            //很清晰的识别它从属于Box
 <li>执行构造函数内的代码；</li>
 <li>返回新对象(后台直接返回)。</li>
 </ol>
-<p>关于this的使用，this其实就是代表当前作用域对象的引用。如果在全局范围this就代表window对象，如果在构造函数体内，就代表当前的构造函数所声明的对象。<br>    var box = 1;<br>    alert(this.box);               //全局，代表window对象</p>
-<p>构造函数和普通函数的唯一区别，就是他们调用的方式不同。只不过，构造函数也是函数，必须用new运算符来调用，否则就是普通函数。<br>    var box = new Box(‘jack’,22);            //构造模式调用<br>    alert(box.run());</p>
-<p>两个实例化后的属性或方法是否相等？<br>    var box1 = new Box(‘Lee’, 100);            //传递一致<br>    var box2 = new Box(‘Lee’, 100);            //同上</p>
-<pre><code>alert(box1.name == box2.name);            //true，属性的值相等
-alert(box1.run == box2.run);                //false，方法其实也是一种引用地址
-alert(box1.run() == box2.run());            //true，方法的值相等，因为传参一致
-</code></pre><p>他们最终判断的是引用地址，唯一性。</p>
+<p>关于this的使用，this其实就是代表当前作用域对象的引用。如果在全局范围this就代表window对象，如果在构造函数体内，就代表当前的构造函数所声明的对象。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="number">1</span>;</div><div class="line">alert(<span class="keyword">this</span>.box);               <span class="comment">//全局，代表window对象</span></div></pre></td></tr></table></figure></p>
+<p>构造函数和普通函数的唯一区别，就是他们调用的方式不同。只不过，构造函数也是函数，必须用new运算符来调用，否则就是普通函数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="keyword">new</span> Box(<span class="string">'jack'</span>,<span class="number">22</span>);            <span class="comment">//构造模式调用</span></div><div class="line">alert(box.run());</div></pre></td></tr></table></figure></p>
+<p>两个实例化后的属性或方法是否相等？<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box1 = <span class="keyword">new</span> Box(<span class="string">'Lee'</span>, <span class="number">100</span>);			<span class="comment">//传递一致</span></div><div class="line"><span class="keyword">var</span> box2 = <span class="keyword">new</span> Box(<span class="string">'Lee'</span>, <span class="number">100</span>);			<span class="comment">//同上</span></div><div class="line"></div><div class="line">alert(box1.name == box2.name);			<span class="comment">//true，属性的值相等</span></div><div class="line">alert(box1.run == box2.run);				<span class="comment">//false，方法其实也是一种引用地址</span></div><div class="line">alert(box1.run() == box2.run());			<span class="comment">//true，方法的值相等，因为传参一致</span></div></pre></td></tr></table></figure></p>
+<p>他们最终判断的是引用地址，唯一性。</p>
 <ol>
-<li><p>原型<br>我们创建的每个函数都有一个prototype(原型)属性，这个属性是一个对象，它的用途是包含可以由特定类型的所有实例共享的属性和方法。<br> function Box(){}                   //声明一个构造函数</p>
-<p> Box.prototype.name = ‘Tom’;         //在原型里添加属性<br> Box.prototype.age = 100;<br> Box.prototype.run = function(){     //在原型里添加方法</p>
-<pre><code>return this.name + this.age + &apos;运行中...&apos;;
-</code></pre><p> };</p>
-<p> //比较一下原型内的方法地址是否一致<br> var box1 = new Box();<br> var box2 = new Box();<br> alert(box1.run == box2.run);          //true,方法的引用地址保持一致</p>
+<li>原型<br>我们创建的每个函数都有一个prototype(原型)属性，这个属性是一个对象，它的用途是包含可以由特定类型的所有实例共享的属性和方法。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Box</span>(<span class="params"></span>)</span>&#123;&#125;                   <span class="comment">//声明一个构造函数</span></div><div class="line"></div><div class="line">Box.prototype.name = <span class="string">'Tom'</span>;         <span class="comment">//在原型里添加属性</span></div><div class="line">Box.prototype.age = <span class="number">100</span>; </div><div class="line">Box.prototype.run = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;     <span class="comment">//在原型里添加方法</span></div><div class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.name + <span class="keyword">this</span>.age + <span class="string">'运行中...'</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//比较一下原型内的方法地址是否一致</span></div><div class="line"><span class="keyword">var</span> box1 = <span class="keyword">new</span> Box();</div><div class="line"><span class="keyword">var</span> box2 = <span class="keyword">new</span> Box();</div><div class="line">alert(box1.run == box2.run);          <span class="comment">//true,方法的引用地址保持一致</span></div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>在原型模式声明中，多了两个属性，这两个属性都是创建对象时自动生成的。<strong>proto</strong>属性是实例指向原型对象的一个指针，它的作用就是指向构造函数的原型属性constructor。通过这两个属性，就可以访问到原型里的属性和方法了</p>
-<p>判断一个对象是否指向了该构造函数的原型对象，可以使用isPrototypeOf()方法来测试。<br>    alert(Box.prototype.isPrototypeOf(box));             //只要实例化对象，都会指向</p>
+<p>判断一个对象是否指向了该构造函数的原型对象，可以使用isPrototypeOf()方法来测试。<br>    <code>alert(Box.prototype.isPrototypeOf(box));             //只要实例化对象，都会指向</code></p>
 <p>原型模式的执行流程：</p>
 <ol>
 <li>先查找构造函数实例里的属性或方法，如果有，立刻返回；</li>
 <li>如果构造函数实例里没有，则去它的原型对象里找，如果有，就返回；</li>
 </ol>
-<p>如何判断属性是在构造函数的实例里，还是在原型里？可以使用hasOwnProperty()函数来验证：<br>    alert(box.hasOwnProperty(‘name’));            //实例里有返回true，否则返回false</p>
-<p>in操作符会在通过对象能够访问给定属性时返回true，无论该属性存在于实例中还是原型中。<br>    alert(‘name’ in box);                        //true，存在实例中或原型中</p>
-<p>可以通过hasOwnProperty()方法检测属性是否存在实例中，也可以通过in来判断实例或原型中是否存在属性。那么结合这两种方法，可以判断原型中是否存在属性。<br>    function isProperty(object,property){        //判断原型中是否存在属性<br>        return !object.hasOwnProperty(property)&amp;&amp;(property in object);<br>    }</p>
-<pre><code>var box = new Box();
-alert(isProperty(box,&apos;name&apos;));             //true,如果原型有
-</code></pre><p>为了让属性和方法更好的体现封装的效果，并且减少不必要的输入，原型的创建可以使用字面量的方式：<br>    function Box(){}<br>    Box.prototype = {                        //使用字面量的方式<br>    name : ‘Tom’,<br>    age : 20,<br>    run : function () {<br>        return this.name + this.age + ‘运行中…’;<br>        }<br>    };    </p>
+<p>如何判断属性是在构造函数的实例里，还是在原型里？可以使用hasOwnProperty()函数来验证：<br>    <code>alert(box.hasOwnProperty(&#39;name&#39;));            //实例里有返回true，否则返回false</code></p>
+<p>in操作符会在通过对象能够访问给定属性时返回true，无论该属性存在于实例中还是原型中。<br>    <code>alert(&#39;name&#39; in box);                        //true，存在实例中或原型中</code></p>
+<p>可以通过hasOwnProperty()方法检测属性是否存在实例中，也可以通过in来判断实例或原型中是否存在属性。那么结合这两种方法，可以判断原型中是否存在属性。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isProperty</span>(<span class="params">object,property</span>)</span>&#123;        <span class="comment">//判断原型中是否存在属性</span></div><div class="line">	<span class="keyword">return</span> !object.hasOwnProperty(property)&amp;&amp;(property <span class="keyword">in</span> object);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> box = <span class="keyword">new</span> Box();</div><div class="line">alert(isProperty(box,<span class="string">'name'</span>));             <span class="comment">//true,如果原型有</span></div></pre></td></tr></table></figure></p>
+<p>为了让属性和方法更好的体现封装的效果，并且减少不必要的输入，原型的创建可以使用字面量的方式：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Box</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">Box.prototype = &#123;						<span class="comment">//使用字面量的方式</span></div><div class="line">name : <span class="string">'Tom'</span>,</div><div class="line"><span class="attr">age</span> : <span class="number">20</span>,</div><div class="line"><span class="attr">run</span> : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.name + <span class="keyword">this</span>.age + <span class="string">'运行中...'</span>;</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <p>使用构造函数创建原型对象和使用字面量创建对象在使用上基本相同，但还是有一些区别，字面量创建的方式使用constructor属性不会指向实例，而会指向Object</p>
-<p>想让字面量方式的constructor指向实例对象，那么可以这么做：<br>    Box.prototype = {<br>        constructor: Box            //强制指向<br>    };</p>
+<p>想让字面量方式的constructor指向实例对象，那么可以这么做：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Box.prototype = &#123;</div><div class="line">	<span class="attr">constructor</span>: Box            <span class="comment">//强制指向</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <p>原型的声明是有先后顺序的，所以，重写的原型会切断之前的原型。</p>
 <p>原型模式创建对象也有自己的缺点，它省略了构造函数传参初始化这一过程，带来的缺点就是初始化的值都是一致的。而原型最大的缺点就是它最大的优点，那就是共享。</p>
 <p>PS：数据共享的缘故，导致很多开发者放弃使用原型，因为每次实例化出的数据需要保留自己的特性，而不能共享。</p>
-<p>为了解决构造传参和共享问题，可以组合构造函数+原型模式：<br>    function Box(name,age){          //不共享的使用构造函数<br>        this.name = name;<br>        this.age = age;<br>        this.family = [‘父亲’,’母亲’,’哥哥’];<br>    } </p>
-<pre><code>Box.prototype = {              //共享的使用原型模式
-    constructor: Box,
-    run: function(){
-        return this.name + this.age + this.family;
-    }
-};
-</code></pre><p>这种混合模式很好的解决了传参和引用共享的大难题。是创建对象比较好的方法。</p>
-<p>动态原型模式：把构造函数和原型封装到一起。<br>    function Box(name,age){           //将所有信息封装到函数体内<br>        this.name = name;<br>        this.age = age;</p>
-<pre><code>    if(typeof this.run != &apos;function&apos;){            //仅在第一次调用时初始化
-        Box.prototype.run = function(){
-            return this.name + this.age + &apos;运行中...&apos;;
-        };
-    }
-}         
-
-var box = new Box(&apos;Lee&apos;,100);
-alert(box.run());
-</code></pre><p>当第一次调用构造函数时，run()方法发现不存在，然后初始化原型。当第二次调用，就不会初始化，并且第二次创建新对象，原型也不会再初始化了。这样及得到了封装，又实现了原型方法共享，并且属性都保持独立。</p>
+<p>为了解决构造传参和共享问题，可以组合构造函数+原型模式：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Box</span>(<span class="params">name,age</span>)</span>&#123;          <span class="comment">//不共享的使用构造函数</span></div><div class="line">	<span class="keyword">this</span>.name = name;</div><div class="line">	<span class="keyword">this</span>.age = age;</div><div class="line">	<span class="keyword">this</span>.family = [<span class="string">'父亲'</span>,<span class="string">'母亲'</span>,<span class="string">'哥哥'</span>];</div><div class="line">&#125; </div><div class="line"></div><div class="line">Box.prototype = &#123;              <span class="comment">//共享的使用原型模式</span></div><div class="line">	<span class="keyword">constructor</span>: Box,</div><div class="line">	run: function()&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.name + <span class="keyword">this</span>.age + <span class="keyword">this</span>.family;</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>这种混合模式很好的解决了传参和引用共享的大难题。是创建对象比较好的方法。</p>
+<p>动态原型模式：把构造函数和原型封装到一起。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Box</span>(<span class="params">name,age</span>)</span>&#123;           <span class="comment">//将所有信息封装到函数体内</span></div><div class="line">	<span class="keyword">this</span>.name = name;</div><div class="line">	<span class="keyword">this</span>.age = age;</div><div class="line"></div><div class="line">	<span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="keyword">this</span>.run != <span class="string">'function'</span>)&#123;            <span class="comment">//仅在第一次调用时初始化</span></div><div class="line">		Box.prototype.run = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">this</span>.name + <span class="keyword">this</span>.age + <span class="string">'运行中...'</span>;</div><div class="line">		&#125;;</div><div class="line">	&#125;</div><div class="line">&#125;         </div><div class="line"></div><div class="line"><span class="keyword">var</span> box = <span class="keyword">new</span> Box(<span class="string">'Lee'</span>,<span class="number">100</span>);</div><div class="line">alert(box.run());</div></pre></td></tr></table></figure></p>
+<p>当第一次调用构造函数时，run()方法发现不存在，然后初始化原型。当第二次调用，就不会初始化，并且第二次创建新对象，原型也不会再初始化了。这样及得到了封装，又实现了原型方法共享，并且属性都保持独立。</p>
 <p>寄生构造函数:其实就是工厂模式+构造函数模式。这种模式比较通用，但不能确定对象关系，所以，在可以使用之前所说的模式时，不建议使用此模式。<br>在什么情况下使用寄生构造函数比较合适呢？假设要创建一个具有额外方法的引用类型。由于之前说明不建议直接String.prototype.addstring，可以通过寄生构造的方式添加。</p>
 <p>在一些安全的环境中，比如禁止使用this和new，这里的this是构造函数里不使用this，这里的new是在外部实例化构造函数时不使用new。这种创建方式叫做稳妥构造函数。 稳妥构造函数和寄生类似。</p>
 <ol>
@@ -737,40 +608,20 @@ alert(box.run());
 </ol>
 <p>在JavaScript里，被继承的函数称为超类型(父类，基类也行，其他语言叫法)，继承的函数称为子类型(子类，派生类)。继承也有之前问题，比如字面量重写原型会中断关系，使用引用类型的原型，并且子类型还无法给超类型传递参数</p>
 <p>为了解决引用共享和超类型无法传参的问题，我们采用一种叫借用构造函数的技术，或者成为对象冒充(伪造对象、经典继承)的技术来解决这两种问题。</p>
-<p>借用构造函数虽然解决了刚才两种问题，但没有原型，复用则无从谈起。所以，我们需要原型链+借用构造函数的模式，这种模式成为组合继承。<br>    function Box(name,age){<br>        this.name = [‘Tom’,’jack’,’hello’];<br>        this.age = age;<br>    }</p>
-<pre><code>Box.prototype.run = function(){
-    return this.name + this.age;
-};
-
-function Desk(age){
-    Box.call(this.age);            //对象冒充
-}
-
-Desk.prototype = new Box();        //原型链继承
-
-var desk = new Desk(100);
-alert(desk.run());
-</code></pre><p>还有一种继承模式叫做：原型式继承；这种继承借助原型并基于已有的对象创建新对象，同时还不必因此创建自定义类型。</p>
+<p>借用构造函数虽然解决了刚才两种问题，但没有原型，复用则无从谈起。所以，我们需要原型链+借用构造函数的模式，这种模式成为组合继承。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Box</span>(<span class="params">name,age</span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.name = [<span class="string">'Tom'</span>,<span class="string">'jack'</span>,<span class="string">'hello'</span>];</div><div class="line">	<span class="keyword">this</span>.age = age;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Box.prototype.run = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.name + <span class="keyword">this</span>.age;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Desk</span>(<span class="params">age</span>)</span>&#123;</div><div class="line">	Box.call(<span class="keyword">this</span>.age);            <span class="comment">//对象冒充</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">Desk.prototype = <span class="keyword">new</span> Box();        <span class="comment">//原型链继承</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> desk = <span class="keyword">new</span> Desk(<span class="number">100</span>);</div><div class="line">alert(desk.run());</div></pre></td></tr></table></figure></p>
+<p>还有一种继承模式叫做：原型式继承；这种继承借助原型并基于已有的对象创建新对象，同时还不必因此创建自定义类型。</p>
 <p>寄生式继承把原型式+工厂模式结合而来，目的是为了封装创建对象的过程。</p>
 <p>组合式继承是JavaScript最常用的继承模式；但，组合式继承也有一点小问题，就是超类型在使用过程中会被调用两次：一次是创建子类型的时候，另一次是在子类型构造函数的内部。</p>
 <h3 id="匿名函数和闭包"><a href="#匿名函数和闭包" class="headerlink" title="匿名函数和闭包"></a>匿名函数和闭包</h3><p>匿名函数：就是没有名字的函数<br>闭包是可以访问一个函数作用域里变量的函数</p>
 <ol>
-<li>匿名函数</li>
+<li><p>匿名函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//普通函数</span></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params"></span>)</span>&#123;             函数名是box</div><div class="line">		<span class="keyword">return</span> <span class="string">'Lee'</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line"><span class="comment">//匿名函数                       </span></div><div class="line">	<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;                          <span class="comment">//会报错</span></div><div class="line">		<span class="keyword">return</span> <span class="string">'Lee'</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line"><span class="comment">//通过表达式自我执行</span></div><div class="line">	(<span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params"></span>)</span>&#123;             <span class="comment">//封装成表达式</span></div><div class="line">		alert(<span class="string">'Lee'</span>);</div><div class="line">	&#125;)();                     <span class="comment">//()表示执行函数，并且传参</span></div><div class="line"></div><div class="line"><span class="comment">//把匿名函数赋值给变量</span></div><div class="line">	<span class="keyword">var</span> box = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;              </div><div class="line">		<span class="keyword">return</span> <span class="string">'Lee'</span>;</div><div class="line">	&#125;;</div><div class="line">	alert(box());               <span class="comment">//调用方式和函数调用相似</span></div><div class="line"></div><div class="line"><span class="comment">//函数里的匿名函数</span></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;               <span class="comment">//函数里的匿名函数，产生闭包</span></div><div class="line">			<span class="keyword">return</span> <span class="string">'Lee'</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	alert(box()());                <span class="comment">//调用匿名函数</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>闭包<br>闭包就是有权访问另一个函数作用域中的变量的函数，创建闭包的常见的方式，就是在一个函数内部创建另一个函数，通过另一个函数访问这个函数的局部变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//通过闭包可以返回局部变量</span></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> user = <span class="string">'Lee'</span>;</div><div class="line">		<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;          <span class="comment">//通过匿名函数返回box()局部变量</span></div><div class="line">			<span class="keyword">return</span> user;</div><div class="line">		&#125;；</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	alert(box()());               <span class="comment">//通过box()()来直接调用匿名函数返回值</span></div><div class="line"></div><div class="line">	<span class="keyword">var</span> b = box();</div><div class="line">	alert(b);                  <span class="comment">//另一种调用匿名函数返回值</span></div></pre></td></tr></table></figure>
+</li>
 </ol>
-<p>//普通函数<br>    function box(){             函数名是box<br>        return ‘Lee’;<br>    }</p>
-<p>//匿名函数<br>    function(){                          //会报错<br>        return ‘Lee’;<br>    }</p>
-<p>//通过表达式自我执行<br>    (function box(){             //封装成表达式<br>        alert(‘Lee’);<br>    })();                     //()表示执行函数，并且传参</p>
-<p>//把匿名函数赋值给变量<br>    var box = function(){<br>        return ‘Lee’;<br>    };<br>    alert(box());               //调用方式和函数调用相似</p>
-<p>//函数里的匿名函数<br>    function box(){<br>        return function(){               //函数里的匿名函数，产生闭包<br>            return ‘Lee’;<br>        }<br>    }<br>    alert(box()());                //调用匿名函数</p>
-<ol>
-<li>闭包<br>闭包就是有权访问另一个函数作用域中的变量的函数，创建闭包的常见的方式，就是在一个函数内部创建另一个函数，通过另一个函数访问这个函数的局部变量。</li>
-</ol>
-<p>//通过闭包可以返回局部变量<br>    function box(){<br>        var user = ‘Lee’;<br>        return function(){          //通过匿名函数返回box()局部变量<br>            return user;<br>        }；<br>    }</p>
-<pre><code>alert(box()());               //通过box()()来直接调用匿名函数返回值
-
-var b = box();
-alert(b);                  //另一种调用匿名函数返回值
-</code></pre><p>使用闭包有一个优点，也是它的缺点：就是可以把局部变量驻留在内存中，可以避免使用全局变量。</p>
+<p>使用闭包有一个优点，也是它的缺点：就是可以把局部变量驻留在内存中，可以避免使用全局变量。</p>
 <p>全局变量污染导致应用程序不可预测性，每个模块都可调用必将引来灾难，所以推荐使用私有的，封装的局部变量。</p>
 <p>PS：由于闭包里作用域返回的局部变量资源不会被立刻销毁回收，所以可能会占用更多的内存。过度使用闭包会导致性能下降，建议在非常有必要的时候才使用闭包。</p>
 <p>作用域链的机制导致一个问题，在循环中里的匿名函数取得的任何变量都是最后一个值。</p>
@@ -784,16 +635,14 @@ alert(b);                  //另一种调用匿名函数返回值
 <ul>
 <li>模仿块级作用域<br>JavaScript没有块级作用域的概念<br>使用了块级作用域(私有作用域)后，匿名函数中定义的任何变量，都会在执行结束时被销毁。这种技术经常在全局作用域中被用在函数外部，从而限制向全局作用域中添加过多的变量和函数。</li>
 </ul>
-<p>在大型项目中，多人开发的时候，过多的全局变量和函数很容易导致命名冲突，引起灾难性的后果。<br>如果采用块级作用域(私有作用域)，每个开发者既可以使用自己的变量，又不必担心搞乱全局作用域。<br>    (function(){<br>        var box = [1,2,3,4];<br>        alert(box);               //box出来就不认识了<br>    })();</p>
+<p>在大型项目中，多人开发的时候，过多的全局变量和函数很容易导致命名冲突，引起灾难性的后果。<br>如果采用块级作用域(私有作用域)，每个开发者既可以使用自己的变量，又不必担心搞乱全局作用域。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> box = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line">	alert(box);               <span class="comment">//box出来就不认识了</span></div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
 <p>在全局作用域中使用块级作用域可以减少闭包占用的内存问题，因为没有指向匿名函数的引用。只要函数执行完毕，就可以立即销毁其作用域链了。</p>
 <ul>
-<li>私有变量<br>JavaScript没有私有属性的概念；所有的对象属性都是公有的。不过，却有一个私有变量的概念。任何在函数中定义的变量，都可以认为是私有变量，因为不能在函数的外部访问这些变量。<br>  function box(){<pre><code>var age = 100;           //私有变量，外部无法访问
-</code></pre>  }</li>
+<li>私有变量<br>JavaScript没有私有属性的概念；所有的对象属性都是公有的。不过，却有一个私有变量的概念。任何在函数中定义的变量，都可以认为是私有变量，因为不能在函数的外部访问这些变量。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> age = <span class="number">100</span>;           <span class="comment">//私有变量，外部无法访问</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>通过函数内部创建一个闭包，那么闭包通过自己的作用域链也可以访问这些变量。而利用这一点，可以创建用于访问私有变量的公有方法。<br>    function Box(){<br>        var age = 100;              //私有变量<br>        function run(){<br>            return ‘运行中…’;          //私有函数<br>        }<br>        this.get = function(){           //对外公共的特权方法<br>            return age + run();<br>        }<br>    }</p>
-<pre><code>var box = new Box();
-alert(box.get());
-</code></pre><p>可以通过构造方法传参来访问私有变量</p>
+<p>通过函数内部创建一个闭包，那么闭包通过自己的作用域链也可以访问这些变量。而利用这一点，可以创建用于访问私有变量的公有方法。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Box</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> age = <span class="number">100</span>;              <span class="comment">//私有变量</span></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">'运行中...'</span>;          <span class="comment">//私有函数</span></div><div class="line">	&#125;</div><div class="line">	<span class="keyword">this</span>.get = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;           <span class="comment">//对外公共的特权方法</span></div><div class="line">		<span class="keyword">return</span> age + run();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> box = <span class="keyword">new</span> Box();</div><div class="line">alert(box.get());</div></pre></td></tr></table></figure></p>
+<p>可以通过构造方法传参来访问私有变量</p>
 <p>但是对象的方法，在多次调用的时候，会多次创建。使用静态私有变量来避免这个问题。通过块级作用域(私有作用域)中定义私有变量或函数，同样可以创建对外公共的特权方法。</p>
 <ul>
 <li>模块模式<br>之前采用的都是构造函数的方式来创建私有变量和特权方法。那么对象字面量方式就采用模块模式来创建。</li>
