@@ -115,7 +115,7 @@ window对象BOM的核心对象是window，它表示浏览器的一个实例。wi
 <meta property="og:description" content="BOMBOM也叫浏览器对象模型，它提供了很多对象，用于访问浏览器的功能。
 
 window对象BOM的核心对象是window，它表示浏览器的一个实例。window对象处于JavaScript结构的最顶层，对于每个打开的窗口，系统都会自动为其定义 window 对象。">
-<meta property="og:updated_time" content="2017-03-01T06:14:10.732Z">
+<meta property="og:updated_time" content="2017-03-01T07:02:40.744Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js--03">
 <meta name="twitter:description" content="BOMBOM也叫浏览器对象模型，它提供了很多对象，用于访问浏览器的功能。
@@ -684,7 +684,20 @@ NOTATION_NODE                符号               12
 <li><p>操作样式表<br>使用style属性可以设置行内的CSS样式，而通过id和class调用是最常用的方法</p>
 </li>
 </ul>
-
+<h3 id="动态加载脚本和样式"><a href="#动态加载脚本和样式" class="headerlink" title="动态加载脚本和样式"></a>动态加载脚本和样式</h3><ol>
+<li><p>元素位置<br>getBoundingClientRect()。这个方法返回一个矩形对象，包含四个属性：left、top、right和bottom。分别表示元素各边与页面上边和左边的距离</p>
+</li>
+<li><p>动态脚本<br>我们就不得不引入太多的JS脚本而降低了整站的性能，所以就出现了动态脚本的概念，在适时的时候加载相应的脚本</p>
+</li>
+</ol>
+<p>动态执行js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</div><div class="line">script.type = <span class="string">'text/javascript'</span>;</div><div class="line"><span class="keyword">var</span> text = <span class="built_in">document</span>.createTextNode(<span class="string">"alert('Lee')"</span>);		<span class="comment">//IE浏览器报错</span></div><div class="line">script.appendChild(text);</div><div class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>].appendChild(script);</div></pre></td></tr></table></figure></p>
+<p>PS：IE浏览器认为script是特殊元素，不能在访问子节点。为了兼容，可以使用text属性来代替。<br><code>script.text = &quot;alert(&#39;&#39;)&quot;;                        //IE可以支持了。</code></p>
+<ol>
+<li>动态样式<br>为了动态的加载样式表，比如切换网站皮肤。样式表有两种方式进行加载，一种是<link>标签，一种是<style>标签。</li>
+</ol>
+<p>动态执行link<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> flag = <span class="literal">true</span>;</div><div class="line"><span class="keyword">if</span> (flag) &#123;</div><div class="line">	loadStyles(<span class="string">'basic.css'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadStyles</span>(<span class="params">url</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> link = <span class="built_in">document</span>.createElement(<span class="string">'link'</span>);</div><div class="line">	link.rel = <span class="string">'stylesheet'</span>;</div><div class="line">	link.type = <span class="string">'text/css'</span>;</div><div class="line">	link.href = url;</div><div class="line">	<span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>].appendChild(link);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>动态执行style<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> flag = <span class="literal">true</span>;</div><div class="line"><span class="keyword">if</span> (flag) &#123;</div><div class="line">	<span class="keyword">var</span> style = <span class="built_in">document</span>.createElement(<span class="string">'style'</span>);</div><div class="line">	style.type = <span class="string">'text/css'</span>;</div><div class="line">	<span class="comment">//var box= document.createTextNode(#box&#123;background:red&#125;'); IE不支持</span></div><div class="line">	<span class="comment">//style.appendChild(box);</span></div><div class="line">	<span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>].appendChild(style);</div><div class="line">insertRule(<span class="built_in">document</span>.styleSheets[<span class="number">0</span>], <span class="string">'#box'</span>, <span class="string">'background:red'</span>, <span class="number">0</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertRule</span>(<span class="params">sheet, selectorText, cssText, position</span>) </span>&#123;</div><div class="line">		<span class="comment">//如果是非IE</span></div><div class="line">	<span class="keyword">if</span> (sheet.insertRule) &#123;</div><div class="line">		sheet.insertRule(selectorText + <span class="string">"&#123;"</span> + cssText + <span class="string">"&#125;"</span>, position);</div><div class="line">		<span class="comment">//如果是IE</span></div><div class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (sheet.addRule) &#123;</div><div class="line">		sheet.addRule(selectorText, cssText, position);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</style></li></ol>
       
     </div>
 
@@ -723,6 +736,10 @@ NOTATION_NODE                符号               12
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/01/js4/" rel="prev" title="js--04">
+                js--04 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -792,7 +809,7 @@ NOTATION_NODE                符号               12
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -831,7 +848,7 @@ NOTATION_NODE                符号               12
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#BOM"><span class="nav-number">1.</span> <span class="nav-text">BOM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器检测"><span class="nav-number">2.</span> <span class="nav-text">浏览器检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM"><span class="nav-number">3.</span> <span class="nav-text">DOM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM进阶"><span class="nav-number">4.</span> <span class="nav-text">DOM进阶</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM操作表格及样式"><span class="nav-number">5.</span> <span class="nav-text">DOM操作表格及样式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#BOM"><span class="nav-number">1.</span> <span class="nav-text">BOM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器检测"><span class="nav-number">2.</span> <span class="nav-text">浏览器检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM"><span class="nav-number">3.</span> <span class="nav-text">DOM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM进阶"><span class="nav-number">4.</span> <span class="nav-text">DOM进阶</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM操作表格及样式"><span class="nav-number">5.</span> <span class="nav-text">DOM操作表格及样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态加载脚本和样式"><span class="nav-number">6.</span> <span class="nav-text">动态加载脚本和样式</span></a></li></ol></div>
             
 
           </div>
