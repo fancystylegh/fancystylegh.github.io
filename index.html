@@ -296,6 +296,385 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="fancygh.me/2017/03/01/jquery/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="July">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="july的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="july的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/01/jquery/" itemprop="url">
+                  jquery
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-01T20:24:38+08:00">
+                2017-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="jQuery入门"><a href="#jQuery入门" class="headerlink" title="jQuery入门"></a>jQuery入门</h3><ol>
+<li>什么是jQuery？<br>jQuery是一个javascript库，通过封装原生的javascript函数得到一套定义好的方法。jQuery已经集成了javascript、CSS、DOM和Ajax于一体，可以用更少的代码完成更多复杂而困难的功能。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/01/jquery/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="fancygh.me/2017/03/01/js5/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="July">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="july的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="july的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/01/js5/" itemprop="url">
+                  js--05
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-01T18:32:24+08:00">
+                2017-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="表单处理"><a href="#表单处理" class="headerlink" title="表单处理"></a>表单处理</h3><ol>
+<li>表单介绍<br>在HTML中，表单是由<form>元素来表示的，而在JavaScript中，表单对应的则是HTMLFormElement类型。</form></li>
+</ol>
+<p>获取表单<form>对象的方法有很多种，如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'myForm'</span>);			<span class="comment">//使用ID获取&lt;form&gt;元素</span></div><div class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">'form'</span>)[<span class="number">0</span>];	<span class="comment">//使用获取第一个元素方式获取	</span></div><div class="line"><span class="built_in">document</span>.forms[<span class="number">0</span>];							<span class="comment">//使用forms的数字下标获取元素</span></div><div class="line"><span class="built_in">document</span>.forms[<span class="string">'yourForm'</span>];					<span class="comment">//使用forms的名称下标获取元素</span></div></pre></td></tr></table></figure></form></p>
+<p>提交表单<br>通过事件对象，可以阻止submit的默认行为，submit事件的默认行为就是携带数据跳转到指定页面。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">addEvent(fm, <span class="string">'submit'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123;</div><div class="line">	preDef(evt);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>在表单中尽量避免使用name=”submit”或id=”submit”等命名，这会和submit()方法发生冲突导致无法提交</p>
+<p>提交数据最大的问题就是重复提交表单<br>有两种方法可以解决这种问题：第一种就是提交之后，立刻禁用点击按钮<br>                            第二种就是提交之后取消后续的表单提交操作</p>
+<p><code>document.getElementById(&#39;sub&#39;).disabled = true;    //将按钮禁用</code></p>
+<p>重置表单<br>用户点击重置按钮时，表单会被初始化。虽然这个按钮还得以保留，但目前的Web已经很少去使用了。</p>
+<p>表单字段<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fm.elements[<span class="number">0</span>];							<span class="comment">//获取第一个表单字段元素</span></div><div class="line">fm.elements[<span class="string">'user'</span>];					<span class="comment">//获取name是user的表单字段元素</span></div><div class="line">fm.elements.length;					   <span class="comment">//获取所有表单字段的数量</span></div></pre></td></tr></table></figure></p>
+<p>共有的表单字段属性<br>除了<fieldset>元素之外，所有表单字段都拥有相同的一组属性<br>看几个最常用的:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fm.elements[<span class="number">0</span>].value;						<span class="comment">//获取和设置value</span></div><div class="line">fm.elements[<span class="number">0</span>].form == fm;					<span class="comment">//查看当前字段所属表单</span></div><div class="line">fm.elements[<span class="number">0</span>].disabled = <span class="literal">true</span>;				<span class="comment">//禁用当前字段</span></div></pre></td></tr></table></figure></fieldset></p>
+<p>共有的表单字段方法<br>每个表单字段都有两个方法：foucs()和blur()<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">fm.elements[<span class="number">0</span>].focus();						<span class="comment">//将焦点移入</span></div><div class="line">fm.elements[<span class="number">0</span>].blur();						<span class="comment">//将焦点移出</span></div></pre></td></tr></table></figure></p>
+<p>共有的表单字段事件<br>表单共有的字段事件有以下三种：<br>    事件名    说明<br>    blur    当字段失去焦点时触发<br>    change    对于<input>和<textarea>元素，在改变value并失去焦点时触发；对于</textarea><select>元素，在改变选项时触发<br>    focus    当前字段获取焦点时触发</select></p>
+<ol>
+<li>文本框脚本<br>在HTML中，有两种方式来表现文本框：一种是单行文本框<input type="text"><pre><code>一种是多行文本框&lt;textarea&gt;
+</code></pre>（未完待续。。。）</li>
+</ol>
+<h3 id="错误处理与调试"><a href="#错误处理与调试" class="headerlink" title="错误处理与调试"></a>错误处理与调试</h3><ol>
+<li>常见的错误类型<br>因为JavaScript是松散弱类型语言，很多错误的产生是在运行期间的。</li>
+</ol>
+<p>一般来说，需要关注3种错误：1.类型转换错误；<br>                           2.数据类型错误；<br>                           3.通信错误</p>
+<ol>
+<li>调试</li>
+</ol>
+<ul>
+<li><p>设置断点    </p>
+</li>
+<li><p>单步调试</p>
+</li>
+<li><p>监控    </p>
+</li>
+<li><p>控制台</p>
+</li>
+</ul>
+<h3 id="cookie与存储"><a href="#cookie与存储" class="headerlink" title="cookie与存储"></a>cookie与存储</h3><p>cookie最初是客户端与服务器端进行会话使用的。<br>cookie的意图是：在本地的客户端的磁盘上以很小的文件形式保存数据。 </p>
+<ol>
+<li>cookie的组成<br>cookie由名/值对形式的文本组成：name=value  </li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//创建cookie</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">name, value, expires, path, domain, secure</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> cookieText = <span class="built_in">encodeURIComponent</span>(name) + <span class="string">'='</span> + <span class="built_in">encodeURIComponent</span>(value);</div><div class="line">	<span class="keyword">if</span> (expires <span class="keyword">instanceof</span> <span class="built_in">Date</span>)  &#123;</div><div class="line">		cookieText += <span class="string">'; expires='</span> + expires;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (path) &#123;</div><div class="line">		cookieText += <span class="string">'; expires='</span> + expires;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (domain) &#123;</div><div class="line">		cookieText += <span class="string">'; domain='</span> + domain;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (secure) &#123;</div><div class="line">		cookieText += <span class="string">'; secure'</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">document</span>.cookie = cookieText;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//获取cookie</span></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">		<span class="keyword">var</span> cookieName = <span class="built_in">encodeURIComponent</span>(name) + <span class="string">'='</span>;</div><div class="line">		<span class="keyword">var</span> cookieStart = <span class="built_in">document</span>.cookie.indexOf(cookieName);</div><div class="line">		<span class="keyword">var</span> cookieValue = <span class="literal">null</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">if</span> (cookieStart &gt; <span class="number">-1</span>) &#123;</div><div class="line">			<span class="keyword">var</span> cookieEnd = <span class="built_in">document</span>.cookie.indexOf(<span class="string">';'</span>, cookieStart);</div><div class="line">			<span class="keyword">if</span> (cookieEnd == <span class="number">-1</span>) &#123;</div><div class="line">				cookieEnd = <span class="built_in">document</span>.cookie.length;</div><div class="line">			&#125;</div><div class="line">			cookieValue = <span class="built_in">decodeURIComponent</span>(</div><div class="line">	<span class="built_in">document</span>.cookie.substring(cookieStart + cookieName.length, cookieEnd));</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> cookieValue;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">//删除cookie</span></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">unsetCookie</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">		<span class="built_in">document</span>.cookie = name + <span class="string">"= ; expires="</span> + <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">0</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">//失效天数，直接传一个天数即可</span></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">setCookieDate</span>(<span class="params">day</span>) </span>&#123;</div><div class="line">		<span class="keyword">if</span> (<span class="keyword">typeof</span> day == <span class="string">'number'</span> &amp;&amp; day &gt; <span class="number">0</span>) &#123;</div><div class="line">			<span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">			date.setDate(date.getDate() + day);</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'传递的day必须是一个天数，必须比0大'</span>);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> date;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>cookie局限性</li>
+</ol>
+<ul>
+<li><p>每个特定的域名下最多生成20个cookie（根据不同的浏览器有所区别）</p>
+</li>
+<li><p>cookie的最大大约为4096字节(4k)</p>
+</li>
+<li><p>cookie存储在客户端的文本文件，所以特别重要和敏感的数据是不建议保存在cookie的</p>
+</li>
+</ul>
+<ol>
+<li>其他存储<br>sessionStorage,globalStorage,localStorage。</li>
+</ol>
+<p>这三个对象都是永久保存的，保存在缓存里，只有手工删除或者清理浏览器缓存方可失效。</p>
+<p>HTML5里localStorage代替了globalStorage</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//通过方法存储和获取</span></div><div class="line">localStorage.setItem(<span class="string">'name'</span>, <span class="string">'李炎恢'</span>);</div><div class="line">alert(localStorage.getItem(<span class="string">'name'</span>));</div><div class="line">　　</div><div class="line"><span class="comment">//通过属性存储和获取</span></div><div class="line">localStorage.book = <span class="string">'李炎恢'</span>;</div><div class="line">alert(localStorage.book);</div><div class="line">　　</div><div class="line"><span class="comment">//删除存储</span></div><div class="line">localStorage.removeItem(<span class="string">'name'</span>)</div></pre></td></tr></table></figure>
+<h3 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><p>JSON是JavaScript的一个严格的子集，利用JavaScript中的一些模式来表示结构化数据。JSON并不是JavaScript独有的数据格式，其他很多语言都可以对JSON进行解析和序列化。</p>
+<ol>
+<li>JSON语法<br>JSON的语法可以表示三种类型的值：</li>
+<li>简单值：可以在JSON中表示字符串、数值、布尔值和null。但JSON不支持JavaScript中的特殊值undefined。</li>
+<li><p>对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="string">"name"</span> : <span class="string">"Lee"</span>,						<span class="comment">//使用双引号，否则转换会出错</span></div><div class="line">	<span class="string">"age"</span> : <span class="number">100</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>数组 <code>[100, &quot;Lee&quot;, true]</code></p>
+</li>
+</ol>
+<p>一般情况下，我们可以把JSON结构数据保存到一个文本文件里，然后通过XMLHttpRequest对象去加载它，得到这串结构数据字符串。<br>模拟加载JSON文本文件的数据，并且赋值给变量。<br><code>var box = &#39;[{&quot;name&quot; : &quot;a&quot;,&quot;age&quot; : 1},{&quot;name&quot; : &quot;b&quot;,&quot;age&quot; : 2}]&#39;;</code></p>
+<ol>
+<li>解析和序列化<br>对于讲JSON字符串解析为JavaScript原生值，早期采用的是eval()函数。<br>但这种方法既不安全，可能会执行一些恶意代码。</li>
+</ol>
+<p>JSON对象提供了两个方法：一个是将原生JavaScript值转换为JSON字符串：stringify()<br>                        另一个是将JSON字符串转换为JavaScript原生值：parse()</p>
+<p> 在序列化JSON的过程中，stringify()方法还提供了第二个参数。第一个参数可以是一个数组，也可以是一个函数，用于过滤结果。第二个参数则表示是否在JSON字符串中保留缩进。</p>
+<p> 如果不需要保留缩进，则不填即可；如果不需要过滤结果，但又要保留缩进，则讲过滤结果的参数设置为null</p>
+<p> 解析JSON字符串方法parse()也可以接受第二个参数，这样可以在还原出JavaScript值的时候替换成自己想要的值<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">	<span class="keyword">var</span> box = <span class="string">'[&#123;"name" : "a","age" : 1&#125;,&#123;"name" : "b","age" : 2&#125;]'</span>;</div><div class="line">	<span class="keyword">var</span> json = <span class="built_in">JSON</span>.parse(box, <span class="function"><span class="keyword">function</span> (<span class="params">key, value</span>) </span>&#123;</div><div class="line">		<span class="keyword">if</span> (key == <span class="string">'name'</span>) &#123;</div><div class="line">			<span class="keyword">return</span> <span class="string">'Mr. '</span> + value;</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			<span class="keyword">return</span> value;</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">	alert(json[<span class="number">0</span>].name);</div><div class="line"><span class="string">``</span><span class="string">`     </span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">### Ajax</div><div class="line">Ajax是Asynchronous JavaScript And XML 的简写（异步JavaScript和XML）</div><div class="line"></div><div class="line">在不重新加载整个网页的情况下，对网页的某部分进行更新。</div><div class="line"></div><div class="line">1. XMLHttpRequest</div><div class="line">XHR可扩展超文本传输请求，Ajax的技术核心。提供了向服务器发送请求和解析服务器响应提供了流畅的接口。</div><div class="line"></div><div class="line">`<span class="string">``</span>js</div><div class="line">	<span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">	alert(xhr);</div></pre></td></tr></table></figure></p>
+<p>在使用XHR对象时，先必须调用open()方法，它接受三个参数：要发送的请求类型(get、post)、请求的URL和表示是否异步。<br><code>xhr.open(&#39;get&#39;,&#39;demo.php&#39;,false);     //对于demo.php的get请求，false同步</code></p>
+<p>open()方法并不会真正发送请求，而只是启动一个请求以备发送。通过send()方法进行发送请求，send()方法接受一个参数，作为请求主体发送的数据。如果不需要则，必须填null。执行send()方法之后，请求就会发送到服务器上。<br><code>xhr.send(null);      //发送请求</code></p>
+<p>当请求发送到服务器端，收到响应后，响应的数据会自动填充XHR对象的属性</p>
+<p>一共有四个属性：<br>        属性名                         说明<br>        responseText        作为响应主体被返回的文本<br>        responseXML     如果响应主体内容类型是”text/xml”或”application/xml”，则返回包含响应数据的XML DOM文档<br>        status                    响应的HTTP状态<br>        statusText               HTTP状态的说明</p>
+<p>接受响应之后，第一步检查status属性，以确定响应已经成功返回。一般而已HTTP状态代码为200作为成功的标志。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">HTTP状态码</th>
+<th style="text-align:center">状态字符串</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">200</td>
+<td style="text-align:center">OK</td>
+<td style="text-align:center">服务器成功返回了页面</td>
+</tr>
+<tr>
+<td style="text-align:center">400</td>
+<td style="text-align:center">Bad Request</td>
+<td style="text-align:center">语法错误导致服务器不识别</td>
+</tr>
+<tr>
+<td style="text-align:center">401</td>
+<td style="text-align:center">Unauthorized</td>
+<td style="text-align:center">请求需要用户认证</td>
+</tr>
+<tr>
+<td style="text-align:center">404</td>
+<td style="text-align:center">Not found</td>
+<td style="text-align:center">指定的URL在服务器上找不到</td>
+</tr>
+<tr>
+<td style="text-align:center">500</td>
+<td style="text-align:center">Internal Server Error</td>
+<td style="text-align:center">服务器遇到意外错误，无法完成请求</td>
+</tr>
+<tr>
+<td style="text-align:center">503</td>
+<td style="text-align:center">ServiceUnavailable</td>
+<td style="text-align:center">由于服务器过载或维护导致无法完成请求</td>
+</tr>
+</tbody>
+</table>
+<p>我们判断HTTP状态值即可，不建议使用HTTP状态说明，因为在跨浏览器的时候，可能会不太一致</p>
+<p>以下代码每次点击页面的时候，返回的时间都是时时的，不同的，说明都是通过服务器及时加载回的数据<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">addEvent(<span class="built_in">document</span>, <span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> xhr = <span class="keyword">new</span> createXHR();</div><div class="line">	xhr.open(<span class="string">'get'</span>, <span class="string">'demo.php?rand='</span> + <span class="built_in">Math</span>.random(), <span class="literal">false</span>);	<span class="comment">//设置了同步</span></div><div class="line">	xhr.send(<span class="literal">null</span>);</div><div class="line">	<span class="keyword">if</span> (xhr.status == <span class="number">200</span>) &#123;					<span class="comment">//如果返回成功了</span></div><div class="line">		alert(xhr.responseText);				<span class="comment">//调出服务器返回的数据</span></div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		alert(<span class="string">'数据返回失败！状态代码：'</span> + xhr.status + <span class="string">'状态信息：'</span> + xhr.statusText);</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<ol>
+<li>GET与POST<br>在提供服务器请求的过程中，有两种方式，分别是：GET和POST。在Ajax使用的过程中，GET的使用频率要比POST高</li>
+</ol>
+<p>GET请求是最常见的请求类型，最常用于向服务器查询某些信息。必要时，可以将查询字符串参数追加到URL的末尾，以便提交给服务器。<br>通过URL后的问号给服务器传递键值对数据，服务器接收到返回响应数据。特殊字符传参产生的问题可以使用encodeURIComponent()进行编码处理，中文字符的返回及传参，可以讲页面保存和设置为utf-8格式即可。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//一个通用的URL提交函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addURLParam</span>(<span class="params">url, name, value</span>) </span>&#123;</div><div class="line">	url += (url.indexOf(<span class="string">'?'</span>) == <span class="number">-1</span> ? <span class="string">'?'</span> : <span class="string">'&amp;'</span>);			<span class="comment">//判断的url是否有已有参数</span></div><div class="line">	url += <span class="built_in">encodeURIComponent</span>(name) + <span class="string">'='</span> + <span class="built_in">encodeURIComponent</span>(value);</div><div class="line">	alert(url);</div><div class="line">	<span class="keyword">return</span> url;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>POST请求可以包含非常多的数据，我们在使用表单提交的时候，很多就是使用的POST传输方式。而发送POST请求的数据，不会跟在URL的尾巴上，而是通过send()方法向服务器提交数据。</p>
+<p>PS：从性能上来讲POST请求比GET请求消耗更多一些，用相同数据比较，GET最多比POST快两倍</p>
+<ol>
+<li>封装Ajax<br>因为Ajax使用起来比较麻烦，主要就是参数问题，比如到底使用GET还是POST；到底是使用同步还是异步等等，我们需要封装一个Ajax函数，来方便我们调用。<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">function ajax(obj) &#123;</div><div class="line">	var xhr = new createXHR();</div><div class="line">	obj.url = obj.url + '?rand=' + Math.random();</div><div class="line">	obj.data = params(obj.data);</div><div class="line">	if (obj.method === 'get') obj.url = obj.url.indexOf('?') == -1 ? </div><div class="line">obj.url + '?' + obj.data : obj.url + '&amp;' + obj.data;</div><div class="line">	if (obj.async === true) &#123;</div><div class="line">		xhr.onreadystatechange = function () &#123;</div><div class="line">			if (xhr.readyState == 4) callback();</div><div class="line">		&#125;;</div><div class="line">	&#125;</div><div class="line">	xhr.open(obj.method, obj.url, obj.async);</div><div class="line">	if (obj.method === 'post') &#123;</div><div class="line">		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');</div><div class="line">		xhr.send(obj.data);</div><div class="line">	&#125; else &#123;</div><div class="line">		xhr.send(null);</div><div class="line">	&#125;</div><div class="line">	if (obj.async === false) &#123;</div><div class="line">			callback();</div><div class="line">	&#125;</div><div class="line">	function callback () &#123;</div><div class="line">		if (xhr.status == 200) &#123;</div><div class="line">			 obj.success(xhr.responseText);			//回调</div><div class="line">		&#125; else &#123;</div><div class="line">			alert('数据返回失败！状态代码：' + xhr.status + '，</div><div class="line">状态信息：' + xhr.statusText);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//调用ajax</div><div class="line">addEvent(document, 'click', function () &#123;		//IE6需要重写addEvent</div><div class="line">	ajax(&#123;</div><div class="line">		method : 'get',</div><div class="line">		url : 'demo.php',</div><div class="line">		data : &#123;</div><div class="line">			'name' : 'Lee',</div><div class="line">			'age' : 100</div><div class="line">		&#125;,</div><div class="line">		success : function (text) &#123;</div><div class="line">			alert(text);</div><div class="line">		&#125;,</div><div class="line">		async : true</div><div class="line">	&#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//名值对编码</div><div class="line">function params(data) &#123;</div><div class="line">	var arr = [];</div><div class="line">	for (var i in data) &#123;</div><div class="line">		arr.push(encodeURIComponent(i) + '=' + encodeURIComponent(data[i]));</div><div class="line">	&#125;</div><div class="line">	return arr.join('&amp;');</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="fancygh.me/2017/03/01/js4/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1339,285 +1718,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="fancygh.me/2017/02/22/3/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="July">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="july的博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="july的博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/22/3/" itemprop="url">
-                  font-end interview questions 3.0
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-22T12:38:37+08:00">
-                2017-02-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="TCP传输的三次握手和四次挥手策略"><a href="#TCP传输的三次握手和四次挥手策略" class="headerlink" title="TCP传输的三次握手和四次挥手策略"></a>TCP传输的三次握手和四次挥手策略</h3><p>三次握手：<br>    一个TCP连接需要“三次握手”：</p>
-<pre><code>第一次：发送端首先发送一个带SYN标志的数据包给对方。
-
-第二次：接收端收到后，回传一个带有SYN/ACK标志的数据包来传达确认消息。
-
-第三次：发送端再回传一个带ACK标志的数据包，代表握手结束。
-</code></pre><p>四次挥手：<br>    断开一个TCP连接需要“四次挥手”：</p>
-<pre><code>第一次：主动关闭方发送一个FIN，用来关闭主动方到被动关闭方的数据传送
-
-第二次：被动关闭方收到FIN包后，发送一个ACK给对方，确认序号为收到序号+1
-
-第三次：被动关闭方发送一个FIN，用来关闭被动关闭方到主动关闭方的数据传送
-
-第四次：主动关闭方收到FIN包后，发送一个ACK给被动关闭方，确认序号为收到序号+1。
-</code></pre>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/22/3/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="fancygh.me/2017/02/21/2/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="July">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="july的博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="july的博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/21/2/" itemprop="url">
-                  font-end interview questions 2.0
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-21T11:44:27+08:00">
-                2017-02-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h4><p>cookie虽然在持久保存客户端数据中提供了方便，分担了服务器存储的负担，但是仍有很多局限性。</p>
-<p>优点：极高的扩展性和可用性</p>
-<pre><code>1. 通过良好的编程，控制保存在cookie中的session对象的大小
-
-2. 通过加密和安全传输技术（SSL），减少了cookie被破解的可能性
-
-3. 只在cookie中存放不敏感数据，即使被盗也不会有重大的损失
-
-4. 控制cookie的生命周期，使它不会永远有效，即使被窃取也是一个过期的cookie
-</code></pre><p>缺点：</p>
-<pre><code>1. cookie的数量和长度有限制，最多有20条，而且每条的长度不能超过4KB
-
-2. 安全性问题
-
-3. 有些状态不能保存在客户端
-</code></pre>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/21/2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1665,7 +1765,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

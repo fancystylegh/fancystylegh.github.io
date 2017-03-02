@@ -1,0 +1,909 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="july" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="jQuery入门
+什么是jQuery？jQuery是一个javascript库，通过封装原生的javascript函数得到一套定义好的方法。jQuery已经集成了javascript、CSS、DOM和Ajax于一体，可以用更少的代码完成更多复杂而困难的功能。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jquery">
+<meta property="og:url" content="fancygh.me/2017/03/01/jquery/index.html">
+<meta property="og:site_name" content="july的博客">
+<meta property="og:description" content="jQuery入门
+什么是jQuery？jQuery是一个javascript库，通过封装原生的javascript函数得到一套定义好的方法。jQuery已经集成了javascript、CSS、DOM和Ajax于一体，可以用更少的代码完成更多复杂而困难的功能。">
+<meta property="og:updated_time" content="2017-03-02T08:07:52.908Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jquery">
+<meta name="twitter:description" content="jQuery入门
+什么是jQuery？jQuery是一个javascript库，通过封装原生的javascript函数得到一套定义好的方法。jQuery已经集成了javascript、CSS、DOM和Ajax于一体，可以用更少的代码完成更多复杂而困难的功能。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="fancygh.me/2017/03/01/jquery/"/>
+
+
+
+
+
+  <title> jquery | july的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">july的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">i love my family</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="fancygh.me/2017/03/01/jquery/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="July">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="july的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="july的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                jquery
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-01T20:24:38+08:00">
+                2017-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="jQuery入门"><a href="#jQuery入门" class="headerlink" title="jQuery入门"></a>jQuery入门</h3><ol>
+<li>什么是jQuery？<br>jQuery是一个javascript库，通过封装原生的javascript函数得到一套定义好的方法。jQuery已经集成了javascript、CSS、DOM和Ajax于一体，可以用更少的代码完成更多复杂而困难的功能。<a id="more"></a>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="string">'input'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		alert(<span class="string">'第一个jQuery程序！'</span>);</div><div class="line">	&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="基础核心"><a href="#基础核心" class="headerlink" title="基础核心"></a>基础核心</h3><ol>
+<li>代码风格<br>在jQuery程序中，不管是页面元素的选择、内置的功能函数，都是$开头。这里的$就是jQuery对象。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);       <span class="comment">//执行一个匿名函数</span></div><div class="line">$(<span class="string">'#box'</span>);             <span class="comment">//执行id元素选择</span></div><div class="line">$(<span class="string">'#box'</span>).css(<span class="string">'color'</span>,<span class="string">'red'</span>);        <span class="comment">//执行功能函数</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>由于$本身就是jQuery对象的缩写形式，所以可以把$换成jQuery</p>
+<p>在执行功能函数的时候，发现.css()这个功能函数是先获取元素后，返回某个对象再调用.css()这个功能函数。执行了.css()这个功能之后返回的还是jQuery对象。</p>
+<p>jQuery的代码采用的是连缀方式：<br><code>$(&#39;#box&#39;).css(&#39;color&#39;,&#39;red&#39;).css(&#39;font-size&#39;,&#39;50px&#39;);      //连缀</code></p>
+<ol>
+<li>加载模式<br>jQuery库文件是在body元素之前加载的，必须等待所有的DOM元素加载后，延迟支持DOM操作，否则无法获取到。</li>
+</ol>
+<p>在延迟等待加载，javascript提供了一个事件为load。方法如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;    <span class="comment">//javascript等待加载</span></div><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);    <span class="comment">//jQuery等待加载</span></div></pre></td></tr></table></figure></p>
+<p>load和ready的区别<br>| |window.onload|$(document).ready()|<br>|:—-:|:—————–:|:———————–:|<br>|执行时机|必须等到网页全部加载完毕（包括图片等），然后再执行包裹代码|只需要等待网页中的DOM结构加载完毕，就能执行包裹的代码|<br>|执行次数|只能执行一次，如果第二次，那么第一次的执行会被覆盖|可以执行多次，第N次都不会被上一次覆盖|<br>|简写方案|无|$(function(){});|</p>
+<p>在实际应用中，很少用window.onload，因为需要等到网页全部加载完毕（包括图片等），然后再执行包裹代码。在网速较慢的情况下，页面已经全部展开，图片还在缓慢加载这时候页面上的任何JS交互都是处于假死状态。只能执行单次也不利于团队开发。</p>
+<ol>
+<li>对象互换<br>jQuery对象虽然是jQuery库的独有对象，但也是通过javascript进行封装而来的。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">alert($);        <span class="comment">//jQuery对象方法内部</span></div><div class="line">alert($());      <span class="comment">//jQuery对象返回的对象，还是jQuery</span></div><div class="line">alert($(<span class="string">'#box'</span>));      <span class="comment">//包裹id元素返回对象还是jQuery</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>jQuery想要达到获取原生的DOM对象，可以这么处理：<br><code>alert($(&#39;#box&#39;).get(0));    //id元素的第一个原生DOM</code></p>
+<ol>
+<li>多个库之间的冲突<br>。。。</li>
+</ol>
+<h3 id="常规选择器"><a href="#常规选择器" class="headerlink" title="常规选择器"></a>常规选择器</h3><p>jQuery最核心的组成部分就是：选择器引擎。它继承了CSS的语法，可以对DOM元素的标签名、属性名、状态等进行快速准确的选择，并且不必担心浏览器的兼容性。</p>
+<ol>
+<li>简单选择器<br>在使用jQuery选择器时，首先必须要使用“$()”函数来包装CSS规则。<br><code>$(&#39;#box&#39;).css(&#39;color&#39;,&#39;red&#39;);     //获取DOM节点对象，并添加行为</code></li>
+</ol>
+<p>除了ID选择器，还有两种基本选择器：元素标签名和类<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'div'</span>).css(<span class="string">'color'</span>,<span class="string">'red'</span>);    <span class="comment">//元素选择器，返回多个元素</span></div><div class="line">$(<span class="string">'#box'</span>).css(<span class="string">'color'</span>,<span class="string">'red'</span>);     <span class="comment">//ID选择器，返回单个元素</span></div><div class="line">$(<span class="string">'.box'</span>).css(<span class="string">'color'</span>,<span class="string">'red'</span>);     <span class="comment">//类选择器，返回多个元素</span></div></pre></td></tr></table></figure></p>
+<p>可以采用jQuery核心自带的一个属性length或size()方法来查看返回的元素个数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">alert($(<span class="string">'div'</span>).size());</div><div class="line">alert($(<span class="string">'#box'</span>).size());</div><div class="line">alert($(<span class="string">'.box'</span>).size());</div></pre></td></tr></table></figure></p>
+<p>或者 <code>alert($(&#39;#box&#39;).length);</code></p>
+<p>对于不存在的元素，使用jQuery调用的时候怎么判断是否存在呢？</p>
+<ol>
+<li><p>判断元素包含数量即可</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>($(<span class="string">'#box'</span>).length &gt; <span class="number">0</span>)&#123;</div><div class="line">	$(<span class="string">'#box'</span>).css(<span class="string">'color'</span>,<span class="string">'red'</span>);	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>还可以用转换为DOM对象的方式来判断<br><code>if($(&#39;#box&#39;).get(0)){}  或者 if($(&#39;#box&#39;)[0]){}    //通过数组下标也可以获取DOM对象</code></p>
+</li>
+</ol>
+<ol>
+<li>进阶选择器</li>
+</ol>
+<ul>
+<li><p>群组选择器<br><code>$(&#39;span,em,box&#39;).css(&#39;color&#39;,&#39;red&#39;);</code></p>
+</li>
+<li><p>后代选择器<br><code>$(&#39;ul li a&#39;).css(&#39;color&#39;,&#39;red&#39;);</code></p>
+</li>
+<li><p>通配选择器 实际使用时不常用<br>`$(‘*’).css(‘color’,’red’);</p>
+</li>
+<li><p>还有一种选择器，可以在ID和类中指明元素前缀<br><code>$(&#39;div.box&#39;);  或者 $(&#39;p#box div.side&#39;);</code></p>
+</li>
+<li><p>类有一个特殊的模式，就是同一个DOM节点可以声明多个类。可以用多class选择器，但是要与群组选择器区别。<br><code>$(&#39;.box.nav&#39;).css(&#39;color&#39;,&#39;red&#39;);    //兼容IE6，解决了异常</code></p>
+</li>
+</ul>
+<p>多选择器必须是一个DOM节点同时有多个class，而群组class选择器只不过是多个class进行选择，加了逗号。</p>
+<ol>
+<li>高级选择器</li>
+</ol>
+<ul>
+<li>后代选择器<br><code>$(&#39;#box p&#39;).css(&#39;color&#39;,&#39;red&#39;);      //全兼容</code></li>
+</ul>
+<p>jQuery为后代选择器提供了一个等价find()方法<br><code>$(&#39;#box&#39;).find(&#39;p&#39;).css(&#39;color&#39;,&#39;red&#39;);     //和后代选择器等价</code></p>
+<ul>
+<li>子选择器<br><code>$(&#39;#box&gt;p&#39;).css(&#39;color&#39;,&#39;red&#39;);</code></li>
+</ul>
+<p>jQuery为子选择器提供了一个等价的children()方法<br><code>$(&#39;#box&#39;).children(&#39;p&#39;).css(&#39;color&#39;,&#39;red&#39;);   //和子选择器等价</code></p>
+<ul>
+<li>next选择器（下一个同级节点）<br><code>$(&#39;#box+p&#39;).css(&#39;color&#39;,&#39;red&#39;);</code></li>
+</ul>
+<p>jQuery为next选择器提供了一个等价的方法next();<br><code>$(&#39;#box&#39;).next(&#39;p&#39;).css(&#39;color&#39;,&#39;red&#39;);     //和next选择器等价</code></p>
+<ul>
+<li>nextAll选择器（后面所有的同级节点）<br><code>$(&#39;#box~p&#39;).css(&#39;color&#39;,&#39;red&#39;);</code></li>
+</ul>
+<p>jQuery为nextAll选择器提供了一个等价的方法nextAll()<br><code>$(&#39;#box&#39;).nextAll(&#39;p&#39;).css(&#39;color&#39;,&#39;red&#39;);    //和nextAll选择器等价</code></p>
+<ul>
+<li>为了补充高级选择器，jQuery还提供了更加丰富的方法来选择元素<br><code>$(&#39;#box&#39;).prev(&#39;p&#39;).css(&#39;color&#39;,&#39;red&#39;);   //同级上一个元素</code></li>
+</ul>
+<p><code>$(&#39;#box&#39;).prevAll(&#39;p&#39;).css(&#39;color&#39;,&#39;red&#39;);  //同级所有上面的元素</code></p>
+<ul>
+<li>nextUntil()和prevUntil()方法是选定同级的下面或上面的所有节点，选定非指定的所有元素，一旦遇到指定的元素就停止选定。<br><code>$(&#39;#box&#39;).prevUntil(&#39;p&#39;).css(&#39;color&#39;,&#39;red&#39;);   //同级上非指定元素选定，遇到则停止</code></li>
+</ul>
+<p><code>$(&#39;#box&#39;).nextUntil(&#39;p&#39;).css(&#39;color&#39;,&#39;red&#39;);  //同级下非指定元素选定，遇到则停止</code></p>
+<ul>
+<li>siblings()方法正好集成了prevAll()和nextAll()两个功能的效果，及上下相邻的所有元素进行选定<br><code>$(&#39;#box&#39;).siblings(&#39;p&#39;).css(&#39;color&#39;,&#39;red&#39;);     //同级上下所有的元素选定</code></li>
+</ul>
+<p>最快的是find()方法，最慢的是$(‘#box p’)这种高级选择器。</p>
+<p>推荐使用jQuery提供的方法，不但比高级选择器运行的更快，而且它的灵活性和扩展性要高于高级选择器，next和nextAll等更加的语义化，更加清晰。</p>
+<ul>
+<li><p>选定这个属性的<br><code>$(&#39;a[title]&#39;).css(&#39;color&#39;,&#39;red&#39;);</code></p>
+</li>
+<li><p>选定具有这个属性 = 这个属性值<br><code>$(&#39;a[title =^ num]&#39;).css(&#39;color&#39;,&#39;red&#39;);</code></p>
+</li>
+<li><p>选定具有这个属性且等于属性值或开头属性值匹配后面跟一个’-‘号<br><code>$(&#39;a[title]=&quot;num&quot;&#39;).css(&#39;color&#39;,&#39;red&#39;);</code></p>
+</li>
+<li><p>选定具有这个属性且结尾属性值匹配的<br><code>$(&#39;a[title$=num]&#39;).css(&#39;color&#39;,&#39;red&#39;);</code></p>
+</li>
+<li><p>选定具有这个属性且属性值不相等<br><code>$(&#39;a[title!=num]&#39;).css(&#39;color&#39;,&#39;red&#39;);</code></p>
+</li>
+<li><p>选定具有这个属性且属性值含有一个指定字串<br><code>$(&#39;a[title*=num]&#39;).css(&#39;color&#39;,&#39;red&#39;);</code></p>
+</li>
+<li><p>选定具有多个属性且属性值匹配成功<br><code>$(&#39;a[bbb][title=num1]&#39;).css(&#39;color&#39;,&#39;red&#39;);</code></p>
+</li>
+</ul>
+<h3 id="过滤选择器"><a href="#过滤选择器" class="headerlink" title="过滤选择器"></a>过滤选择器</h3><ol>
+<li>基本过滤器<br>过滤器主要通过特定的过滤规则来筛选所需的DOM元素，和CSS中的伪类的语法相似，都是使用（:）开头。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'li:first'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);    <span class="comment">//第一个元素</span></div><div class="line">$(<span class="string">'li:last'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);     <span class="comment">//最后一个元素</span></div><div class="line">$(<span class="string">'li:not(.red)'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);   <span class="comment">//非class为red的元素</span></div><div class="line">$(<span class="string">'li:even'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);     <span class="comment">//索引为偶数的元素</span></div><div class="line">$(<span class="string">'li:odd'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);     <span class="comment">//索引为奇数的元素</span></div><div class="line">$(<span class="string">'li:eq(2)'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);    <span class="comment">//指定索引值的元素</span></div><div class="line">$(<span class="string">'li:gt(2)'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);    <span class="comment">//大于索引值的元素</span></div><div class="line">$(<span class="string">'li:lt(2)'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);    <span class="comment">//小于索引值的元素</span></div><div class="line">$(<span class="string">':header'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);     页面所有h1~h6元素</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>focus过滤器必须是网页初始状态已经被激活焦点的元素才能实现元素获取，而不是鼠标点击或者Tab键盘敲击激活的<br><code>$(&#39;input&#39;).get(0).focus();      //先初始化激活一个元素焦点</code></p>
+<p><code>$(&#39;:focus&#39;).css(&#39;background&#39;,&#39;#ccc&#39;);      //被焦点的元素</code></p>
+<p>jQuery为最常用的过滤器提供了专用的方法，达到提高性能和效率的作用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'li'</span>).eq(<span class="number">2</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);     <span class="comment">//元素li的第三个元素，负数的话是从后开始</span></div><div class="line">$(<span class="string">'li'</span>).first().css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);   <span class="comment">//元素li的第一个元素</span></div><div class="line">$(<span class="string">'li'</span>).last().css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);    <span class="comment">//元素li的最后一个元素</span></div><div class="line">$(<span class="string">'li'</span>).not(<span class="string">'.red'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);    <span class="comment">//元素li不含class为red的元素</span></div></pre></td></tr></table></figure></p>
+<ol>
+<li>内容过滤器</li>
+</ol>
+<ul>
+<li>选择元素文本节点含有ycku.com文本的元素<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'div:contains("ycku.com")'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);</div><div class="line">$(<span class="string">'div:empty'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);    <span class="comment">//选择空元素</span></div><div class="line">$(<span class="string">'ul:has(.red)'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);    <span class="comment">//选择子元素含有class是red的元素</span></div><div class="line">$(<span class="string">':parent'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);    <span class="comment">//选择非空元素</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>jQuery提供了一个has()方法来提高has过滤器的性能：<br><code>$(&#39;ul&#39;).has(&#39;.red&#39;).css(&#39;background&#39;,&#39;#ccc&#39;);    //选择子元素含有class是red的元素</code></p>
+<p>jQuery提供了一个名称和:parent相似的方法，但是这个方法并不是选取含有子元素或文本的元素，而是获取当前元素的父元素，返回的是元素集合。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'li'</span>).parent().css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);   <span class="comment">//选择当前的父元素</span></div><div class="line">$(<span class="string">'li'</span>).parents().css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);   <span class="comment">//选择当前元素的父元素及祖先元素</span></div><div class="line">$(<span class="string">'li'</span>).parentsUntil(<span class="string">'div'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);   <span class="comment">//选择当前元素遇到div父元素停止</span></div></pre></td></tr></table></figure></p>
+<ol>
+<li><p>可见性过滤器<br><code>$(&#39;p:hidden&#39;).size();     //元素p隐藏的元素</code><br><code>$(&#39;p:visible&#39;).size();     //元素p显示的元素</code></p>
+</li>
+<li><p>子元素过滤器</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'li:first-child'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);   <span class="comment">//每个父元素的第一个li元素</span></div><div class="line">$(<span class="string">'li:last-child'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);     <span class="comment">//每个父元素最后一个li元素</span></div><div class="line">$(<span class="string">'li:only-child'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);    <span class="comment">//每个父元素只有一个li元素</span></div><div class="line">$(<span class="string">'li:nth-child(odd)'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);   <span class="comment">//每个父元素奇数li元素</span></div><div class="line">$(<span class="string">'li:nth-child(even)'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);    <span class="comment">//每个父元素偶数li元素</span></div><div class="line">$(<span class="string">'li:nth-child(2)'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);     <span class="comment">//每个父元素第三个li元素</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>其他方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'red'</span>).is(<span class="string">'li'</span>);      <span class="comment">//true,选择器，检查class是否为red</span></div><div class="line">$(<span class="string">'.red'</span>).is($(<span class="string">'li'</span>));    <span class="comment">//true，jQuery对象集合</span></div><div class="line">$(<span class="string">'.red'</span>).is($(<span class="string">'li'</span>).eq(<span class="number">2</span>));      <span class="comment">//true,jQuery对象单个</span></div><div class="line">$(<span class="string">'.red'</span>).is($(<span class="string">'li'</span>).get(<span class="number">2</span>));      <span class="comment">//true,DOM对象</span></div><div class="line">$(<span class="string">'.red'</span>).is(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> $(<span class="keyword">this</span>).attr(<span class="string">'title'</span>)==<span class="string">'列表3'</span>;       <span class="comment">//可以自定义</span></div><div class="line">&#125;));</div><div class="line">$(<span class="string">'li'</span>).eq(<span class="number">2</span>).hasClass(<span class="string">'red'</span>);            <span class="comment">//和is一样，只不过只能传递class</span></div><div class="line"></div><div class="line">$(<span class="string">'li'</span>).slice(<span class="number">0</span>,<span class="number">2</span>).css(<span class="string">'color'</span>,<span class="string">'red'</span>);      <span class="comment">//前三个变成红色</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>slice(2):从第三个开始到最后；slice(2,4):第三个和第四个被选定；<br>slice(0,-2):从倒数第三个位置，向前选定所有；<br>slice(2,-2):前两个和末尾两个未选</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'div'</span>).find(<span class="string">'p'</span>).end().get(<span class="number">0</span>);    <span class="comment">//返回div的原生DOM</span></div><div class="line">$(<span class="string">'div'</span>).contents().size();          <span class="comment">//返回子节点（包括文本）数量</span></div><div class="line"></div><div class="line">$(<span class="string">'li'</span>).filter(<span class="string">'.red'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);   <span class="comment">//选择li的class为red的元素</span></div><div class="line">$(<span class="string">'li'</span>).filter(<span class="string">'.red,:first,:last'</span>).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);   <span class="comment">//增加了首尾选择</span></div><div class="line"></div><div class="line"><span class="comment">//特殊要求函数返回</span></div><div class="line">$(<span class="string">'li'</span>).filter(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> $(<span class="keyword">this</span>).attr(<span class="string">'class'</span>)==<span class="string">'red'</span> &amp;&amp; $(<span class="keyword">this</span>).attr(<span class="string">'title'</span>)==<span class="string">'列表3'</span>;</div><div class="line">	&#125;).css(<span class="string">'background'</span>,<span class="string">'#ccc'</span>);</div></pre></td></tr></table></figure>
+<h3 id="基础DOM和CSS操作"><a href="#基础DOM和CSS操作" class="headerlink" title="基础DOM和CSS操作"></a>基础DOM和CSS操作</h3><ol>
+<li>设置元素及内容<br>最常用操作是对元素内容的获取和修改。</li>
+</ol>
+<p>在常规的DOM元素中，我们可以使用html()和text()方法获取内部的数据。html()方法可以获取和设置html内容，text()可以获取或设置文本内容。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#box'</span>).html();           <span class="comment">//获取html内容</span></div><div class="line">$(<span class="string">'#box'</span>).text();           <span class="comment">//获取文本内容，会自动清理html标签</span></div><div class="line">$(<span class="string">'#box'</span>).html(<span class="string">'&lt;em&gt;www.baidu.com&lt;/em&gt;'</span>);         <span class="comment">//设置html内容</span></div><div class="line">$(<span class="string">'#box'</span>).text(<span class="string">'&lt;em&gt;www.baidu.com&lt;/em&gt;'</span>);        <span class="comment">//设置文本内容，会自动转义html标签</span></div></pre></td></tr></table></figure></p>
+<p>当使用html()或者text()设置元素里的内容时，会清空原来的数据。期望能追加数据，需要先获取原本的数据。<br><code>$(&#39;#box&#39;).html($(&#39;#box&#39;).html()+&#39;&lt;em&gt;www.baidu.com&lt;/em&gt;&#39;);  //追加数据</code></p>
+<p>如果元素是表单，jQuery提供了val()方法进行获取或者设置内部的文本数据<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'input'</span>).val();          <span class="comment">//获取表单内容</span></div><div class="line">$(<span class="string">'input'</span>).val(<span class="string">'www.baidu.com'</span>);     <span class="comment">//设置表单内容</span></div></pre></td></tr></table></figure></p>
+<p>如果想设置多个选项的选定状态，比如下拉菜单、单选复选框等等，可以通过数组传递操作。<br><code>$(&#39;input&#39;).val([&quot;check1&quot;,&quot;check2&quot;,&quot;check3&quot;]);</code></p>
+<ol>
+<li>元素属性操作<br>包括获取属性的属性值、设置属性的属性值、并且可以删除掉属性<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'div'</span>).attr(<span class="string">'title'</span>);    <span class="comment">//获取属性的属性值</span></div><div class="line">$(<span class="string">'div'</span>).attr(<span class="string">'title'</span>,<span class="string">'我是域名'</span>);        <span class="comment">//设置属性及属性值</span></div><div class="line">$(<span class="string">'div'</span>).attr(<span class="string">'title'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="string">'我是域名'</span>;                 <span class="comment">//通过匿名函数返回属性值</span></div><div class="line">&#125;);</div><div class="line">$(<span class="string">'div'</span>).attr(<span class="string">'title'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">index,value</span>)</span>&#123;   <span class="comment">//可以接受两个参数</span></div><div class="line">	<span class="keyword">return</span> value+(index+<span class="number">1</span>)+<span class="string">'，我是域名'</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>attr()方法里的function(){}，可以不传参数，可以只传一个参数index，表示当前元素的索引（从0开始）。也可以传递两个参数index、value，第二个参数表示属性原本的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'div'</span>).html(<span class="function"><span class="keyword">function</span>(<span class="params">index</span>)</span>&#123;           <span class="comment">//通过匿名函数赋值，并传递index</span></div><div class="line">	<span class="keyword">return</span> <span class="string">'我是'</span>+(index+<span class="number">1</span>)+<span class="string">'号div'</span>;        </div><div class="line">&#125;);</div><div class="line"></div><div class="line">$(<span class="string">'div'</span>).html(<span class="function"><span class="keyword">function</span>(<span class="params">index,value</span>)</span>&#123;         <span class="comment">//还可以实现追加内容</span></div><div class="line">	<span class="keyword">return</span> <span class="string">'我是'</span>+(index+<span class="number">1</span>)+<span class="string">'号div:'</span>+value;     </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>删除指定的属性，这个方法就不可以使用匿名函数，传递index和value均无效<br><code>$(&#39;div&#39;).removeAttr(&#39;title&#39;);       //删除指定的属性</code></p>
+<ol>
+<li>元素样式操作<br>元素样式操作包括了直接设置CSS样式、增加CSS类别、类别切换、删除类别这几种操作方法。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'div'</span>).css(<span class="string">'color'</span>);        <span class="comment">//获取元素行内CSS样式的内容</span></div><div class="line">$(<span class="string">'div'</span>).css(<span class="string">'color'</span>,<span class="string">'red'</span>);    <span class="comment">//设置元素行内CSS样式颜色为红色</span></div></pre></td></tr></table></figure>
+<p>在CSS获取上，我们也可以获取多个CSS样式，而获取得到的是一个对象数组。用传统方式解析需要使用for in遍历。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = $(<span class="string">'div'</span>).css([<span class="string">'color'</span>,<span class="string">'height'</span>,<span class="string">'width'</span>]);        <span class="comment">//得到多个CSS样式的数组对象</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> box)&#123;    <span class="comment">//逐个遍历</span></div><div class="line">	alert(i+<span class="string">':'</span>+box[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>jQuery提供了一个遍历工具专门处理这种对象数组，$.each()方法，这个方法可以轻松的遍历对象数组。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$.each(box,<span class="function"><span class="keyword">function</span>(<span class="params">attr,value</span>)</span>&#123;         <span class="comment">//遍历javascript原生态的数组对象</span></div><div class="line">	alert(attr+<span class="string">':'</span>+value);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>使用$.each()可以遍历原生的javascript对象数组，如果是jQuery对象的数组呢？<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'div'</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params">index,element</span>)</span>&#123;    <span class="comment">//index为索引，element为元素DOM</span></div><div class="line">	alert(index+<span class="string">':'</span>+element);     </div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>在需要设置多个样式的时候，我们可以传递多个CSS样式的键值对即可。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'div'</span>).css(&#123;</div><div class="line">	<span class="string">'background-color'</span>:<span class="string">'#ccc'</span>,</div><div class="line">	<span class="string">'color'</span>:<span class="string">'red'</span>,</div><div class="line">	<span class="string">'font-size'</span>:<span class="string">'20px'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>如果想设置某个元素的CSS样式的值，但是这个值需要计算我们可以传递一个匿名函数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'div'</span>).css(<span class="string">'width'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">index,value</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> (<span class="built_in">parseInt</span>(value)<span class="number">-500</span>)+<span class="string">'px'</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>除了行内CSS设置，我们也可以直接给元素添加CSS类，可以添加单个或多个，也可以删除它。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'div'</span>).addClass(<span class="string">'red'</span>);     <span class="comment">//添加一个CSS类</span></div><div class="line">$(<span class="string">'div'</span>).addClass(<span class="string">'red bg'</span>);   <span class="comment">//添加多个CSS类</span></div><div class="line">$(<span class="string">'div'</span>).removeClass(<span class="string">'bg'</span>);     <span class="comment">//删除一个CSS类</span></div><div class="line">$(<span class="string">'div'</span>).removeClass(red bg);     <span class="comment">//删除多个CSS类</span></div></pre></td></tr></table></figure></p>
+<p>还可以结合事件来实现CSS类的样式切换功能<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'div'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;         <span class="comment">//当点击后触发</span></div><div class="line">	$(<span class="keyword">this</span>).toggleClass(<span class="string">'red size'</span>);     <span class="comment">//单个样式多个样式均可</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>.toggleClass()方法的第二个参数可以传入一个布尔值，true表示执行切换到class类，false表示执行回默认class类（默认的是空class），运用这个特性，我们可以设置切换的频率。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</div><div class="line">$(<span class="string">'div'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;              <span class="comment">//每点击两次切换red</span></div><div class="line">	$(<span class="keyword">this</span>).toggleClass(<span class="string">'red'</span>,count++%<span class="number">3</span> == <span class="number">0</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>默认的CSS类切换只能是无样式和指定样式之间的切换，如果想实现样式1和样式2之间的切换还必须自己写一些逻辑。</p>
+<ul>
+<li>比较麻烦的方法<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'div'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="keyword">this</span>).toggleClass(<span class="string">'red size'</span>);          <span class="comment">//一开始切换样式2</span></div><div class="line">	<span class="keyword">if</span>($(<span class="keyword">this</span>).hasClass(<span class="string">'red'</span>))&#123;          <span class="comment">//判断样式2存在</span></div><div class="line">		$(<span class="keyword">this</span>).removeClass(<span class="string">'blue'</span>);   <span class="comment">//删除样式1</span></div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		$(<span class="keyword">this</span>).toggleClass(<span class="string">'blue'</span>);    <span class="comment">//添加样式1，这里也可以addClass</span></div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>.toggleClass()方法提供了传递匿名函数的方式，来设置所需要切换的规则<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'div'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="keyword">this</span>).toggleClass(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;      <span class="comment">//传递匿名函数，返回要切换的样式</span></div><div class="line">		<span class="keyword">return</span> $(<span class="keyword">this</span>).hasClass(<span class="string">'red'</span>)?<span class="string">'blue'</span>:<span class="string">'red size'</span>;</div><div class="line">	&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>对于.toggleClass()传入匿名函数的方法，还可以传递index索引、class类两个参数以及频率布尔值，可以得到当前的索引、class类名和频率布尔值。</p>
+<ol>
+<li>CSS方法<br>width()方法：<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'div'</span>).width();     <span class="comment">//获取元素的长度，返回的类型为number</span></div><div class="line">$(<span class="string">'div'</span>).width(<span class="number">500</span>);     <span class="comment">//设置元素长度，直接传数值，默认加px</span></div><div class="line">$(<span class="string">'div'</span>).width(<span class="function"><span class="keyword">function</span>(<span class="params">index,value</span>)</span>&#123;   <span class="comment">//index是索引，value是原本值</span></div><div class="line">	<span class="keyword">return</span> value - <span class="number">500</span>;         <span class="comment">//无需调整类型，直接计算</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>height()方法类似。</p>
+<p>内外边距和边框尺寸方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">alert($(<span class="string">'div'</span>).width());     <span class="comment">//不包含</span></div><div class="line">alert($(<span class="string">'div'</span>).innerWidth());    <span class="comment">//包含内边距padding</span></div><div class="line">alert($(<span class="string">'div'</span>).outerWidth());    <span class="comment">//包含内边距padding+边框border</span></div><div class="line">alert($(<span class="string">'div'</span>).outerWidth(<span class="literal">true</span>));   <span class="comment">//包含内边距padding+边框border+外边框margin</span></div></pre></td></tr></table></figure></p>
+<p>元素偏移方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'strong'</span>).offset().left;      <span class="comment">//相对于视口的偏移</span></div><div class="line">$(<span class="string">'strong'</span>).position().left;     <span class="comment">//相对于父元素的偏移</span></div><div class="line">$(<span class="built_in">window</span>).scrollTop();        <span class="comment">//获取当前滚动条的位置</span></div><div class="line">$(<span class="built_in">window</span>).scrollTop(<span class="number">300</span>);       <span class="comment">//设置当前滚动条的位置</span></div></pre></td></tr></table></figure></p>
+<h3 id="DOM节点操作"><a href="#DOM节点操作" class="headerlink" title="DOM节点操作"></a>DOM节点操作</h3><ol>
+<li><p>创建节点</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = $(<span class="string">'&lt;div id="box"&gt;节点&lt;/div&gt;'</span>);    <span class="comment">//创建一个节点</span></div><div class="line">$(<span class="string">'body'</span>).append(box);         <span class="comment">//将节点插入到&lt;body&gt;元素内部</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>插入节点</p>
+</li>
+</ol>
+<ul>
+<li><p>内部插入节点</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'div'</span>).append(<span class="string">'&lt;strong&gt;节点&lt;/strong&gt;'</span>);   <span class="comment">//向div内部插入strong节点</span></div><div class="line">$(<span class="string">'div'</span>).append(<span class="function"><span class="keyword">function</span>(<span class="params">index,html</span>)</span>&#123;   <span class="comment">//使用匿名函数插入节点，html是原节点</span></div><div class="line">	<span class="keyword">return</span> <span class="string">'&lt;strong&gt;节点&lt;/strong&gt;'</span>;</div><div class="line">&#125;);</div><div class="line">$(<span class="string">'span'</span>).appendTo(<span class="string">'div'</span>);        <span class="comment">//将span节点移入div内部</span></div><div class="line">$(<span class="string">'span'</span>).appendTo($(<span class="string">'div'</span>));     <span class="comment">//同上</span></div><div class="line">$(<span class="string">'div'</span>).prepend(<span class="string">'&lt;span&gt;节点&lt;/span&gt;'</span>);     <span class="comment">//将span插入到div内部的前面</span></div><div class="line">$(<span class="string">'div'</span>).append(<span class="function"><span class="keyword">function</span>(<span class="params">index,html</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="string">'&lt;span&gt;节点&lt;/span&gt;'</span>;</div><div class="line">&#125;);</div><div class="line">	$(<span class="string">'span'</span>).prependTo(<span class="string">'div'</span>);        将span移入div内部的前面</div><div class="line">	$(<span class="string">'span'</span>).prependTo($(<span class="string">'div'</span>));</div></pre></td></tr></table></figure>
+<p>外部插入节点方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'div'</span>).after(<span class="string">'&lt;span&gt;节点&lt;/span&gt;'</span>);       <span class="comment">//向div的同级节点后面插入span</span></div><div class="line">$(<span class="string">'div'</span>).after(<span class="function"><span class="keyword">function</span>(<span class="params">index,html</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="string">'&lt;span&gt;节点&lt;/span&gt;'</span>;</div><div class="line">&#125;);</div><div class="line">$(<span class="string">'div'</span>).before(<span class="string">'&lt;span&gt;节点&lt;/span&gt;'</span>);       <span class="comment">//向div的同级节点前面插入span</span></div><div class="line">$(<span class="string">'div'</span>).before(<span class="function"><span class="keyword">function</span>(<span class="params">index,html</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="string">'&lt;span&gt;节点&lt;/span&gt;'</span>;</div><div class="line">&#125;);</div><div class="line">$(<span class="string">'span'</span>).insertAfter(<span class="string">'div'</span>);             <span class="comment">//将span元素移到div元素外部的后面</span></div><div class="line">$(<span class="string">'span'</span>).insertBefore(<span class="string">'div'</span>);            <span class="comment">//将span元素移到div元素外部的前面</span></div></pre></td></tr></table></figure>
+<ol>
+<li>包裹节点<br>包裹节点就是使用字符串代码将指定元素的代码包含着<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">	$(<span class="string">'div'</span>).wrap(<span class="string">'&lt;strong&gt;&lt;/strong&gt;'</span>);        <span class="comment">//在div外层包裹一层strong</span></div><div class="line">	$(<span class="string">'div'</span>).wrap(<span class="string">'&lt;strong&gt;123&lt;/strong&gt;'</span>);         <span class="comment">//包裹的元素可以带内容</span></div><div class="line">	$(<span class="string">'div'</span>).wrap(<span class="string">'&lt;strong&gt;&lt;em&gt;&lt;/em&gt;&lt;/strong&gt;'</span>);   <span class="comment">//包裹多个元素</span></div><div class="line">	$(<span class="string">'div'</span>).wrap($(<span class="string">'strong'</span>).get(<span class="number">0</span>));             <span class="comment">//也可以包裹一个原生DOM</span></div><div class="line">	$(<span class="string">'div'</span>).wrap(<span class="built_in">document</span>.createElement(<span class="string">'strong'</span>));    <span class="comment">//临时的原生DOM</span></div><div class="line">	$(<span class="string">'div'</span>).wrap(<span class="function"><span class="keyword">function</span>(<span class="params">index</span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">'&lt;strong&gt;&lt;/strong&gt;'</span>;             </div><div class="line">	&#125;);</div><div class="line"></div><div class="line">$(<span class="string">'div'</span>).unwrap();              <span class="comment">//移除一层包裹内容，多个需要移除多次</span></div><div class="line">	$(<span class="string">'div'</span>).wrapAll(<span class="string">'&lt;strong&gt;&lt;/strong&gt;'</span>);        <span class="comment">//所有div外层只包裹一层strong</span></div><div class="line">	$(<span class="string">'div'</span>).wrapAll($(<span class="string">'strong'</span>).get(<span class="number">0</span>));             <span class="comment">//所有div外层只包裹一层strong</span></div><div class="line">	$(<span class="string">'div'</span>).wrapInner(<span class="string">'&lt;strong&gt;&lt;/strong&gt;'</span>);         <span class="comment">//包裹子元素内容</span></div><div class="line">	$(<span class="string">'div'</span>).wrapInner($(<span class="string">'strong'</span>).get(<span class="number">0</span>));                <span class="comment">//DOM节点</span></div><div class="line">	$(<span class="string">'div'</span>).wrapInner(<span class="function"><span class="keyword">function</span>(<span class="params">index</span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">'&lt;strong&gt;&lt;/strong&gt;'</span>;             </div><div class="line">	&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>PS .wrap()、.wrapAll()和.wrapInner()的区别<br>.wrap()把每个元素当成一个独立体，分别包含一层外层<br>.wrapAll()将所有元素作为一个整体，只包含一次外层<br>.wrapInner()在内层包含</p>
+</li>
+</ul>
+<ol>
+<li>节点操作<br>除了创建、插入和包裹节点，jQuery还提供了一些常规的节点操作方法：复制、替换和删除节点。</li>
+</ol>
+<ul>
+<li>复制节点<br><code>$(&#39;body&#39;).append($(&#39;div&#39;).clone(true));      //复制一个节点添加到HTML中</code></li>
+</ul>
+<p>PS：clone(true)参数可以为空，表示只复制元素和内容，不复制事件行为。而加上true参数的话，这个元素附带的事件处理行为也复制出来。</p>
+<ul>
+<li>删除节点<br><code>$(&#39;div&#39;).remove();          //直接删除div元素</code></li>
+</ul>
+<p>PS: .remove()不带参数时，删除前面对象选择器指定的元素，而.remove()也可以带选择符参数的。例如<br><code>$(&#39;div&#39;).remove(&#39;#box&#39;);       //只删除id=box的div</code></p>
+<ul>
+<li><p>保留事件的删除节点<br><code>$(&#39;div&#39;).detach();      //保留事件行为的删除</code></p>
+</li>
+<li><p>清空节点<br><code>$(&#39;div&#39;).empty();        //删除掉节点里的内容</code></p>
+</li>
+<li><p>替换节点   节点被替换后，所包含的事件行为就全部消失了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'div'</span>).replaceWith(<span class="string">'&lt;span&gt;节点&lt;/span&gt;'</span>);       <span class="comment">//将div替换成span元素</span></div><div class="line">$(<span class="string">'&lt;span&gt;节点&lt;/span&gt;'</span>).replaceAll(<span class="string">'div'</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="表单选择器"><a href="#表单选择器" class="headerlink" title="表单选择器"></a>表单选择器</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">':input'</span>).size();         <span class="comment">//获取所有表单字段元素</span></div><div class="line">$(<span class="string">':text'</span>).size();           <span class="comment">//获取单行文本框元素</span></div><div class="line">$(<span class="string">':password'</span>).size();       <span class="comment">//获取密码栏元素</span></div><div class="line">$(<span class="string">':radio'</span>).size();          <span class="comment">//获取单选框元素</span></div><div class="line">$(<span class="string">':checkbox'</span>).size();       <span class="comment">//获取复选框元素</span></div><div class="line">$(<span class="string">':submit'</span>).size();         <span class="comment">//获取提交按钮元素</span></div><div class="line">$(<span class="string">':image'</span>).size();          <span class="comment">//获取图片按钮元素</span></div><div class="line">$(<span class="string">':reset'</span>).size();          <span class="comment">//获取重置按钮元素</span></div><div class="line">$(<span class="string">':file'</span>).size();          <span class="comment">//获取文件按钮元素</span></div><div class="line">$(<span class="string">':button'</span>).size();          <span class="comment">//获取普通按钮元素</span></div><div class="line">$(<span class="string">':hidden'</span>).size();          <span class="comment">//获取隐藏字段元素</span></div></pre></td></tr></table></figure>
+<p>PS: 这些选择器都是返回元素集合，如果想获取某一个指定元素，最好结合一下属性选择器<br><code>$(&#39;:text[name=user]&#39;).size();      //获取单行文本框name=user的元素</code></p>
+<ol>
+<li>表单过滤器<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">':enabled'</span>).size();          <span class="comment">//获取可用元素</span></div><div class="line">$(<span class="string">':disabled'</span>).size();         <span class="comment">//获取不可用元素</span></div><div class="line">$(<span class="string">':checked'</span>).size();          <span class="comment">//获取单选、复选框中被选中的元素</span></div><div class="line">$(<span class="string">':selected'</span>).size();         <span class="comment">//获取下拉列表中被选中的元素</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/01/js5/" rel="next" title="js--05">
+                <i class="fa fa-chevron-left"></i> js--05
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="July" />
+          <p class="site-author-name" itemprop="name">July</p>
+          <p class="site-description motion-element" itemprop="description">enjoy everyday</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery入门"><span class="nav-number">1.</span> <span class="nav-text">jQuery入门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基础核心"><span class="nav-number">2.</span> <span class="nav-text">基础核心</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常规选择器"><span class="nav-number">3.</span> <span class="nav-text">常规选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤选择器"><span class="nav-number">4.</span> <span class="nav-text">过滤选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基础DOM和CSS操作"><span class="nav-number">5.</span> <span class="nav-text">基础DOM和CSS操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM节点操作"><span class="nav-number">6.</span> <span class="nav-text">DOM节点操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单选择器"><span class="nav-number">7.</span> <span class="nav-text">表单选择器</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">July</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
