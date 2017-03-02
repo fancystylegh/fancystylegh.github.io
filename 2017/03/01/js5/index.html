@@ -117,7 +117,7 @@
 表单介绍在HTML中，表单是由元素来表示的，而在JavaScript中，表单对应的则是HTMLFormElement类型。
 
 获取表单对象的方法有很多种，如下：1234document.getElementById(&apos;myForm&apos;);			//使用ID获取&amp;lt;form&amp;gt;元素document.getElementsByTagName(&apos;form&apos;)[0];	//使用获取第一个元">
-<meta property="og:updated_time" content="2017-03-01T12:22:34.865Z">
+<meta property="og:updated_time" content="2017-03-02T08:13:10.413Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js--05">
 <meta name="twitter:description" content="表单处理
@@ -383,17 +383,18 @@
 <li>表单介绍<br>在HTML中，表单是由<form>元素来表示的，而在JavaScript中，表单对应的则是HTMLFormElement类型。</form></li>
 </ol>
 <p>获取表单<form>对象的方法有很多种，如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'myForm'</span>);			<span class="comment">//使用ID获取&lt;form&gt;元素</span></div><div class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">'form'</span>)[<span class="number">0</span>];	<span class="comment">//使用获取第一个元素方式获取	</span></div><div class="line"><span class="built_in">document</span>.forms[<span class="number">0</span>];							<span class="comment">//使用forms的数字下标获取元素</span></div><div class="line"><span class="built_in">document</span>.forms[<span class="string">'yourForm'</span>];					<span class="comment">//使用forms的名称下标获取元素</span></div></pre></td></tr></table></figure></form></p>
+<a id="more"></a>
 <p>提交表单<br>通过事件对象，可以阻止submit的默认行为，submit事件的默认行为就是携带数据跳转到指定页面。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">addEvent(fm, <span class="string">'submit'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123;</div><div class="line">	preDef(evt);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <p>在表单中尽量避免使用name=”submit”或id=”submit”等命名，这会和submit()方法发生冲突导致无法提交</p>
 <p>提交数据最大的问题就是重复提交表单<br>有两种方法可以解决这种问题：第一种就是提交之后，立刻禁用点击按钮<br>                            第二种就是提交之后取消后续的表单提交操作</p>
 <p><code>document.getElementById(&#39;sub&#39;).disabled = true;    //将按钮禁用</code></p>
 <p>重置表单<br>用户点击重置按钮时，表单会被初始化。虽然这个按钮还得以保留，但目前的Web已经很少去使用了。</p>
 <p>表单字段<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fm.elements[<span class="number">0</span>];							<span class="comment">//获取第一个表单字段元素</span></div><div class="line">fm.elements[<span class="string">'user'</span>];					<span class="comment">//获取name是user的表单字段元素</span></div><div class="line">fm.elements.length;					   <span class="comment">//获取所有表单字段的数量</span></div></pre></td></tr></table></figure></p>
-<p>共有的表单字段属性<br>除了<fieldset>元素之外，所有表单字段都拥有相同的一组属性<br>看几个最常用的:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fm.elements[<span class="number">0</span>].value;						<span class="comment">//获取和设置value</span></div><div class="line">fm.elements[<span class="number">0</span>].form == fm;					<span class="comment">//查看当前字段所属表单</span></div><div class="line">fm.elements[<span class="number">0</span>].disabled = <span class="literal">true</span>;				<span class="comment">//禁用当前字段</span></div></pre></td></tr></table></figure></fieldset></p>
+<p>共有的表单字段属性<br>除了<code>&lt;fieldset&gt;</code>元素之外，所有表单字段都拥有相同的一组属性<br>看几个最常用的:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fm.elements[<span class="number">0</span>].value;						<span class="comment">//获取和设置value</span></div><div class="line">fm.elements[<span class="number">0</span>].form == fm;					<span class="comment">//查看当前字段所属表单</span></div><div class="line">fm.elements[<span class="number">0</span>].disabled = <span class="literal">true</span>;				<span class="comment">//禁用当前字段</span></div></pre></td></tr></table></figure></p>
 <p>共有的表单字段方法<br>每个表单字段都有两个方法：foucs()和blur()<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">fm.elements[<span class="number">0</span>].focus();						<span class="comment">//将焦点移入</span></div><div class="line">fm.elements[<span class="number">0</span>].blur();						<span class="comment">//将焦点移出</span></div></pre></td></tr></table></figure></p>
-<p>共有的表单字段事件<br>表单共有的字段事件有以下三种：<br>    事件名    说明<br>    blur    当字段失去焦点时触发<br>    change    对于<input>和<textarea>元素，在改变value并失去焦点时触发；对于</textarea><select>元素，在改变选项时触发<br>    focus    当前字段获取焦点时触发</select></p>
+<p>共有的表单字段事件<br>表单共有的字段事件有以下三种：<br>    事件名    说明<br>    blur    当字段失去焦点时触发<br>    change    对于<code>&lt;input&gt;</code>和<code>&lt;textarea&gt;</code>元素，在改变value并失去焦点时触发；对于<code>&lt;select&gt;</code>元素，在改变选项时触发<br>    focus    当前字段获取焦点时触发</p>
 <ol>
-<li>文本框脚本<br>在HTML中，有两种方式来表现文本框：一种是单行文本框<input type="text"><pre><code>一种是多行文本框&lt;textarea&gt;
+<li>文本框脚本<br>在HTML中，有两种方式来表现文本框：一种是单行文本框<code>&lt;input type=&quot;text&quot;&gt;</code><pre><code>一种是多行文本框`&lt;textarea&gt;`
 </code></pre>（未完待续。。。）</li>
 </ol>
 <h3 id="错误处理与调试"><a href="#错误处理与调试" class="headerlink" title="错误处理与调试"></a>错误处理与调试</h3><ol>
@@ -624,7 +625,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
