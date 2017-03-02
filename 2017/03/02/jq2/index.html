@@ -105,16 +105,19 @@
 
 
 
-<meta name="description" content="enjoy everyday">
+<meta name="description" content="基础事件
+绑定事件jQuery通过.bind()方法来绑定事件。可以传递三个参数：bind(type,[data],fn)type表示一个或多个类型的事件名字符串；[data]是可选的，作为event.data属性值传递一个额外的数据；fn表示绑定到指定元素的处理函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jq2">
 <meta property="og:url" content="fancygh.me/2017/03/02/jq2/index.html">
 <meta property="og:site_name" content="july的博客">
-<meta property="og:description" content="enjoy everyday">
-<meta property="og:updated_time" content="2017-03-02T08:10:21.129Z">
+<meta property="og:description" content="基础事件
+绑定事件jQuery通过.bind()方法来绑定事件。可以传递三个参数：bind(type,[data],fn)type表示一个或多个类型的事件名字符串；[data]是可选的，作为event.data属性值传递一个额外的数据；fn表示绑定到指定元素的处理函数">
+<meta property="og:updated_time" content="2017-03-02T09:52:06.397Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jq2">
-<meta name="twitter:description" content="enjoy everyday">
+<meta name="twitter:description" content="基础事件
+绑定事件jQuery通过.bind()方法来绑定事件。可以传递三个参数：bind(type,[data],fn)type表示一个或多个类型的事件名字符串；[data]是可选的，作为event.data属性值传递一个额外的数据；fn表示绑定到指定元素的处理函数">
 
 
 
@@ -370,7 +373,50 @@
       
 
       
-        
+        <h3 id="基础事件"><a href="#基础事件" class="headerlink" title="基础事件"></a>基础事件</h3><ol>
+<li>绑定事件<br>jQuery通过.bind()方法来绑定事件。可以传递三个参数：bind(type,[data],fn)<br>type表示一个或多个类型的事件名字符串；<br>[data]是可选的，作为event.data属性值传递一个额外的数据；<br>fn表示绑定到指定元素的处理函数<a id="more"></a>
+</li>
+</ol>
+<ul>
+<li><p>使用点击事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'input'</span>).bind(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;       <span class="comment">//点击按钮后执行匿名函数</span></div><div class="line">	alert(<span class="string">'点击！'</span>);</div><div class="line">&#125;)；</div></pre></td></tr></table></figure>
+</li>
+<li><p>普通处理函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'input'</span>).bind(<span class="string">'click'</span>,fn);          <span class="comment">//执行普通函数式无须圆括号</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	alert(<span class="string">'点击！'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>可以同时绑定多个事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'input'</span>).bind(<span class="string">'mouseout mouseover'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;      <span class="comment">//移入和移出分别执行一次</span></div><div class="line">	$(<span class="string">'div'</span>).html(<span class="function"><span class="keyword">function</span>(<span class="params">index,value</span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> value+<span class="string">'1'</span>;</div><div class="line">	&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>通过对象键值对绑定多个参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'input'</span>).bind(&#123;            <span class="comment">//传递一个对象</span></div><div class="line">	<span class="string">'mouseout'</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;      <span class="comment">//事件名的引号可以省略</span></div><div class="line">		alert(<span class="string">'移出'</span>);</div><div class="line">	&#125;,</div><div class="line">	<span class="string">'mouseover'</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		alert(<span class="string">'移入'</span>);</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用unbind()删除绑定的事件<br><code>$(&#39;input&#39;).unbind();          //删除所有当前元素的事件</code></p>
+</li>
+<li><p>使用unbind参数删除指定类型事件<br><code>$(&#39;input&#39;).unbind(&#39;click&#39;);           //删除当前元素的click事件</code></p>
+</li>
+<li><p>使用unbind参数删除指定处理函数的事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	alert(<span class="string">'点击1'</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	alert(<span class="string">'点击2'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">$(<span class="string">'input'</span>).bind(<span class="string">'click'</span>,fn1);</div><div class="line">$(<span class="string">'input'</span>).bind(<span class="string">'click'</span>,fn2);</div><div class="line"></div><div class="line">$(<span class="string">'input'</span>).unbind(<span class="string">'click'</span>,fn1);        <span class="comment">//只删除fn1处理函数的事件</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li><p>简写事件<br>。。。</p>
+</li>
+<li><p>复合事件<br>jQuery提供了许多最常用的事件效果，组合一些功能实现了一些复合事件，比如切换功能、智能加载等。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> flag = <span class="number">1</span>;             <span class="comment">//计数器</span></div><div class="line">$(<span class="string">'div'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(flag == <span class="number">1</span>)&#123;            <span class="comment">//第一次点击</span></div><div class="line">		$(<span class="keyword">this</span>).css(<span class="string">'background'</span>,<span class="string">'black'</span>);</div><div class="line">		flag = <span class="number">2</span>;</div><div class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(flag == <span class="number">2</span>)&#123;      <span class="comment">//第二次点击</span></div><div class="line">		$(<span class="keyword">this</span>).css(<span class="string">'background'</span>,<span class="string">'blue'</span>);</div><div class="line">		flag = <span class="number">3</span>;</div><div class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(flag == <span class="number">3</span>)&#123;        <span class="comment">//第三次点击</span></div><div class="line">		$(<span class="keyword">this</span>).css(<span class="string">'background'</span>,<span class="string">'red'</span>);</div><div class="line">		flag = <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><ol>
+<li>事件对象<br>事件对象就是event对象，通过处理函数默认传递接受。</li>
+</ol>
+<ul>
+<li><p>通过处理函数传递事件对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'input'</span>).bind(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;    <span class="comment">//接受事件对象参数</span></div><div class="line">	alert(e);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>通过event.type属性获取触发事件名</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'input'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">	alert(e.type);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
       
     </div>
 
@@ -455,8 +501,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -498,6 +553,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础事件"><span class="nav-number">1.</span> <span class="nav-text">基础事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件对象"><span class="nav-number">2.</span> <span class="nav-text">事件对象</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
