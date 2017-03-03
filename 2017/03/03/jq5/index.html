@@ -1,0 +1,751 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="july" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="工具函数工具函数的作用主要是提供如字符串、数组、对象等操作方面的遍历。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jq5">
+<meta property="og:url" content="fancygh.me/2017/03/03/jq5/index.html">
+<meta property="og:site_name" content="july的博客">
+<meta property="og:description" content="工具函数工具函数的作用主要是提供如字符串、数组、对象等操作方面的遍历。">
+<meta property="og:updated_time" content="2017-03-03T06:41:51.694Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jq5">
+<meta name="twitter:description" content="工具函数工具函数的作用主要是提供如字符串、数组、对象等操作方面的遍历。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="fancygh.me/2017/03/03/jq5/"/>
+
+
+
+
+
+  <title> jq5 | july的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">july的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">i love my family</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="fancygh.me/2017/03/03/jq5/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="July">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="july的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="july的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                jq5
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-03T11:45:53+08:00">
+                2017-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="工具函数"><a href="#工具函数" class="headerlink" title="工具函数"></a>工具函数</h3><p>工具函数的作用主要是提供如字符串、数组、对象等操作方面的遍历。<br><a id="more"></a></p>
+<ol>
+<li><p>字符串操作<br>在jQuery中，字符串的工具函数只有一个，就是去除字符串左右空格的工具函数：$.trim()。</p>
+</li>
+<li><p>数组和对象操作<br>$.each()遍历数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">'张三'</span>,<span class="string">'李四'</span>,<span class="string">'王五'</span>,<span class="string">'赵六'</span>];</div><div class="line">$.each(arr,<span class="function"><span class="keyword">function</span>(<span class="params">index,value</span>)</span>&#123;   <span class="comment">//index表示数组元素的编号，默认从0开始</span></div><div class="line">	$(<span class="string">'#box'</span>).html($(<span class="string">'#box'</span>).html()+index+<span class="string">'.'</span>+value+<span class="string">'&lt;br /&gt;'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>$.each遍历对象<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$.each($.ajax(),<span class="function"><span class="keyword">function</span>(<span class="params">name,fn</span>)</span>&#123;</div><div class="line">	$(<span class="string">'#box'</span>).html($(<span class="string">'#box'</span>).html()+name+<span class="string">':'</span>+<span class="string">'&lt;br /&gt;'</span>);  </div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>$.grep()数据筛选<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">5</span>,<span class="number">8</span>,<span class="number">4</span>,<span class="number">13</span>,<span class="number">19</span>,<span class="number">23</span>];</div><div class="line"><span class="keyword">var</span> arrGrep = $.grep(arr,<span class="function"><span class="keyword">function</span>(<span class="params">element,index</span>)</span>&#123;       <span class="comment">//index从0开始计算</span></div><div class="line">	<span class="keyword">return</span> element &lt; <span class="number">6</span> &amp;&amp; index &lt; <span class="number">5</span>;</div><div class="line">&#125;);</div><div class="line">alert(arrGrep);</div></pre></td></tr></table></figure></p>
+<p>$.map()修改数据<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">5</span>,<span class="number">8</span>,<span class="number">4</span>,<span class="number">13</span>,<span class="number">19</span>,<span class="number">23</span>];</div><div class="line"><span class="keyword">var</span> arrMap = $.map(arr,<span class="function"><span class="keyword">function</span>(<span class="params">element,index</span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(element &lt; <span class="number">6</span> &amp;&amp; index &lt; <span class="number">5</span>)&#123;</div><div class="line">		<span class="keyword">return</span> element+<span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line">alert(arrMap);</div></pre></td></tr></table></figure></p>
+<p>$.inArray()获取查找元素下标<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">5</span>,<span class="number">8</span>,<span class="number">4</span>,<span class="number">13</span>,<span class="number">19</span>,<span class="number">23</span>];</div><div class="line"><span class="keyword">var</span> arrInArray = $.inArray(<span class="number">1</span>,arr);</div><div class="line">alert(arrInArray);</div></pre></td></tr></table></figure></p>
+<p>$.merge()合并两个数组<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">5</span>,<span class="number">8</span>,<span class="number">4</span>,<span class="number">13</span>,<span class="number">19</span>,<span class="number">23</span>];</div><div class="line"><span class="keyword">var</span> arr2 = [<span class="number">2</span>,<span class="number">9</span>,<span class="number">62</span>,<span class="number">53</span>,<span class="number">17</span>,<span class="number">25</span>];</div><div class="line">alert($.merge(arr,arr2));</div></pre></td></tr></table></figure></p>
+<p>$.unique()删除重复的DOM元素<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> divs = $(<span class="string">'div'</span>).get();</div><div class="line">divs = divs.concat($(<span class="string">'.box'</span>).get());</div><div class="line">alert($(divs).size());</div><div class="line">$.unique(divs);</div><div class="line">alert($(divs).size());</div></pre></td></tr></table></figure>
+<p>.toArray()合并多个DOM元素组成数组<br><code>alert($(&#39;li&#39;).toArray());</code></p>
+<ol>
+<li>测试操作<br>//判断是否为数组对象<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line">alert($.isArray(arr));</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>//判断是否为函数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">alert($.isFunction(fn));</div></pre></td></tr></table></figure></p>
+<p>//判断是否为空对象<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line">alert($.isEmptyObject(obj));</div></pre></td></tr></table></figure></p>
+<p>//判断是否由{}或者new Object()创造出的对象<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = <span class="built_in">window</span>;</div><div class="line">alert($.isPlainObject(obj));</div></pre></td></tr></table></figure></p>
+<p>//判断第一个DOM节点是否含有第二个DOM节点<br><code>alert($.contains($(&#39;#box&#39;).get(0),$(&#39;#pox&#39;).get(0)));</code></p>
+<p>//$.type()检测数据类型<br><code>alert($.type(window));</code></p>
+<p>//$.isNumeric检测数据是否为数值<br><code>alert($.isNumeric(2.31));</code></p>
+<p>//$.isWindow检测数据对象是否为window对象<br><code>alert($.isWindow(window));</code></p>
+<ol>
+<li><p>URL操作<br>URL地址操作只有一个方法：$.param()，将对象的键值对转化为URL键值对字符串形式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">	<span class="attr">name</span>:<span class="string">'Lee'</span>,</div><div class="line">	<span class="attr">age</span>:<span class="number">100</span></div><div class="line">&#125;;</div><div class="line">alert($.param(obj));</div></pre></td></tr></table></figure>
+</li>
+<li><p>浏览器检测<br>检测功能使用率低。。</p>
+</li>
+</ol>
+<p>6.其他操作<br>jQuery提供了一个预备绑定函数上下文的工具函数：$.proxy()。这个方法可以解决诸如外部事件触发调用对象方法时this的指向问题。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">	<span class="attr">name</span>:<span class="string">'Lee'</span>,</div><div class="line">	<span class="attr">test</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		alert(<span class="keyword">this</span>.name);</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line">$(<span class="string">'#box'</span>).click(obj.test);      <span class="comment">//指向的this为#box元素</span></div><div class="line">$(<span class="string">'#box'</span>).click($.proxy(obj,<span class="string">'test'</span>));      <span class="comment">//指向的this方法属于对象box</span></div></pre></td></tr></table></figure></p>
+<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><p>插件（plugin）成为jQuery扩展，是一种遵循一定规范的应用程序接口编写出来的程序。</p>
+<ol>
+<li>插件概述<br>插件也是jQuery代码，通过js文件引入的方式植入。<br>插件的种类：UI类、表单验证类、输入类、特效类、Ajax类。。。</li>
+</ol>
+<p>引入插件步骤：</p>
+<ol>
+<li>在所有插件之前先引入jquery.js文件</li>
+<li>引入插件</li>
+<li>引入插件的周边，皮肤、中文包等</li>
+</ol>
+<p>2.验证插件<br>Validate.js是jQuery比较优秀的表单验证插件之一。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="string">'form'</span>).validate();</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>除了js端的validate()方法调用，表单处也需要相应设置才能最终得到验证效果。</p>
+<ol>
+<li>必填项：在表单设置class = “required”;</li>
+<li>不得小于两位：在表单设置 minlength = “2”;</li>
+<li>电子邮件：在表单中设置 class = “email”;</li>
+<li>网址：在表单中设置class = “url”。</li>
+</ol>
+<ol>
+<li>自动完成插件<br>自动完成就是当用户输入部分字符的时候，智能的搜索出包含字符的全部内容。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> user = [<span class="string">'about'</span>,<span class="string">'family'</span>,<span class="string">'but'</span>,<span class="string">'black'</span>];</div><div class="line">$(<span class="string">'form input[name=username]'</span>).autocomplete(user,&#123;</div><div class="line">	<span class="attr">minChars</span>: <span class="number">0</span>;    <span class="comment">//双击显示全部数据   </span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ol>
+<li>自定义插件<br>按照功能分类，插件形式可以分为三类：</li>
+<li>封装对象方法的插件</li>
+<li>封装全局函数的插件</li>
+<li>选择器插件</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/03/jq4/" rel="next" title="jq4--Ajax">
+                <i class="fa fa-chevron-left"></i> jq4--Ajax
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="July" />
+          <p class="site-author-name" itemprop="name">July</p>
+          <p class="site-description motion-element" itemprop="description">enjoy everyday</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#工具函数"><span class="nav-number">1.</span> <span class="nav-text">工具函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件"><span class="nav-number">2.</span> <span class="nav-text">插件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">July</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
