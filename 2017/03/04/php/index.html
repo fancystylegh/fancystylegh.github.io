@@ -105,16 +105,43 @@
 
 
 
-<meta name="description" content="PHP基础知识PHP，英文超级文本预处理语言。是一种HTML内嵌式的语言。">
+<meta name="description" content="PHP基础知识PHP，英文超级文本预处理语言。是一种HTML内嵌式的语言。
+
+PHP优势：
+
+
+免费开放性
+跨平台性
+快捷性
+专注性
+扩展性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php">
 <meta property="og:url" content="fancygh.me/2017/03/04/php/index.html">
 <meta property="og:site_name" content="july的博客">
-<meta property="og:description" content="PHP基础知识PHP，英文超级文本预处理语言。是一种HTML内嵌式的语言。">
-<meta property="og:updated_time" content="2017-03-04T05:12:40.854Z">
+<meta property="og:description" content="PHP基础知识PHP，英文超级文本预处理语言。是一种HTML内嵌式的语言。
+
+PHP优势：
+
+
+免费开放性
+跨平台性
+快捷性
+专注性
+扩展性">
+<meta property="og:updated_time" content="2017-03-04T10:06:07.721Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php">
-<meta name="twitter:description" content="PHP基础知识PHP，英文超级文本预处理语言。是一种HTML内嵌式的语言。">
+<meta name="twitter:description" content="PHP基础知识PHP，英文超级文本预处理语言。是一种HTML内嵌式的语言。
+
+PHP优势：
+
+
+免费开放性
+跨平台性
+快捷性
+专注性
+扩展性">
 
 
 
@@ -371,6 +398,91 @@
 
       
         <h3 id="PHP基础知识"><a href="#PHP基础知识" class="headerlink" title="PHP基础知识"></a>PHP基础知识</h3><p>PHP，英文超级文本预处理语言。是一种HTML内嵌式的语言。</p>
+<ol>
+<li>PHP优势：</li>
+</ol>
+<ul>
+<li>免费开放性</li>
+<li>跨平台性</li>
+<li>快捷性</li>
+<li>专注性</li>
+<li>扩展性</li>
+</ul>
+<a id="more"></a>
+<ol>
+<li>PHP开发环境搭建</li>
+</ol>
+<ul>
+<li>WampServe集成环境的安装<br>WampServe集成了PHP/Mysql/Apache/phpMyAdmin等PHP开发所需要的开发环境。并且拥有简单的图形菜单管理。</li>
+</ul>
+<p>localhost可以看配置<br>www.directory php代码部分  c盘下wamp下www目录下写php代码<br>虽然新建了一个文件并改成了.php的后缀，但是还是无效。这时候就需要在查看中将文件扩展名给勾上，然后再更改一下。</p>
+<ul>
+<li>默认站点目录修改</li>
+</ul>
+<p>如何修改目录：在c盘里的bin里的apache里的conf下的httpd.conf，用记事本打开，ctrl+f搜索找documentRoot，更改文件目录路径。然后重启所有的服务。</p>
+<ol>
+<li>PHP开发工具</li>
+</ol>
+<ul>
+<li><p>PHP开发工具<br>EditPlus(轻量)、Sublime Text、phpStorm、Zend Studio等<br>phpStorm就是比webStorm多一个php,比webStorm更加的占内存，这边就用sublime text好了</p>
+</li>
+<li><p>MySQL管理工具<br>phpmyadmin、navicat、mysql administrator等</p>
+</li>
+</ul>
+<p>启动wampserver点击phpMyadmin。</p>
+<ol>
+<li>PHP书写代码的特点</li>
+</ol>
+<ul>
+<li>从语法上看，php语言近似c语言。我们可以混合编写PHP代码和HTML代码。采用以下方式将PHP与HTML代码分离<ol>
+<li>&lt;?…code…?&gt;  php.ini开启短标签模式（short_open_tag=on）</li>
+<li>&lt;?php…code…?&gt;  建议使用</li>
+<li><script language="php">…code…</script> 类似js</li>
+<li>&lt;%…code..%&gt;  php.ini中开启（asp_tags=on）</li>
+</ol>
+</li>
+<li><p>与Perl和C一样，在php中用英文分号（;）来分隔语句。</p>
+</li>
+<li><p>php是一种弱类型编程语言</p>
+</li>
+</ul>
+<ol>
+<li>代码注释</li>
+</ol>
+<ul>
+<li>/<em>多行注释</em>/</li>
+<li>//单行注释</li>
+<li>#Unix风格单行注释</li>
+</ul>
+<ol>
+<li>php.ini开启短标签模式（short_open_tag=on）<br>打开wamp&gt;php&gt;php.ini ctrl+f搜索short_open_tag 更改on/off,然后重启所有服务。</li>
+</ol>
+<h3 id="php中的变量"><a href="#php中的变量" class="headerlink" title="php中的变量"></a>php中的变量</h3><ol>
+<li>变量的声明：<br>php中的变量用一个美元符号后面跟变量名来表示：$var</li>
+<li>变量的赋值</li>
+</ol>
+<ul>
+<li>传值赋值： $a = $b;  a,b各用一块空间，a,b值不影响</li>
+<li>引用赋值： $a = &amp;$b;  a,b共用一块存储空间，a,b中任意一个改变都改变。</li>
+</ul>
+<p>3.变量的销毁<br>php用unset($a)函数销毁一个变量，用isset($a)检测是否存在。</p>
+<ol>
+<li>变量的作用域</li>
+</ol>
+<h3 id="常量与PHP表达式"><a href="#常量与PHP表达式" class="headerlink" title="常量与PHP表达式"></a>常量与PHP表达式</h3><ol>
+<li>常量<br>系统内置常量<br> PHP_VERSION   当前版本号<br> PHP_OS  当前操作系统名称<br> <em>FILE</em>   当前PHP文件名<br> <em>LINE</em>   当前PHP文件行数</li>
+</ol>
+<p>自定义常量<br>define(‘xxx’,’xx’);   //常量名：xxx,常量值：xx<br>常量默认大小写敏感，且不能重复定义<br>常量定义规则和变量一致，传统上常量标识符总是大写的<br>常量不能被销毁，这点和变量不同。</p>
+<ol>
+<li>php表达式</li>
+</ol>
+<h3 id="PHP数据类型"><a href="#PHP数据类型" class="headerlink" title="PHP数据类型"></a>PHP数据类型</h3><ol>
+<li>标量数据类型：整型、浮点型、布尔型、字符串</li>
+<li>复合数据类型：数组、对象</li>
+<li>特殊数据类型：空值、资源型</li>
+</ol>
+<p><code>echo PHP_INT_SIZE,&#39;&lt;br /&gt;&#39;;   //当前系统PHP整型占的字节</code><br><code>echo PHP_INT_MAX,&#39;&lt;br /&gt;&#39;;   //当前系统PHP整型的最大值</code></p>
+<p>浮点数不会精确到最后一位，也不能比较是否相等。</p>
 
       
     </div>
@@ -518,7 +630,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP基础知识"><span class="nav-number">1.</span> <span class="nav-text">PHP基础知识</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP基础知识"><span class="nav-number">1.</span> <span class="nav-text">PHP基础知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#php中的变量"><span class="nav-number">2.</span> <span class="nav-text">php中的变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量与PHP表达式"><span class="nav-number">3.</span> <span class="nav-text">常量与PHP表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP数据类型"><span class="nav-number">4.</span> <span class="nav-text">PHP数据类型</span></a></li></ol></div>
             
 
           </div>
