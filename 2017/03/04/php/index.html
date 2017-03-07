@@ -129,7 +129,7 @@ PHP优势：
 快捷性
 专注性
 扩展性">
-<meta property="og:updated_time" content="2017-03-04T10:06:07.721Z">
+<meta property="og:updated_time" content="2017-03-06T01:52:52.885Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php">
 <meta name="twitter:description" content="PHP基础知识PHP，英文超级文本预处理语言。是一种HTML内嵌式的语言。
@@ -467,8 +467,14 @@ PHP优势：
 </ul>
 <p>3.变量的销毁<br>php用unset($a)函数销毁一个变量，用isset($a)检测是否存在。</p>
 <ol>
-<li>变量的作用域</li>
+<li>变量的作用域<br>作用域是指在一个脚本中某个变量在哪些地方可以使用或可见。</li>
 </ol>
+<ul>
+<li>内置超级全局变量可以在脚本的任何地方使用和可见。</li>
+<li>常量，一旦被声明，将可以在全局可见。也就是说，他们可以在函数内外使用。</li>
+<li>在一个脚本中声明的全局变量在整个脚本中是可见的，但不是在函数内部。<br>函数内部使用的变量声明为全局变量时，其名称要与全局变量名称一致。</li>
+<li>在函数内部创建并被声明为静态的变量无法在函数外部可见，但是可以在函数的多次多次执行过程中保持改值<br>在函数内部创建的变量对函数来说是本地的，而当函数终止时，该变量也就不存在了。</li>
+</ul>
 <h3 id="常量与PHP表达式"><a href="#常量与PHP表达式" class="headerlink" title="常量与PHP表达式"></a>常量与PHP表达式</h3><ol>
 <li>常量<br>系统内置常量<br> PHP_VERSION   当前版本号<br> PHP_OS  当前操作系统名称<br> <em>FILE</em>   当前PHP文件名<br> <em>LINE</em>   当前PHP文件行数</li>
 </ol>
@@ -483,6 +489,75 @@ PHP优势：
 </ol>
 <p><code>echo PHP_INT_SIZE,&#39;&lt;br /&gt;&#39;;   //当前系统PHP整型占的字节</code><br><code>echo PHP_INT_MAX,&#39;&lt;br /&gt;&#39;;   //当前系统PHP整型的最大值</code></p>
 <p>浮点数不会精确到最后一位，也不能比较是否相等。</p>
+<p>类型转换，使用类型转换可以将一个变量或值转换成另一种类型<br><code>$sum=0;    $total=(float)$sum;</code></p>
+<p>检测变量：PHP中有两个最常见的函数，分别是gettype()和settype()，这两个函数返回的string类型。</p>
+<p>empty()用来判断一个变量的值是否为空，如果为空则是true,否则为false。<br>“”、0、”0”、NULL、FALSE、array()、var $var;以及没有任何属性的对象都将被认为是空的。</p>
+<p>PHP还提供了一些特定类型的测试函数。每一个函数都使用一个变量座位其参数，并且返回true或false。<br>is_array()、is_double()、is_float()、is_real()、is_long()、is_int()、is_integer()、is_string()、is_object()、is_resource()、is_null()、is_numeric() </p>
+<h3 id="操作符与控制结构"><a href="#操作符与控制结构" class="headerlink" title="操作符与控制结构"></a>操作符与控制结构</h3><ol>
+<li><p>字符串插入</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">	$userName=<span class="string">"july"</span>;</div><div class="line">	<span class="keyword">echo</span> <span class="string">"Her name is $userName"</span>;</div><div class="line">	<span class="keyword">echo</span> <span class="string">"&lt;br /&gt;"</span>;</div><div class="line">	<span class="comment">//中文会出现一些问题，采用字符串连接的方式解决</span></div><div class="line">	<span class="keyword">echo</span> <span class="string">"她的名字叫"</span>.$userName.<span class="string">"，她快毕业了！"</span>;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>操作符</p>
+</li>
+</ol>
+<ul>
+<li><p>恒等表示只有两边操作数相等并且数据类型也相当才返回true;<br>例如：0= =”0” 这个返回为true ，因为操作数相等</p>
+<pre><code>0= = =&quot;0&quot;  这个返回为false，因为数据类型不同
+</code></pre></li>
+<li><p>操作符”and”和”or”比&amp;&amp;和||的优先级要低。</p>
+</li>
+<li><p>三元操作符<br>Condition ? value if true : value if false</p>
+</li>
+<li><p>错误抑制操作符：<br><code>$a=@(57/0);</code><br>除数不能为0，会出错，所以加上@避免出现错误警告。</p>
+</li>
+</ul>
+<ol>
+<li>控制结构<br>如果希望用户的输入是有效的，代码就需要具有判断能力，能够让程序进行判断的结构我们成为条件。</li>
+</ol>
+<h3 id="数学运算"><a href="#数学运算" class="headerlink" title="数学运算"></a>数学运算</h3><ol>
+<li>数值数据类型<br>PHP中，数字或数值数据以及数学函数的使用很简单。基本来说，要处理两种数据类型:浮点数和整数。<br>如果计算中包含数值和字符串，字符串会在完成计算之前转换为数值，而数值则会在与字符串连接之前转换为字符串。<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">	$a=<span class="string">'5'</span>;</div><div class="line">	$b=<span class="number">7</span>+$a;</div><div class="line">	<span class="keyword">echo</span> <span class="string">"7+$a=$b"</span>;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>函数is_numeric()可以检查作为参数传入的值是否是数值;<br>函数is_int()和is_float()用于检查具体的数据类型。<br>如果传入一个整数或浮点数，这些函数会返回true，否则返回false，即使传入一个有合法数值表示的字符串也会返回false。</p>
+<p>也可以强制引擎改变数据类型。这称之为类型强制转换，可以在变量或值前面增加(int)、(integer)、(float)、(double)或(real)实现。也可以通过使用函数intval()或floatval()来实现</p>
+<ol>
+<li>随机数<br>PHP实现了其中两种：rand()和mt_rand()。<br>两个函数都提供一些函数来得到MAX_RAND的值。rand()的是getrandmax()，mt_rand()的是mt_getrandmax()。</li>
+</ol>
+<ol>
+<li><p>格式化数据<br>number_format()函数可以把整数和浮点数值转换为一种可读的字符串表示。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">	$i=<span class="number">123456</span>;</div><div class="line">	$si=number_format($i,<span class="number">2</span>,<span class="string">"."</span>,<span class="string">"."</span>);</div><div class="line">	<span class="keyword">echo</span> $si;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>数学函数</p>
+</li>
+</ol>
+<ul>
+<li>abs() 绝对值</li>
+<li>floor() 向下取整</li>
+<li>ceil() 向上取整</li>
+<li>round() 四舍五入</li>
+<li>min() </li>
+<li>max()</li>
+</ul>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><ol>
+<li>创建一个数组<br>第一种：<code>$userNames=array(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;);</code><br>这是索引数组初始化：数组索引的初始值从0开始计算的。</li>
+</ol>
+<p>第二种：通过range()函数自动创建一个数组<br><code>$numbers=range(1,10);</code><br>可以加第三个参数<code>$numbers=range(1,10,2);</code>，第三个参数表示步长。</p>
+<p>访问数组的内容：<br>要访问一个变量的内容，可以直接使用其名称。如果该变量是一个数组，可以使用变量名称和关键字或索引的组合来访问其内容。</p>
+<p>使用循环访问数组<br>由于数组使用有序的数字作为索引，所以使用一个for循环就可以很容易地显示数组的内容：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>($i=<span class="number">0</span>;$i&lt;<span class="number">10</span>;$i++)&#123;</div><div class="line">	<span class="keyword">echo</span> $numbers[$i];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>也可以使用foreach循环来遍历数组：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">foreach</span>($numbers <span class="keyword">as</span> $value)&#123;</div><div class="line">	<span class="keyword">echo</span> $value;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ol>
+<li>自定义键数组<br>初始化相关数组<br><code>$ages=array(&#39;a&#39;=&gt;10,&#39;b&#39;=&gt;20,&#39;c&#39;=&gt;30);</code></li>
+</ol>
+<p>访问数组元素<br><code>$ages[&#39;a&#39;];</code></p>
+<p>追加数组元素  首先，创建只有一个元素的数组，然后追加两个元素<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ages=<span class="keyword">array</span>(<span class="string">'a'</span>=&gt;<span class="number">10</span>);</div><div class="line">$ages[<span class="string">'b'</span>]=<span class="number">20</span>;</div><div class="line">$ages[<span class="string">'c'</span>]=<span class="number">30</span>;</div></pre></td></tr></table></figure></p>
+<p>使用循环语句：因为相关数组的索引不是数字，因此无法使用for循环语句中使用一个简单的计数器对数组进行操作。但是可以使用foreach循环或list()和each()结构<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">foreach</span>($ages <span class="keyword">as</span> $key=&gt;$value)&#123;</div><div class="line">	<span class="keyword">echo</span> $key.<span class="string">"="</span>.$value.<span class="string">"&lt;br /&gt;"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>使用each()结构打印$ages数组的内容：<br>each()函数返回数组的当前元素，并将下一个元素作为当前元素<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span>(!!$element=each($ages))&#123;</div><div class="line">	<span class="keyword">echo</span> $element[<span class="string">"key"</span>];</div><div class="line">	<span class="keyword">echo</span> <span class="string">"=&gt;"</span>;</div><div class="line">	<span class="keyword">echo</span> $element[<span class="string">"value"</span>];</div><div class="line">	<span class="keyword">echo</span> <span class="string">"&lt;br /&gt;"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>使用list()函数，可以用来将一个数组分解为一系列的值。可以按照如下方式将函数each()返回的两个值分开：<br><code>list($name,$age)=each($ages);</code></p>
+<p>当使用each()函数时，数组将记录当前元素。如果希望在相同的脚本中两次使用该数组，就必须使用函数reset()将当前元素重新设置到数组开始处。<br><code>reset($prices);</code></p>
+<p>确定唯一的数组元素：array_unique();它会删除掉里面相同值的元素。<br>置换数组键和值：array_flip();它会对调数组中的key和value</p>
+<ol>
+<li>数组里的数组</li>
+</ol>
 
       
     </div>
@@ -634,7 +709,7 @@ PHP优势：
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP基础知识"><span class="nav-number">1.</span> <span class="nav-text">PHP基础知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#php中的变量"><span class="nav-number">2.</span> <span class="nav-text">php中的变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量与PHP表达式"><span class="nav-number">3.</span> <span class="nav-text">常量与PHP表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP数据类型"><span class="nav-number">4.</span> <span class="nav-text">PHP数据类型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP基础知识"><span class="nav-number">1.</span> <span class="nav-text">PHP基础知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#php中的变量"><span class="nav-number">2.</span> <span class="nav-text">php中的变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量与PHP表达式"><span class="nav-number">3.</span> <span class="nav-text">常量与PHP表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP数据类型"><span class="nav-number">4.</span> <span class="nav-text">PHP数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作符与控制结构"><span class="nav-number">5.</span> <span class="nav-text">操作符与控制结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数学运算"><span class="nav-number">6.</span> <span class="nav-text">数学运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">7.</span> <span class="nav-text">数组</span></a></li></ol></div>
             
 
           </div>
