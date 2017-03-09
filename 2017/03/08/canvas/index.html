@@ -454,7 +454,7 @@
 <h2 id="2-2-canvas绘图上下文context"><a href="#2-2-canvas绘图上下文context" class="headerlink" title="2.2 canvas绘图上下文context"></a>2.2 canvas绘图上下文context</h2><h3 id="2-2-1-Context：Canvas的上下文、绘制环境。（重点掌握）"><a href="#2-2-1-Context：Canvas的上下文、绘制环境。（重点掌握）" class="headerlink" title="2.2.1 Context：Canvas的上下文、绘制环境。（重点掌握）"></a>2.2.1 Context：Canvas的上下文、绘制环境。（重点掌握）</h3><ul>
 <li>上下文：上知天文，下知地理。是所有的绘制操作api的入口或者集合。</li>
 <li>Canvas自身无法绘制任何内容。Canvas的绘图是使用JavaScript操作的。</li>
-<li>Context对象就是JavaScript操作Canvas的接口。<br>*使用[CanvasElement].getContext(‘2d’)来获取2D绘图上下文。        <figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> canvas  = <span class="built_in">document</span>.getElementById( <span class="string">'cavsElem'</span> ); <span class="comment">//获得画布</span></div><div class="line"><span class="keyword">var</span> ctx = canvas.getContext( <span class="string">'2d'</span> );<span class="comment">//注意：2d小写， 3d：webgl</span></div></pre></td></tr></table></figure>
+<li>Context对象就是JavaScript操作Canvas的接口。<br>*使用[CanvasElement].getContext(‘2d’)来获取2D绘图上下文。        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> canvas  = <span class="built_in">document</span>.getElementById( <span class="string">'cavsElem'</span> ); <span class="comment">//获得画布</span></div><div class="line"><span class="keyword">var</span> ctx = canvas.getContext( <span class="string">'2d'</span> );<span class="comment">//注意：2d小写， 3d：webgl</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="2-3-基本的绘制路径（重点）"><a href="#2-3-基本的绘制路径（重点）" class="headerlink" title="2.3 基本的绘制路径（重点）"></a>2.3 基本的绘制路径（重点）</h2><h3 id="2-3-1-canvas坐标系"><a href="#2-3-1-canvas坐标系" class="headerlink" title="2.3.1 canvas坐标系"></a>2.3.1 canvas坐标系</h3><pre><code>canvas坐标系，从最左上角0,0开始。x向右增大， y向下增大
@@ -603,7 +603,7 @@
     }
 </code></pre><h3 id="2-6-5-面向对象基础复习补充："><a href="#2-6-5-面向对象基础复习补充：" class="headerlink" title="2.6.5 面向对象基础复习补充："></a>2.6.5 面向对象基础复习补充：</h3><ul>
 <li><p>创建对象的方式：</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* <span class="keyword">var</span> o = &#123; name: <span class="string">'123'</span>, age: <span class="number">18</span> &#125;; <span class="comment">//json方式创建</span></div><div class="line">* <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();  <span class="comment">//通过new的方式创建</span></div><div class="line">* <span class="keyword">var</span> o = <span class="keyword">new</span> Persion(); <span class="comment">//通过类的构造函数创建</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* <span class="keyword">var</span> o = &#123; <span class="attr">name</span>: <span class="string">'123'</span>, <span class="attr">age</span>: <span class="number">18</span> &#125;; <span class="comment">//json方式创建</span></div><div class="line">* <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();  <span class="comment">//通过new的方式创建</span></div><div class="line">* <span class="keyword">var</span> o = <span class="keyword">new</span> Persion(); <span class="comment">//通过类的构造函数创建</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>JS中对象的属性创建方式</p>
 <figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">* </span>json的方式： var o = &#123; age: 19 &#125;;</div><div class="line"><span class="bullet">* </span>直接添加属性：var o = &#123;&#125;;  o.age = 19;//太分散了，不利于管理</div><div class="line"><span class="bullet">* </span>由于js动态语言的特性，如果属性不存在的时候，直接添加属性。</div><div class="line"><span class="bullet">* </span>构造函数添加属性</div><div class="line"><span class="bullet">* </span>原型添加公共的属性</div></pre></td></tr></table></figure>
@@ -1009,8 +1009,8 @@ ctx.strokeStyle = &quot;rgba(255,0,0,6)&quot;;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/08/app/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2017/03/06/ruan/" rel="next" title="ruan">
+                <i class="fa fa-chevron-left"></i> ruan
               </a>
             
           </div>
@@ -1018,6 +1018,10 @@ ctx.strokeStyle = &quot;rgba(255,0,0,6)&quot;;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/09/3-9/" rel="prev" title="京东流式布局">
+                京东流式布局 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -1087,7 +1091,7 @@ ctx.strokeStyle = &quot;rgba(255,0,0,6)&quot;;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
